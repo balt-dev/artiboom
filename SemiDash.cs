@@ -14,10 +14,10 @@ public class SemiDash {
 
 	public static int StSemiDash;
 
-	private static readonly MethodInfo DASH_UPDATE = GetMethod<Player>("DashUpdate");
+	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
 	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
 	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
-	private static readonly MethodInfo DASH_CORO = GetMethod<Player>("DashCoroutine");
+	private static readonly MethodInfo DASH_COROUTINE = GetMethod<Player>("DashCoroutine");
 
 	internal static object GetValue<T>(T self, string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting value {name}");
@@ -45,7 +45,7 @@ public class SemiDash {
 	}
 
     public static int SemiDashUpdate(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{DASH_UPDATE}\"");
+        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
         /*if (Math.Abs(self.DashDir.Y) < 0.1f) {
 			foreach (JumpThru entity in self.Scene.Tracker.GetEntities<JumpThru>().Cast<JumpThru>())
 			{
@@ -80,7 +80,7 @@ public class SemiDash {
 				}
 			}
 		}*/
-		int state = (int)DASH_UPDATE.Invoke(self, new object[]{});
+		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
 		if (state == 2 || state == 5) {
 			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
 			state = StSemiDash;
@@ -89,9 +89,9 @@ public class SemiDash {
     }
 
 	public static IEnumerator SemiDashCoroutine(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash coroutine! Coroutine: \"{DASH_CORO}\"");
+        Logger.Log(nameof(ArtiboomModule), $"Semidash coroutine! Coroutine: \"{DASH_COROUTINE}\"");
 		// TODO: Return Player.DashCoroutine
-		object obj = DASH_CORO.Invoke(self, new object[]{});
+		object obj = DASH_COROUTINE.Invoke(self, new object[]{});
         Logger.Log(nameof(ArtiboomModule), $"{obj}");
         return (IEnumerator) obj;
     }
