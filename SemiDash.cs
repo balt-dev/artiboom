@@ -14,9 +14,9 @@ public class SemiDash {
 
 	public static int StSemiDash;
 
-	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("DashUpdate");
-	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("NormalBegin");
-	private static readonly MethodInfo DASH_END = GetMethod<Player>("NormalEnd");
+	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
+	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
+	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
 	private static readonly MethodInfo DASH_COROUTINE = GetMethod<Player>("DashCoroutine");
 
 	internal static object GetValue<T>(T self, string name) {
@@ -46,7 +46,7 @@ public class SemiDash {
 
     public static int SemiDashUpdate(Player self) {
         Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
-        /*if (Math.Abs(self.DashDir.Y) < 0.1f) {
+        if (Math.Abs(self.DashDir.Y) < 0.1f) {
 			foreach (JumpThru entity in self.Scene.Tracker.GetEntities<JumpThru>().Cast<JumpThru>())
 			{
 				if (self.CollideCheck(entity) && self.Bottom - entity.Top <= 6f && !(bool)GetStaticMethod<Player>("DashCorrectCheck").Invoke(self, new object[]{Vector2.UnitY * (entity.Top - self.Bottom)}))
@@ -79,7 +79,7 @@ public class SemiDash {
 					return 0;
 				}
 			}
-		}*/
+		}
 		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
 		if (state == 2 || state == 5) {
 			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
