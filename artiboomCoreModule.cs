@@ -161,6 +161,7 @@ namespace Celeste.Mod.artiboom
                 Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next} @ {cursor.Index:X}: Hook failed to find SuperDashing in Player.DashCoroutine.");
             }
 
+            /*
             cursor.MoveAfterLabels();
 
             Logger.Log(nameof(ArtiboomModule), $"Current cursor: IL@{cursor.Next} @ {cursor.Index:X}");
@@ -176,8 +177,8 @@ namespace Celeste.Mod.artiboom
                     Logger.Log(nameof(ArtiboomModule), $"Altered, we good");
                 }
             });
+            */
             
-            /*
             if (!cursor.TryGotoNext(MoveType.After,
                     instr => instr.MatchLdflda<Player>("DashDir"),
                     instr => instr.MatchLdfld<Vector2>("Y"),
@@ -203,7 +204,7 @@ namespace Celeste.Mod.artiboom
                     return Settings.AlterDash ? player.Speed : newSpeed;
                 }
             );
-            */
+
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self)
