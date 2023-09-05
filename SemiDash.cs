@@ -14,9 +14,9 @@ public class SemiDash {
 
 	public static int StSemiDash;
 
-	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
-	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
-	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
+	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("DashUpdate");
+	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("NormalBegin");
+	private static readonly MethodInfo DASH_END = GetMethod<Player>("NormalEnd");
 	private static readonly MethodInfo DASH_COROUTINE = GetMethod<Player>("DashCoroutine");
 
 	internal static object GetValue<T>(T self, string name) {
