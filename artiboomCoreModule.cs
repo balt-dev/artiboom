@@ -68,6 +68,7 @@ namespace Celeste.Mod.artiboom
         }
 
         private static int OverrideDashCheck(StateMachine machine, int previousState, int newState) {
+            Logger.Log(nameof(ArtiboomModule), $"Setting state from {previousState} to {newState}");
             if(Settings.AlterDash && newState == Player.StDash) {
                 return StSemiDash;
             }
@@ -160,24 +161,6 @@ namespace Celeste.Mod.artiboom
             {
                 Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next} @ {cursor.Index:X}: Hook failed to find SuperDashing in Player.DashCoroutine.");
             }
-
-            /*
-            cursor.MoveAfterLabels();
-
-            Logger.Log(nameof(ArtiboomModule), $"Current cursor: IL@{cursor.Next} @ {cursor.Index:X}");
-
-            cursor.Emit(OpCodes.Ldarg_0);
-            cursor.Emit(OpCodes.Ldfld, m_DashCoroutineEnumerator.DeclaringType.GetField("<>4__this"));
-            cursor.EmitDelegate((Player self) =>
-            {
-                if (Settings.AlterDash & self.StateMachine.State != StSemiDash)
-                {
-                    Logger.Log(nameof(ArtiboomModule), $"Altering state machine! Previous was {self.StateMachine.State}, now is {StSemiDash}");
-                    self.StateMachine.State = StSemiDash;
-                    Logger.Log(nameof(ArtiboomModule), $"Altered, we good");
-                }
-            });
-            */
             
             if (!cursor.TryGotoNext(MoveType.After,
                     instr => instr.MatchLdflda<Player>("DashDir"),
