@@ -14,7 +14,7 @@ public class SemiDash {
 
 	public static int StSemiDash;
 
-	private const float DASH_SPEED = 288f;
+	private const float DASH_SPEED = 240f;
 
 	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
 	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
