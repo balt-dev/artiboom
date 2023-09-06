@@ -144,8 +144,6 @@ public class SemiDash {
 			self.Speed.Angle() + (float) Math.PI
 		);
 		self.Hair.Color = Calc.HexToColor("FFFFFF");
-		self.ResetSprite(PlayerSpriteMode.Playback);
-		self.ResetSpriteNextFrame(self.DefaultSpriteMode);
 
 		 if (self.DashDir.X != 0f && Input.GrabCheck) {
             SwapBlock swapBlock = self.CollideFirst<SwapBlock>(self.Position + Vector2.UnitX * Math.Sign(self.DashDir.X));

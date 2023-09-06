@@ -5,16 +5,20 @@ import numpy as np
 from glob import glob
 import os
 
-input(f"Running in {os.getcwd()}, Ctrl+C to cancel")
+input(f"Running in {os.getcwd()}, Ctrl+C to cance!l\n")
 
-colormap = (
-    ((0x70, 0x23, 0x3c), (0x1f, 0x00, 0x00)),
-    ((0x56, 0x13, 0x29), (0x17, 0x00, 0x00)),
-    ((0xb6, 0xb4, 0xb7), (0x91, 0x25, 0x25)),
-    ((0x45, 0x28, 0x3c), (0x33, 0x04, 0x04))
-)
+with Image.open("pal_old.png") as old:
+    old = np.array(old.convert("RGB"), dtype=np.uint8).reshape(-1, 3)
+
+with Image.open("pal_new.png") as new:
+    new = np.array(new.convert("RGB"), dtype=np.uint8).reshape(-1, 3)
+
+colormap = tuple(zip(old, new))
+
+print(colormap)
 
 for image in glob("**/*.png", recursive=True):
+    if "pal_" in image: continue
     with Image.open(image) as im:
         arr = np.array(im.convert("RGBA"), dtype=np.uint8)
         for old, new in colormap:
