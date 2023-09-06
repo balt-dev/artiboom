@@ -112,7 +112,7 @@ public class SemiDash {
             speed.X = beforeDashSpeed.X;
 
 		if (self.CollideCheck<Water>())
-			speed *= 0.333f; // Arti is really bad in water
+			speed *= 0.5f; // Arti is really bad in water
 
 		self.Speed = speed;
 		self.DashDir = value;
