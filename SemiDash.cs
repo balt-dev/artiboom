@@ -59,6 +59,7 @@ public class SemiDash {
 		if (Math.Abs(self.DashDir.Y) < 0.1f) {
             if (self.CanUnDuck && Input.Jump.Pressed && (float)GetValue(self, "jumpGraceTimer") > 0f) {
                 GetMethod<Player>("SuperJump").Invoke(self, new object[]{});
+				Logger.Log(nameof(ArtiboomModule), $"WEEEEEEE");
                 return 0;
             }
         }
