@@ -58,6 +58,8 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
 
+            // TODO: Edit OnCollideH and OnCollideV to work with the new state
+
             On.Celeste.Player.ctor += AddStates;
             hook_StateMachine_ForceState = new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
             hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
@@ -135,7 +137,7 @@ namespace Celeste.Mod.artiboom
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
-            hook_StateMachine_set_State.Dispose();
+            hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.unLoad();
         }
     }

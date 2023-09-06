@@ -16,10 +16,9 @@ public class SemiDash {
 
 	private const float DASH_SPEED = 288f;
 
-	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
+	private static readonly MethodInfo DASH_UPDATE = GetMethod<Player>("DashUpdate");
 	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
 	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
-	private static readonly MethodInfo DASH_COROUTINE = GetMethod<Player>("DashCoroutine");
 
 	private static Vector2 beforeDashSpeed;
 
@@ -54,8 +53,8 @@ public class SemiDash {
 	}
 
     public static int SemiDashUpdate(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
-		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
+        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{DASH_UPDATE}\"");
+		int state = (int)DASH_UPDATE.Invoke(self, new object[]{});
 		if (state == 2 || state == 5) {
 			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
 			state = StSemiDash;
@@ -64,7 +63,7 @@ public class SemiDash {
     }
 
 	public static IEnumerator SemiDashCoroutine(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash coroutine! Coroutine: \"{DASH_COROUTINE}\"");
+        Logger.Log(nameof(ArtiboomModule), $"Semidash coroutine!");
 		yield return null;
         if (SaveData.Instance.Assists.DashAssist) {
             Input.Rumble(RumbleStrength.Strong, RumbleLength.Medium);
