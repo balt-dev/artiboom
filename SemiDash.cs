@@ -55,6 +55,26 @@ public class SemiDash {
     public static int SemiDashUpdate(Player self) {
         Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
 		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
+		Level level = self.SceneAs<Level>();
+		if (Math.Abs(self.DashDir.Y) < 0.1f) {
+            if (self.CanUnDuck && Input.Jump.Pressed && (float)GetValue(self, "jumpGraceTimer") > 0f) {
+                GetMethod<Player>("SuperJump").Invoke(self, new object[]{});
+                return 0;
+            }
+        }
+		if ((Math.Abs(self.DashDir.X) <= 0.2f) & (self.DashDir.Y <= -0.75f)) {
+            if (Input.Jump.Pressed && self.CanUnDuck) {
+                if ((bool)GetMethod<Player>("WallJumpCheck").Invoke(self, new object[]{1})) {
+                    GetMethod<Player>("SuperWallJump").Invoke(self, new object[]{-1});
+                    return 0;
+                }
+
+                if ((bool)GetMethod<Player>("WallJumpCheck").Invoke(self, new object[]{-1})) {
+                    GetMethod<Player>("SuperWallJump").Invoke(self, new object[]{1});
+                    return 0;
+                }
+            }
+        }
 		if (state == 2 || state == 5 || state == 0) {
 			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
 			state = StSemiDash;
