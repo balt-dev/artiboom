@@ -97,7 +97,7 @@ namespace Celeste.Mod.artiboom
             if (self.Dashes == 0 && self.Inventory.Dashes == 0)
                 idx = 1;
             if (idx >= 0) {
-                if (self.DefaultSpriteMode == PlayerSpriteMode.MadelineAsBadeline) {
+                if (self.Sprite.Mode == PlayerSpriteMode.MadelineAsBadeline) {
                     self.Hair.Color = BadelineDashColors[idx];
                 } else {
                     self.Hair.Color = DashColors[idx];
