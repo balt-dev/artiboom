@@ -57,7 +57,7 @@ public class SemiDash {
 		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
 		Level level = self.SceneAs<Level>();
 		if (Math.Abs(self.DashDir.Y) < 0.1f) {
-            if (self.CanUnDuck && Input.Jump.Pressed && (float)GetValue(self, "jumpGraceTimer") > 0f) {
+            if (self.CanUnDuck && Input.Jump.Pressed) {
                 GetMethod<Player>("SuperJump").Invoke(self, new object[]{});
 				Logger.Log(nameof(ArtiboomModule), $"WEEEEEEE");
                 return 0;
