@@ -163,6 +163,7 @@
 	</player_no_backpack>
 
 	<player_playback copy="player" path="playerSkin/characters/player_playback/"/>
+	<player_badeline copy="player" path="playerSkin/characters/player_badeline/"/>
 
 	<payphone path="playerSkin/cutscenes/payphone/" start="idle">
 		<Justify x=".5" y="1"/>
