@@ -37,7 +37,7 @@ public static class StateExt {
         Func<int>[] updates = (Func<int>[]) StateMachine_updates.GetValue(machine);
         Action[] ends = (Action[]) StateMachine_ends.GetValue(machine);
         Func<IEnumerator>[] coroutines = (Func<IEnumerator>[]) StateMachine_coroutines.GetValue(machine);
-        int nextIndex = begins.Length;
+        int nextIndex = machine.Length();
         Array.Resize(ref begins, begins.Length + 1);
         Array.Resize(ref updates, begins.Length + 1);
         Array.Resize(ref ends, begins.Length + 1);
@@ -52,5 +52,9 @@ public static class StateExt {
         }
         machine.SetCallbacks(nextIndex, () => onUpdate(machine.Entity as Player), _coroutine, () => begin(machine.Entity as Player), () => end(machine.Entity as Player));
         return nextIndex;
+    }
+
+    public static int Length(this StateMachine machine) {
+        return ((Action[]) StateMachine_begins.GetValue(machine)).Length;
     }
 }

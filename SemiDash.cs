@@ -22,32 +22,32 @@ public class SemiDash {
 
 	private static Vector2 beforeDashSpeed;
 
-	internal static object GetValue<T>(T self, string name) {
+	public static object GetValue<T>(T self, string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting value {name}");
 		return typeof(T).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(self);
 	}
 
-	internal static void SetValue<T>(T self, string name, object value) {
+	public static void SetValue<T>(T self, string name, object value) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting value {name}");
 		typeof(T).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, value);
 	}
 
-	internal static object GetGetterValue<T>(T self, string name) {
+	public static object GetGetterValue<T>(T self, string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting value {name} from getter");
 		return typeof(T).GetProperty(name, BindingFlags.NonPublic | BindingFlags.Instance).GetGetMethod().Invoke(self, new object[]{});
 	}
 
-	internal static MethodInfo GetValueSetter<T>(T self, string name) {
+	public static MethodInfo GetValueSetter<T>(T self, string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting setter of value {name}");
 		return typeof(T).GetProperty(name, BindingFlags.NonPublic | BindingFlags.Instance).GetSetMethod();
 	}
 
-	internal static MethodInfo GetMethod<T>(string name) {
+	public static MethodInfo GetMethod<T>(string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting method {name}");
 		return typeof(T).GetMethod(name, BindingFlags.NonPublic | BindingFlags.Instance);
 	}
 
-	internal static MethodInfo GetStaticMethod<T>(string name) {
+	public static MethodInfo GetStaticMethod<T>(string name) {
 		Logger.Log(nameof(ArtiboomModule), $"Getting static method {name}");
 		return typeof(T).GetMethod(name, BindingFlags.NonPublic);
 	}
