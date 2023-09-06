@@ -69,67 +69,8 @@ public class SemiDash {
             Input.Rumble(RumbleStrength.Strong, RumbleLength.Medium);
         }
 		Level level = self.SceneAs<Level>();
-		level.Displacement.AddBurst(self.Center, 0.2f, 8f, 96f, 1f, Ease.QuadOut, Ease.QuadOut);
-		/*
-		ILCursor cursor = new(il);
-
-            if (!cursor.TryGotoNext(MoveType.After,
-                instr => instr.MatchLdloc(2),
-                instr => instr.MatchLdcR4(240f)))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find dir * 240f in Player.DashCoroutine.");
-            }
-
-            cursor.EmitDelegate(() =>
-            {
-                return Settings.AlterDash ? 1.2f : 1.0f;
-            });
-            cursor.Emit(OpCodes.Mul);
-
-            if (!cursor.TryGotoNext(MoveType.After,
-                    instr => instr.MatchEndfinally()
-                ))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find finally in Player.DashCoroutine.");
-            }
-
-            Logger.Log(nameof(ArtiboomModule), $"Current cursor: {cursor.Next} @ {cursor.Index:X}");
-
-            if (!cursor.TryGotoNext(MoveType.Before,
-                    instr => instr.MatchLdsfld<SaveData>("Instance"),
-                    instr => instr.MatchLdflda<SaveData>("Assists"),
-                    instr => instr.MatchLdfld<Assists>("SuperDashing")
-                ))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next} @ {cursor.Index:X}: Hook failed to find SuperDashing in Player.DashCoroutine.");
-            }
-            
-            if (!cursor.TryGotoNext(MoveType.After,
-                    instr => instr.MatchLdflda<Player>("DashDir"),
-                    instr => instr.MatchLdfld<Vector2>("Y"),
-                    instr => instr.MatchLdcR4(0f),
-                    instr => instr.MatchBgtUn(out _)))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Hook failed to find DashDir.Y <= 0f in Player.DashCoroutine.");
-            }
-
-            if (!cursor.TryGotoNext(MoveType.Before, instr => instr.MatchStfld<Player>("Speed")))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Hook failed to find stfld this.Speed in Player.DashCoroutine after DashDir.Y <= 0f.");
-            }
-
-            Logger.Log(nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Adding second delegate in Player.DashCoroutine to mod this.Speed after DashDir.Y <= 0f!");
-
-            cursor.Emit(OpCodes.Ldarg_0);
-            cursor.Emit(OpCodes.Ldfld, m_DashCoroutineEnumerator.DeclaringType.GetField("<>4__this"));
-            cursor.EmitDelegate<Func<Vector2, Player, Vector2>>(
-                (newSpeed, player) =>
-                {
-                    Logger.Log(nameof(ArtiboomModule), $"Dash ending in state {player.StateMachine.State}");
-                    return Settings.AlterDash ? player.Speed : newSpeed;
-                }
-            );
-		*/
+		level.Displacement.AddBurst(self.Center, 0.2f, 8f, 64f, 1f, Ease.QuadOut, Ease.QuadOut);
+		
         Vector2 value = (Vector2) GetValue(self, "lastAim");
         if (self.OverrideDashDirection.HasValue) {
             value = self.OverrideDashDirection.Value;
@@ -187,7 +128,7 @@ public class SemiDash {
 
 		 if (self.DashDir.X != 0f && Input.GrabCheck) {
             SwapBlock swapBlock = self.CollideFirst<SwapBlock>(self.Position + Vector2.UnitX * Math.Sign(self.DashDir.X));
-            if (swapBlock != null && swapBlock.Direction.X == (float)Math.Sign(self.DashDir.X)) {
+            if (swapBlock != null && swapBlock.Direction.X == Math.Sign(self.DashDir.X)) {
                 self.StateMachine.State = 1;
                 self.Speed = Vector2.Zero;
                 yield break;
