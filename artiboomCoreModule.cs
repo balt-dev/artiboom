@@ -118,7 +118,7 @@ namespace Celeste.Mod.artiboom
             // Remove old...
             cursor.RemoveRange(2);
             // ...and put in new
-            cursor.EmitReference(BadelineDashColors[1]);
+            cursor.EmitDelegate(() => BadelineDashColors[1]);
         }
 
         private MTexture ModHairTexture(On.Celeste.PlayerHair.orig_GetHairTexture orig, PlayerHair self, int index)
