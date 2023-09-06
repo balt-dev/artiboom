@@ -23,6 +23,12 @@ namespace Celeste.Mod.artiboom
             Calc.HexToColor("87354f")
         };
 
+        private static readonly Color[] BadelineDashColors = new Color[3]{
+            Calc.HexToColor("000000"),
+            Calc.HexToColor("1f0000"),
+            Calc.HexToColor("330404")
+        };
+
         public override Type SettingsType => typeof(artiboomModuleSettings);
         public static artiboomModuleSettings Settings => (artiboomModuleSettings)Instance._Settings;
 
@@ -54,6 +60,7 @@ namespace Celeste.Mod.artiboom
             // TODO: apply any hooks that should always be active
             IL.Celeste.Player.DashBegin += ModNoFreeze;
             On.Celeste.Player.UpdateHair += ModHairColor;
+            IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
             On.Celeste.PlayerHair.Start += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
@@ -84,10 +91,34 @@ namespace Celeste.Mod.artiboom
         private void ModHairColor(On.Celeste.Player.orig_UpdateHair orig, Player self, bool applyGravity)
         {
             orig(self, applyGravity);
+            int idx = -1;
             if (self.Dashes < DashColors.Length)
-                self.Hair.Color = DashColors[self.Dashes];
+                idx = self.Dashes;
             if (self.Dashes == 0 && self.Inventory.Dashes == 0)
-                self.Hair.Color = DashColors[1];
+                idx = 1;
+            if (idx >= 0) {
+                if (self.DefaultSpriteMode == PlayerSpriteMode.MadelineAsBadeline) {
+                    self.Hair.Color = BadelineDashColors[idx];
+                } else {
+                    self.Hair.Color = DashColors[idx];
+                }
+            }
+        }
+
+        private void ModBadelineHairColor(ILContext il) {
+            ILCursor cursor = new(il);
+
+            if (!cursor.TryGotoNext(MoveType.Before, 
+                instr => instr.MatchLdstr("9B3FB5"),
+                instr => instr.MatchCall("Monocle.Calc", "HexToColor")
+            )) {
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find hair color in BadelineOldSite. Did something else change it?");
+                return;
+            }
+            // Remove old...
+            cursor.RemoveRange(2);
+            // ...and put in new
+            cursor.EmitReference(BadelineDashColors[1]);
         }
 
         private MTexture ModHairTexture(On.Celeste.PlayerHair.orig_GetHairTexture orig, PlayerHair self, int index)
