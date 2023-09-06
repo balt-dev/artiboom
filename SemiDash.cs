@@ -16,7 +16,7 @@ public class SemiDash {
 
 	private const float DASH_SPEED = 288f;
 
-	private static readonly MethodInfo DASH_UPDATE = GetMethod<Player>("DashUpdate");
+	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
 	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
 	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
 
@@ -53,9 +53,9 @@ public class SemiDash {
 	}
 
     public static int SemiDashUpdate(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{DASH_UPDATE}\"");
-		int state = (int)DASH_UPDATE.Invoke(self, new object[]{});
-		if (state == 2 || state == 5) {
+        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
+		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
+		if (state == 2 || state == 5 || state == 0) {
 			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
 			state = StSemiDash;
 		};
