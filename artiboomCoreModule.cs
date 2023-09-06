@@ -68,7 +68,7 @@ namespace Celeste.Mod.artiboom
 
         private static int OverrideDashCheck(StateMachine machine, int previousState, int newState) {
             Logger.Log(nameof(ArtiboomModule), $"Setting state from {previousState} to {newState} from machine length {machine.Length()}");
-            if(Settings.AlterDash && newState == Player.StDash && machine.Length() < StSemiDash)
+            if(Settings.AlterDash && newState == Player.StDash && machine.Length() > StSemiDash)
                 return StSemiDash;
             return newState;
         }
