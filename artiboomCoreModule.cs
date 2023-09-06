@@ -46,7 +46,6 @@ namespace Celeste.Mod.artiboom
         }
 
         private static int StSemiDash;
-        private static ILHook IL_DashCoroutine;
         private static ILHook hook_StateMachine_ForceState;
         private static ILHook hook_StateMachine_set_State;
 
@@ -54,8 +53,6 @@ namespace Celeste.Mod.artiboom
         {
             // TODO: apply any hooks that should always be active
             IL.Celeste.Player.DashBegin += ModNoFreeze;
-            IL_DashCoroutine = new ILHook(m_DashCoroutineEnumerator, ModKeepMomentum);
-            On.Celeste.Player.CreateTrail += ModNoTrail;
             On.Celeste.Player.UpdateHair += ModHairColor;
             On.Celeste.PlayerHair.Start += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
@@ -127,95 +124,18 @@ namespace Celeste.Mod.artiboom
             cursor.Emit(OpCodes.Mul);
         }
 
-        private void ModKeepMomentum(ILContext il)
-        {
-            ILCursor cursor = new(il);
-
-            if (!cursor.TryGotoNext(MoveType.After,
-                instr => instr.MatchLdloc(2),
-                instr => instr.MatchLdcR4(240f)))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find dir * 240f in Player.DashCoroutine.");
-            }
-
-            cursor.EmitDelegate(() =>
-            {
-                return Settings.AlterDash ? 1.2f : 1.0f;
-            });
-            cursor.Emit(OpCodes.Mul);
-
-            if (!cursor.TryGotoNext(MoveType.After,
-                    instr => instr.MatchEndfinally()
-                ))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find finally in Player.DashCoroutine.");
-            }
-
-            Logger.Log(nameof(ArtiboomModule), $"Current cursor: {cursor.Next} @ {cursor.Index:X}");
-
-            if (!cursor.TryGotoNext(MoveType.Before,
-                    instr => instr.MatchLdsfld<SaveData>("Instance"),
-                    instr => instr.MatchLdflda<SaveData>("Assists"),
-                    instr => instr.MatchLdfld<Assists>("SuperDashing")
-                ))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next} @ {cursor.Index:X}: Hook failed to find SuperDashing in Player.DashCoroutine.");
-            }
-            
-            if (!cursor.TryGotoNext(MoveType.After,
-                    instr => instr.MatchLdflda<Player>("DashDir"),
-                    instr => instr.MatchLdfld<Vector2>("Y"),
-                    instr => instr.MatchLdcR4(0f),
-                    instr => instr.MatchBgtUn(out _)))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Hook failed to find DashDir.Y <= 0f in Player.DashCoroutine.");
-            }
-
-            if (!cursor.TryGotoNext(MoveType.Before, instr => instr.MatchStfld<Player>("Speed")))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Hook failed to find stfld this.Speed in Player.DashCoroutine after DashDir.Y <= 0f.");
-            }
-
-            Logger.Log(nameof(ArtiboomModule), $"IL@{cursor} @ {cursor.Index:X}: Adding second delegate in Player.DashCoroutine to mod this.Speed after DashDir.Y <= 0f!");
-
-            cursor.Emit(OpCodes.Ldarg_0);
-            cursor.Emit(OpCodes.Ldfld, m_DashCoroutineEnumerator.DeclaringType.GetField("<>4__this"));
-            cursor.EmitDelegate<Func<Vector2, Player, Vector2>>(
-                (newSpeed, player) =>
-                {
-                    Logger.Log(nameof(ArtiboomModule), $"Dash ending in state {player.StateMachine.State}");
-                    return Settings.AlterDash ? player.Speed : newSpeed;
-                }
-            );
-
-        }
-
-        private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self)
-        {
-            if (Settings.AlterDash)
-            {
-                self.SceneAs<Level>().ParticlesFG.Emit(
-                    SummitGem.P_Shatter,
-                    5,
-                    self.Position,
-                    new Vector2(3, 3),
-                    Color.White,
-                    self.Speed.Angle() + (float) Math.PI
-                );
-                self.Hair.Color = Calc.HexToColor("FFFFFF");
-                self.ResetSprite(PlayerSpriteMode.Playback);
-                self.ResetSpriteNextFrame(self.DefaultSpriteMode);
-                return;
-            }
-            orig(self);
-        }
-
         public override void Unload()
         {
             // TODO: unapply any hooks applied in Load()
-            IL.Celeste.Player.DashBegin -= ModNoFreeze;
-            On.Celeste.Player.CreateTrail -= ModNoTrail;
-            IL_DashCoroutine.Dispose();
+           IL.Celeste.Player.DashBegin -= ModNoFreeze;
+            On.Celeste.Player.UpdateHair -= ModHairColor;
+            On.Celeste.PlayerHair.Start -= ModHairAmount;
+            On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
+            On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
+
+            On.Celeste.Player.ctor -= AddStates;
+            hook_StateMachine_ForceState.Dispose();
+            hook_StateMachine_set_State.Dispose();
             followerManager.unLoad();
         }
     }
