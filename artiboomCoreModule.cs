@@ -106,13 +106,17 @@ namespace Celeste.Mod.artiboom
             }
         }
 
+        private Color? starflyColor = null;
+        
         private void ModStarflyColor(On.Celeste.Player.orig_Render orig, Player self) {
+            if (starflyColor == null) {
+                starflyColor = (Color)SemiDash.GetValue(self, "starFlyColor");
+            }
             if (self.StateMachine.State == Player.StStarFly & SaveData.Instance.Assists.PlayAsBadeline) {
-                Color origColor = (Color)SemiDash.GetValue(self, "starFlyColor");
                 self.Sprite.Color = BadelineDashColors[1];
                 Logger.Log(nameof(ArtiboomModule), "Starfly overriding");
                 orig(self);
-                self.Sprite.Color = origColor;
+                self.Sprite.Color = (Color)starflyColor;
             } else orig(self);
         }
 
