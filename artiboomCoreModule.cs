@@ -128,7 +128,7 @@ namespace Celeste.Mod.artiboom
         private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self)
         {
             Player player = self.Entity as Player;
-            if (player.Sprite != null)
+            if ((player != null) & (player.Sprite != null))
                 player.Sprite.HairCount = TAIL_LENGTH;
             orig(self);
         }
