@@ -12,7 +12,7 @@ namespace Celeste.Mod.artiboom
 {
     public class ArtiboomModule : EverestModule
     {
-        private const int TAIL_LENGTH = 20;
+        private const int TAIL_LENGTH = 10;
         private const float TAIL_SCALE = .8f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
@@ -61,7 +61,7 @@ namespace Celeste.Mod.artiboom
             IL.Celeste.Player.DashBegin += ModNoFreeze;
             On.Celeste.Player.UpdateHair += ModHairColor;
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
-            On.Celeste.PlayerHair.Start += ModHairAmount;
+            On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
 
@@ -97,7 +97,6 @@ namespace Celeste.Mod.artiboom
             if (self.Dashes == 0 && self.Inventory.Dashes == 0)
                 idx = 1;
             if (idx >= 0) {
-                Logger.Log(nameof(ArtiboomModule), $"{SaveData.Instance.Assists.PlayAsBadeline}");
                 if (SaveData.Instance.Assists.PlayAsBadeline) {
                     self.Hair.Color = BadelineDashColors[idx];
                 } else {
@@ -127,13 +126,10 @@ namespace Celeste.Mod.artiboom
             return orig(self, 1);
         }
 
-        private void ModHairAmount(On.Celeste.PlayerHair.orig_Start orig, PlayerHair self)
+        private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self)
         {
-            self.Nodes = new List<Vector2>();
-            for (int i = 0; i < TAIL_LENGTH; i++)
-            {
-                self.Nodes.Add(Vector2.Zero);
-            }
+            Player player = self.Entity as Player;
+            player.Sprite.HairCount = TAIL_LENGTH;
             orig(self);
         }
 
@@ -163,7 +159,7 @@ namespace Celeste.Mod.artiboom
             // TODO: unapply any hooks applied in Load()
            IL.Celeste.Player.DashBegin -= ModNoFreeze;
             On.Celeste.Player.UpdateHair -= ModHairColor;
-            On.Celeste.PlayerHair.Start -= ModHairAmount;
+            On.Celeste.PlayerHair.AfterUpdate -= ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
 
