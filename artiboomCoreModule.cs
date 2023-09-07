@@ -129,8 +129,10 @@ namespace Celeste.Mod.artiboom
         {
             if (self.Entity == null) {orig(self); return;} 
             Player player = self.Entity as Player;
-            if ((player != null) & (player.Sprite != null))
-                player.Sprite.HairCount = TAIL_LENGTH;
+            if (player != null) {
+                if (player.Sprite != null)
+                    player.Sprite.HairCount = TAIL_LENGTH;
+            }
             orig(self);
         }
 
