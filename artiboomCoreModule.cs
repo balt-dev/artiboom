@@ -64,7 +64,6 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
-            On.Celeste.Player.Render += ModStarflyColor;
 
             // TODO: Edit OnCollideH and OnCollideV to work with the new state
 
@@ -97,27 +96,13 @@ namespace Celeste.Mod.artiboom
                 idx = self.Dashes;
             if (self.Dashes == 0 && self.Inventory.Dashes == 0)
                 idx = 1;
-            if (idx >= 0) {
+            if ((idx >= 0) & (self.StateMachine.State != Player.StStarFly)) {
                 if (SaveData.Instance.Assists.PlayAsBadeline) {
                     self.Hair.Color = BadelineDashColors[idx];
-                } else if (self.StateMachine.State != Player.StStarFly) {
+                } else {
                     self.Hair.Color = DashColors[idx];
                 }
             }
-        }
-
-        private Color? starflyColor = null;
-        
-        private void ModStarflyColor(On.Celeste.Player.orig_Render orig, Player self) {
-            if (starflyColor == null) {
-                starflyColor = (Color)SemiDash.GetValue(self, "starFlyColor");
-            }
-            if (self.StateMachine.State == Player.StStarFly & SaveData.Instance.Assists.PlayAsBadeline) {
-                self.Sprite.Color = BadelineDashColors[1];
-                Logger.Log(nameof(ArtiboomModule), "Starfly overriding");
-                orig(self);
-                self.Sprite.Color = (Color)starflyColor;
-            } else orig(self);
         }
 
         private void ModBadelineHairColor(ILContext il) {
