@@ -110,6 +110,7 @@ namespace Celeste.Mod.artiboom
             if (SaveData.Instance.Assists.PlayAsBadeline) {
                 Color origColor = (Color)SemiDash.GetValue(self, "starFlyColor");
                 SemiDash.SetValue(self, "starFlyColor", BadelineDashColors[1]);
+                Logger.Log(nameof(ArtiboomModule), "Starfly overriding");
                 orig(self);
                 SemiDash.SetValue(self, "starFlyColor", origColor);
             } else orig(self);
