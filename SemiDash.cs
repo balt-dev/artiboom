@@ -16,50 +16,42 @@ public class SemiDash {
 
 	private const float DASH_SPEED = 260f;
 
-	private static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
-	private static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
-	private static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
+	public static readonly MethodInfo NORMAL_UPDATE = GetMethod<Player>("NormalUpdate");
+	public static readonly MethodInfo DASH_BEGIN = GetMethod<Player>("DashBegin");
+	public static readonly MethodInfo DASH_END = GetMethod<Player>("DashEnd");
 
 	private static Vector2 beforeDashSpeed;
 
 	public static object GetValue<T>(T self, string name) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting value {name}");
 		return typeof(T).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance).GetValue(self);
 	}
 
 	public static void SetValue<T>(T self, string name, object value) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting value {name}");
 		typeof(T).GetField(name, BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, value);
 	}
 
 	public static object GetGetterValue<T>(T self, string name) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting value {name} from getter");
 		return typeof(T).GetProperty(name, BindingFlags.NonPublic | BindingFlags.Instance).GetGetMethod().Invoke(self, new object[]{});
 	}
 
-	public static MethodInfo GetValueSetter<T>(T self, string name) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting setter of value {name}");
+	public static MethodInfo GetValueSetter<T>(string name) {
 		return typeof(T).GetProperty(name, BindingFlags.NonPublic | BindingFlags.Instance).GetSetMethod();
 	}
 
 	public static MethodInfo GetMethod<T>(string name) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting method {name}");
 		return typeof(T).GetMethod(name, BindingFlags.NonPublic | BindingFlags.Instance);
 	}
 
 	public static MethodInfo GetStaticMethod<T>(string name) {
-		Logger.Log(nameof(ArtiboomModule), $"Getting static method {name}");
 		return typeof(T).GetMethod(name, BindingFlags.NonPublic);
 	}
 
     public static int SemiDashUpdate(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash update! Update: \"{NORMAL_UPDATE}\"");
 		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
 		Level level = self.SceneAs<Level>();
 		if (Math.Abs(self.DashDir.Y) < 0.1f) {
             if (self.CanUnDuck && Input.Jump.Pressed) {
                 GetMethod<Player>("SuperJump").Invoke(self, new object[]{});
-				Logger.Log(nameof(ArtiboomModule), $"WEEEEEEE");
                 return 0;
             }
         }
@@ -77,14 +69,12 @@ public class SemiDash {
             }
         }
 		if (state == 2 || state == 5 || state == 0) {
-			Logger.Log(nameof(ArtiboomModule), $"State changing from {state} to {StSemiDash}");
 			state = StSemiDash;
 		};
         return state;
     }
 
 	public static IEnumerator SemiDashCoroutine(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash coroutine!");
 		yield return null;
         if (SaveData.Instance.Assists.DashAssist) {
             Input.Rumble(RumbleStrength.Strong, RumbleLength.Medium);
@@ -173,13 +163,11 @@ public class SemiDash {
     }
 
 	public static void SemiDashStart(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash start! Begin: \"{DASH_BEGIN}\"");
 		beforeDashSpeed = self.Speed;
         DASH_BEGIN.Invoke(self, new object[]{});
     }
 
     public static void SemiDashEnd(Player self) {
-        Logger.Log(nameof(ArtiboomModule), $"Semidash end! End: \"{DASH_END}\"");
         DASH_END.Invoke(self, new object[]{});
     }
 }
