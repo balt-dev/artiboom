@@ -187,6 +187,7 @@ namespace Celeste.Mod.artiboom
                 label
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Emitted :3");
+            Console.WriteLine(il.ToString());
         }
 
         public override void Unload() {
