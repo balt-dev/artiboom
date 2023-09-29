@@ -166,7 +166,7 @@ namespace Celeste.Mod.artiboom
                 return;
             }
             cursor.GotoNext(
-                MoveType.AfterLabel,
+                MoveType.After,
                 instr => instr.MatchPop()
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Label set!");
