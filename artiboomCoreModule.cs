@@ -170,7 +170,7 @@ namespace Celeste.Mod.artiboom
                 instr => instr.MatchPop()
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Label set!");
-            ILLabel label = cursor.DefineLabel();
+            ILLabel label = cursor.MarkLabel();
             cursor.GotoPrev(
                 MoveType.Before,
                 instr => instr.MatchLdloc(1)
