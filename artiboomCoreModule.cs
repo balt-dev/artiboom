@@ -169,15 +169,18 @@ namespace Celeste.Mod.artiboom
                 MoveType.AfterLabel,
                 instr => instr.MatchPop()
             );
+            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Label set!");
             ILLabel label = cursor.DefineLabel();
             cursor.GotoPrev(
                 MoveType.Before,
                 instr => instr.MatchLdloc(1)
             );
+            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Next: {cursor.Next}");
             cursor.GotoPrev(
                 MoveType.Before,
                 instr => instr.MatchLdloc(1)
             );
+            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Label jump!");
             cursor.Emit(
                 OpCodes.Br,
                 label
