@@ -32,7 +32,7 @@ internal class FollowerManager
 		Celeste.Player entity = self.Tracker.GetEntity<Celeste.Player>();
 		if (ArtiboomModule.Settings.EnableFollower && entity != null)
 		{
-			follower = new Sofanthiel(entity.Center + new Vector2((float)(ArtiboomModule.Settings.FollowX * (int)entity.Facing), (float)(-ArtiboomModule.Settings.FollowY) - 5f));
+			follower = new Sofanthiel(entity.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)entity.Facing, -ArtiboomModule.Settings.FollowY - 5f));
 			self.Add(follower);
 		}
 		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
@@ -44,9 +44,9 @@ internal class FollowerManager
 		Celeste.Level level = Engine.Scene as Celeste.Level;
 		if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 		{
-			follower = new Sofanthiel(self.Center + new Vector2((float)(ArtiboomModule.Settings.FollowX * (int)self.Facing), (float)(-ArtiboomModule.Settings.FollowY) - 5f));
+			follower = new Sofanthiel(self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f));
 			level.Add(follower);
-			follower.Position = self.Center + new Vector2((float)(ArtiboomModule.Settings.FollowX * (int)self.Facing), (float)(-ArtiboomModule.Settings.FollowY) - 5f);
+			follower.Position = self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f);
 		}
 		if (wasActiveOnLastFrame && !ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() > 0)
 		{

@@ -1,12 +1,12 @@
 import re
 from io import StringIO
+import sys
 
-with open("Graphics/Sprites.xml", "r") as f:
-    content = f.read()
+content = sys.stdin.read()
 
 buf = StringIO()
 
-offset = 0, -2
+offset = -3, -2
 
 lines = []
 
@@ -25,10 +25,7 @@ for line in content.splitlines():
                          f"{y}" \
                          f"{'' if hmatch.group(4) is None else hmatch.group(4)}"
                 hairs.append(remade)
-            print(line, match)
             line = line[:match.start()] + f"<Frames path=\"{match.group(1)}\" hair=\"{'|'.join(hairs)}\"/>" + line[match.end():]
-            print(line)
     lines.append(line + "\n")
 
-with open("Graphics/Sprites.xml", "w") as f:
-    f.writelines(lines)
+sys.stdout.writelines(lines)

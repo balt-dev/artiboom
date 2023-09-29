@@ -90,7 +90,7 @@
 		<Loop id="tentacle_pull" path="tentacle/grab" frames="24" delay="0.1"/>
 		<Loop id="tentacle_dangling" path="tentacle/grab" frames="25" delay="0.1"/>
 
-		<Anim id="sitDown" path="sitDown" delay="0.1" />
+		<Anim id="sitDown" path="sleep" frames="0-17" delay="0.1" />
 
 		<Loop id="launch" path="launch" delay="0.06" frames="0-7"/>
 		<Anim id="launchRecover" path="launchRecover" delay="0.06"/>
@@ -152,18 +152,40 @@
 
 		<Anim id="roll" path="roll" frames="0-12" delay="0.05"/>
 		<Anim id="rollGetUp" path="roll" frames="12-16" delay=".1" goto="downed"/>
-		<Loop id="downed" path="sitDown" delay="0.8" frames="17"/>
+		<Loop id="downed" path="sleep" delay="0.8" frames="17"/>
 
 		<Metadata length="4" old="false">
 			<Frames path="idleA" hair="-2,3|-2,3|-2,3|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,3"/>
 			<Frames path="idleB" hair="-2,3|-2,3|-2,3|-2,3|-2,3|-2,3|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2|-2,2"/>
 			<Frames path="idleC" hair="-2,3|-2,4|-2,2|-2,3|-2,4|-2,2|-2,4|-2,2|-2,4|-2,3|-2,2|-2,4|-2,3|-2,3|-2,3"/>
 		</Metadata>
-
 	</player_no_backpack>
 
 	<player_playback copy="player" path="playerSkin/characters/player_playback/"/>
-	<player_badeline copy="player" path="playerSkin/characters/player_badeline/"/>
+	<player_badeline copy="player" path="playerSkin/characters/badeline/">
+
+		<Anim id="roll" path="roll" frames="0-12" delay="0.05"/>
+		<Anim id="rollGetUp" path="roll" frames="12-16" delay=".1" goto="downed"/>
+		<Loop id="downed" path="sleep" delay="0.8" frames="17"/>
+
+	</player_badeline>
+
+	<badeline copy="player" path="playerSkin/characters/badeline/">
+		<Anim id="spawn" path="spawn" delay="0.08" frames="0*3,0-9" goto="fallSlow"/>
+		<Loop id="laugh" path="laugh" delay="0.04" />
+		<Loop id="angry" path="angry" delay="0.04" />
+		<Anim id="boost" path="boost" delay="0.05"/>
+
+		<Loop id="pretendDead" path="sleep" delay="0" frames="23" />
+
+		<Metadata>
+			<Frames path="spawn" hair="x|x|x|x|x|x|x|x|-2,-8|-2,-8|-2,-7|-2,-7|-2,-6|-2,-6|-2,-5|-2,-5|-3,-4"/>
+			<Frames path="laugh" hair="-3,-5|-3,-5|-3,-5|-3,-4|-3,-4|-3,-4"/>
+			<Frames path="angry" hair="-4,-5|-4,-5|-4,-5|-4,-4|-4,-4|-4,-4"/>
+			<Frames path="boost" hair="-3,-4|-3,-4|-3,-4|-3,-4|-3,-2|-3,-8|-3,-5|-3,-3|-3,-3|-3,-4"/>
+			<Frames path="hug" hair="-3,0"/>
+		</Metadata>
+	</badeline>
 
 	<payphone path="playerSkin/cutscenes/payphone/" start="idle">
 		<Justify x=".5" y="1"/>

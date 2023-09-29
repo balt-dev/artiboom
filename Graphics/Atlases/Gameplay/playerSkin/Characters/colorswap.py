@@ -5,6 +5,8 @@ import numpy as np
 from glob import glob
 import os
 
+raise Exception("DO NOT OVERWRITE THE BADELINE SPRITES!!!")
+
 input(f"Running in {os.getcwd()}, Ctrl+C to cance!l\n")
 
 with Image.open("pal.png") as old:

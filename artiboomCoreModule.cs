@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.Xna.Framework;
 using Mono.Cecil.Cil;
+using Mono.CompilerServices.SymbolWriter;
 using Monocle;
 using MonoMod.Cil;
 using MonoMod.RuntimeDetour;
@@ -58,12 +59,13 @@ namespace Celeste.Mod.artiboom
         public override void Load()
         {
             // TODO: apply any hooks that should always be active
-            IL.Celeste.Player.DashBegin += ModNoFreeze;
+            On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
             On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
+            On.Celeste.Player.CreateTrail += ModRegularDashTrail;
 
             // TODO: Edit OnCollideH and OnCollideV to work with the new state
 
@@ -71,6 +73,19 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_ForceState = new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
             hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
+        }
+
+        private void ModRegularDashTrail(On.Celeste.Player.orig_CreateTrail orig, Player self)
+        {
+            // This only runs when not altering the dash, so no need to check
+            self.SceneAs<Level>().ParticlesFG.Emit(
+                SummitGem.P_Shatter,
+                5,
+                self.Position,
+                Vector2.Zero,
+                Color.White,
+                self.Speed.Angle() + (float) Math.PI
+            );
         }
 
         private static int OverrideDashCheck(StateMachine machine, int previousState, int newState) {
@@ -142,25 +157,16 @@ namespace Celeste.Mod.artiboom
             return scale * new Vector2(TAIL_SCALE);
         }
 
-        private void ModNoFreeze(ILContext il)
-        {
-            ILCursor cursor = new(il);
-
-            if (!cursor.TryGotoNext(MoveType.After, instr => instr.MatchLdsfld<Engine>("TimeRate")))
-            {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find Engine.TimeRate in Player.DashBegin.");
-            }
-            cursor.EmitDelegate(() =>
-            {
-                return Settings.AlterDash ? 0.0f : 1.0f;
-            });
-            cursor.Emit(OpCodes.Mul);
+        private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
+            Level level = self.SceneAs<Level>();
+		    level.Displacement.AddBurst(self.Center, 0.2f, 8f, 64f, 1f, Ease.QuadOut, Ease.QuadOut);
+            orig(self);
         }
 
         public override void Unload()
         {
             // TODO: unapply any hooks applied in Load()
-           IL.Celeste.Player.DashBegin -= ModNoFreeze;
+            On.Celeste.Player.DashBegin -= ModDashBurst;
             On.Celeste.Player.UpdateHair -= ModHairColor;
             On.Celeste.PlayerHair.AfterUpdate -= ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;

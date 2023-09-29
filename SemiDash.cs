@@ -48,7 +48,6 @@ public class SemiDash {
 
     public static int SemiDashUpdate(Player self) {
 		int state = (int)NORMAL_UPDATE.Invoke(self, new object[]{});
-		Level level = self.SceneAs<Level>();
 		if (Math.Abs(self.DashDir.Y) < 0.1f) {
             if (self.CanUnDuck && Input.Jump.Pressed) {
                 GetMethod<Player>("SuperJump").Invoke(self, new object[]{});
@@ -133,6 +132,7 @@ public class SemiDash {
 			Color.White,
 			self.Speed.Angle() + (float) Math.PI
 		);
+		
 		self.Hair.Color = Calc.HexToColor("FFFFFF");
 
 		 if (self.DashDir.X != 0f && Input.GrabCheck) {
