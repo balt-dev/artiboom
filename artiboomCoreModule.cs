@@ -37,11 +37,10 @@ namespace Celeste.Mod.artiboom
         public static artiboomModuleSession Session => (artiboomModuleSession)Instance._Session;
 
         private static readonly MethodInfo m_DashCoroutineEnumerator
-    = typeof(Player).GetMethod("DashCoroutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
+        = typeof(Player).GetMethod("DashCoroutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
 
 
-        public ArtiboomModule()
-        {
+        public ArtiboomModule() {
             Instance = this;
 #if DEBUG
             // debug builds use verbose logging
@@ -56,8 +55,9 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_StateMachine_ForceState;
         private static ILHook hook_StateMachine_set_State;
 
-        public override void Load()
-        {
+        private static ILHook hook_Player_DashCoroutine;
+
+        public override void Load() {
             // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
@@ -65,27 +65,19 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
-            On.Celeste.Player.CreateTrail += ModRegularDashTrail;
+            On.Celeste.Player.CreateTrail += ModNoTrail;
 
             // TODO: Edit OnCollideH and OnCollideV to work with the new state
 
             On.Celeste.Player.ctor += AddStates;
+            hook_Player_DashCoroutine = new ILHook(m_DashCoroutineEnumerator, ModNoDashSlash);
             hook_StateMachine_ForceState = new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
             hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
         }
 
-        private void ModRegularDashTrail(On.Celeste.Player.orig_CreateTrail orig, Player self)
-        {
-            // This only runs when not altering the dash, so no need to check
-            self.SceneAs<Level>().ParticlesFG.Emit(
-                SummitGem.P_Shatter,
-                5,
-                self.Position,
-                Vector2.Zero,
-                Color.White,
-                self.Speed.Angle() + (float) Math.PI
-            );
+        private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
+            return;
         }
 
         private static int OverrideDashCheck(StateMachine machine, int previousState, int newState) {
@@ -102,8 +94,7 @@ namespace Celeste.Mod.artiboom
             SemiDash.StSemiDash = StSemiDash;
         }
 
-        private void ModHairColor(On.Celeste.Player.orig_UpdateHair orig, Player self, bool applyGravity)
-        {
+        private void ModHairColor(On.Celeste.Player.orig_UpdateHair orig, Player self, bool applyGravity) {
             orig(self, applyGravity);
             int idx = -1;
             if (self.Dashes < DashColors.Length)
@@ -135,24 +126,18 @@ namespace Celeste.Mod.artiboom
             cursor.EmitDelegate(() => BadelineDashColors[1]);
         }
 
-        private MTexture ModHairTexture(On.Celeste.PlayerHair.orig_GetHairTexture orig, PlayerHair self, int index)
-        {
+        private MTexture ModHairTexture(On.Celeste.PlayerHair.orig_GetHairTexture orig, PlayerHair self, int index) {
             return orig(self, 1);
         }
 
-        private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self)
-        {
-            if (self.Entity == null) {orig(self); return;} 
-            Player player = self.Entity as Player;
-            if (player != null) {
-                if (player.Sprite != null)
-                    player.Sprite.HairCount = TAIL_LENGTH;
-            }
+        private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self) {
+            if (self.Entity == null) {orig(self); return;}
+            if (self.Entity is Player player && player.Sprite != null)
+                player.Sprite.HairCount = TAIL_LENGTH;
             orig(self);
         }
 
-        private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index)
-        {
+        private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index) {
             Vector2 scale = orig(self, index);
             return scale * new Vector2(TAIL_SCALE);
         }
@@ -160,21 +145,60 @@ namespace Celeste.Mod.artiboom
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
             Level level = self.SceneAs<Level>();
 		    level.Displacement.AddBurst(self.Center, 0.2f, 8f, 64f, 1f, Ease.QuadOut, Ease.QuadOut);
+            self.SceneAs<Level>().ParticlesFG.Emit(
+                SummitGem.P_Shatter,
+                5,
+                self.Position,
+                Vector2.Zero,
+                Color.White,
+                self.Speed.Angle() + (float) Math.PI
+            );
             orig(self);
         }
 
-        public override void Unload()
-        {
+        private void ModNoDashSlash(ILContext il) {
+            ILCursor cursor = new(il);
+            if (!cursor.TryGotoNext(
+                MoveType.After,
+                instr => instr.MatchCall<SlashFx>("Burst")
+            )) {
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find slash effect in DashCoroutine. Did something else change it?");
+                return;
+            }
+            cursor.GotoNext(
+                MoveType.AfterLabel,
+                instr => instr.MatchPop()
+            );
+            ILLabel label = cursor.DefineLabel();
+            cursor.GotoPrev(
+                MoveType.Before,
+                instr => instr.MatchLdloc(1)
+            );
+            cursor.GotoPrev(
+                MoveType.Before,
+                instr => instr.MatchLdloc(1)
+            );
+            cursor.Emit(
+                OpCodes.Br,
+                label
+            );
+        }
+
+        public override void Unload() {
             // TODO: unapply any hooks applied in Load()
+            // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin -= ModDashBurst;
             On.Celeste.Player.UpdateHair -= ModHairColor;
+            IL.Celeste.BadelineOldsite.cctor -= ModBadelineHairColor;
             On.Celeste.PlayerHair.AfterUpdate -= ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
+            On.Celeste.Player.CreateTrail -= ModNoTrail;
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
-            hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
+            hook_StateMachine_set_State.Dispose();
+            hook_Player_DashCoroutine.Dispose();
             followerManager.unLoad();
         }
     }
