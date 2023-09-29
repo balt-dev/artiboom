@@ -176,6 +176,7 @@ namespace Celeste.Mod.artiboom
                 instr => instr.MatchLdloc(1)
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Next: {cursor.Next}");
+            cursor.EmitDelegate(() => Console.WriteLine("\n\n\nThis should never show!!!\n\n\n"));
             cursor.GotoPrev(
                 MoveType.Before,
                 instr => instr.MatchLdloc(1)
