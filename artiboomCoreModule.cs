@@ -182,6 +182,7 @@ namespace Celeste.Mod.artiboom
                 instr => instr.MatchLdloc(1)
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Label jump!");
+            cursor.MoveAfterLabels();
             cursor.Emit(
                 OpCodes.Br,
                 label
