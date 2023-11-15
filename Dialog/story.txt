@@ -612,7 +612,8 @@
 		Who perished on the climb	
 
 	CH1_END=
-		{portrait none}	
+		{portrait none}
+		{artiboom_textbox madeline}
 		{+thought}Ugh, I'm exhausted.{+endthought}
 
 		{trigger 0 MADELINE sits down to rest. A bird swoops in, lands on her head, and goes to sleep}
@@ -624,13 +625,13 @@
 	CH2_BADELINE_INTRO=
 		{anchor top}
 		
-		[BADELINE left normal]
+		{portrait none}
 		{+MADELINE}, dear, where are you going?
 
 		{trigger 0 Madeline turns around}
 		
 		[MADELINE right distracted]
-		Who said that?
+		{*}Who said that?{/*}
 		
 		[BADELINE left normal]
 		Oh, I'm simply a concerned observer.

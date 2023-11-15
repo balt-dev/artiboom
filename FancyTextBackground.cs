@@ -34,6 +34,7 @@ namespace Celeste.Mod.artiboom {
                     List<FancyText.Node> nodes = group.Nodes;
                     switch(s){
                         case "artiboom_textbox":
+                            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found textbox modifier!");
                             nodes.Add(new TextboxChanger(vals.FirstOrDefault() ?? "default"));
                             break;
                     }
