@@ -34,7 +34,6 @@ namespace Celeste.Mod.artiboom {
                     List<FancyText.Node> nodes = group.Nodes;
                     switch(s){
                         case "artiboom_textbox":
-                            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "\n\n\n\n\n\n\n\n\nFound textbox modifier!\n\n\n\n\n\n\n\n\n");
                             nodes.Add(new TextboxChanger(vals.FirstOrDefault() ?? "default"));
                             break;
                     }
@@ -55,7 +54,9 @@ namespace Celeste.Mod.artiboom {
             cursor.Emit(OpCodes.Ldarg_0); // this
             cursor.Emit(OpCodes.Ldloc_0); // current
             cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
+                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Checking for our thing...");
                 if (current is TextboxChanger curr) {
+                    Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found it!");
                     string text = "textbox/" + curr.path;
                     typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
                         .SetValue(self, GFX.Portraits[text]);
