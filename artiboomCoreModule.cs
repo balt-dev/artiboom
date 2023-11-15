@@ -8,6 +8,7 @@ using Monocle;
 using MonoMod.Cil;
 using MonoMod.RuntimeDetour;
 using MonoMod.Utils;
+using static Celeste.Mod.artiboom.FancyBackground;
 
 namespace Celeste.Mod.artiboom
 {
@@ -38,7 +39,9 @@ namespace Celeste.Mod.artiboom
 
         private static readonly MethodInfo m_DashCoroutineEnumerator
         = typeof(Player).GetMethod("DashCoroutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
-
+        
+        private static readonly MethodInfo m_TextboxRoutineEnumerator
+        = typeof(Textbox).GetMethod("RunRoutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
 
         public ArtiboomModule() {
             Instance = this;
@@ -54,8 +57,8 @@ namespace Celeste.Mod.artiboom
         private static int StSemiDash;
         private static ILHook hook_StateMachine_ForceState;
         private static ILHook hook_StateMachine_set_State;
-
         private static ILHook hook_Player_DashCoroutine;
+        private static ILHook hook_Textbox_RunRoutine;
 
         public override void Load() {
             // TODO: apply any hooks that should always be active
@@ -66,10 +69,10 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
             On.Celeste.Player.CreateTrail += ModNoTrail;
-
-            // TODO: Edit OnCollideH and OnCollideV to work with the new state
+            IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
 
             On.Celeste.Player.ctor += AddStates;
+            hook_Textbox_RunRoutine = new ILHook(m_TextboxRoutineEnumerator, ModFancyBackground);
             hook_Player_DashCoroutine = new ILHook(m_DashCoroutineEnumerator, ModNoDashSlash);
             hook_StateMachine_ForceState = new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
             hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
@@ -201,11 +204,13 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
+            IL.Celeste.FancyText.Parse -= FancyBackground.ModFancyBackground;
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
             hook_StateMachine_set_State.Dispose();
             hook_Player_DashCoroutine.Dispose();
+            hook_Textbox_RunRoutine.Dispose();
             followerManager.unLoad();
         }
     }
