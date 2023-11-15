@@ -44,12 +44,13 @@ namespace Celeste.Mod.artiboom {
         public static void ModFancyBackground(ILContext il) {
             ILCursor cursor = new(il);
             if(!(
-                cursor.TryGotoNext(MoveType.Before, instr => instr.MatchIsinst<FancyText.Portrait>()) &&
+                cursor.TryGotoNext(MoveType.Before, instr => instr.MatchIsinst<FancyText.Anchor>()) &&
                 cursor.TryGotoPrev(MoveType.Before, instr => instr.MatchLdarg(0))
             )) {
                 Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "Failed to hook into Textbox.RunRoutine");
                 return;
             }
+            cursor.MoveBeforeLabels();
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Hooking into into Textbox.RunRoutine");
             cursor.Emit(OpCodes.Ldarg_0); // this
             cursor.Emit(OpCodes.Ldloc_0); // current
