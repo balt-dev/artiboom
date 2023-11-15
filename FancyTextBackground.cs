@@ -52,7 +52,11 @@ namespace Celeste.Mod.artiboom {
             }
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Hooking into into Textbox.RunRoutine {cursor.Next}");
             cursor.Emit(OpCodes.Ldarg_0); // this
-            cursor.Emit(OpCodes.Ldloc_0); // current
+            cursor.Emit(OpCodes.Ldfld,
+                typeof(Textbox)
+                    .GetNestedType("<RunRoutine>d__67", BindingFlags.NonPublic)
+                    .GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance)
+            ); // current
             cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
                 Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Checking for our thing...");
                 if (current is TextboxChanger curr) {
