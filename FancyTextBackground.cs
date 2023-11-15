@@ -43,34 +43,39 @@ namespace Celeste.Mod.artiboom {
         }
 
         public static void ModFancyBackground(ILContext il, Type EnumeratorType) {
-            /*ILCursor cursor = new(il);
-            if(!(
-                cursor.TryGotoNext(MoveType.Before, instr => instr.MatchIsinst<FancyText.Anchor>()) &&
-                cursor.TryGotoPrev(MoveType.Before, instr => instr.MatchLdarg(0))
-            )) {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "Failed to hook into Textbox.RunRoutine");
-                return;
+            // Thanks to vividescence for basically writing this function for me
+            ILCursor cursor = new(il);
+            FieldInfo current = EnumeratorType.GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance);
+            ILLabel label = null;
+            // Various checks
+            if(!cursor.TryGotoNext(i=>i.MatchLdarg(0), i=>i.MatchLdfld(current), i => i.MatchIsinst<FancyText.Anchor>(), i=>i.MatchBrfalse(out _))) { // This may need to change dependent on hook interactions.
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "Failed to hook into Textbox.RunRoutine"); return;
             }
+            ILCursor clone = cursor.Clone();
+            if(!(clone.TryGotoNext(i=>i.MatchLdarg(0), i=>i.MatchLdfld(current), i => i.MatchIsinst<FancyText.Portrait>(), i=>i.MatchBrfalse(out _)) && clone.TryGotoPrev(i => i.MatchBr(out label)))) { 
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "Failed to hook into Textbox.RunRoutine"); return;
+            }
+            //clone.Dispose();
+            clone = null;
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Hooking into into Textbox.RunRoutine {cursor.Next}");
-            cursor.Emit(OpCodes.Ldarg_0); // this
-            cursor.Emit(
-                OpCodes.Ldfld, 
-                EnumeratorType.GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance)
-            ); // current
-            cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
-                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Checking for our thing...");
-                if (current is TextboxChanger curr) {
-                    Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found it!");
-                    string text = "textbox/" + curr.path;
-                    typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
-                        .SetValue(self, GFX.Portraits[text]);
-                    if (GFX.Portraits.Has(text + "_overlay"))
-                    {
-                        typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance)
-                            .SetValue(self, GFX.Portraits[text + "_overlay"]);
-                    }
+            cursor.Emit(OpCodes.Ldarg, 0);
+            cursor.Emit(OpCodes.Ldfld, EnumeratorType.GetField("<>4__this"));
+            cursor.Emit(OpCodes.Ldarg, 0);
+            cursor.Emit(OpCodes.Ldfld, current);
+            cursor.EmitDelegate<Func<Textbox, FancyText.Node, bool>>((self, node) => {
+                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Searching for custom node...");
+                if(node is not TextboxChanger curr) return false;
+                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found it!");
+                string text = "textbox/" + curr.path;
+                typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
+                    .SetValue(self, GFX.Portraits[text]);
+                if (GFX.Portraits.Has(text + "_overlay")) {
+                    typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance)
+                        .SetValue(self, GFX.Portraits[text + "_overlay"]);
                 }
-            });*/
+                return true;
+            });
+            cursor.Emit(OpCodes.Brtrue, label);
         }
     }
 }
