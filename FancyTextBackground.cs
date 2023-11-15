@@ -41,7 +41,7 @@ namespace Celeste.Mod.artiboom {
             }
         }
 
-        public static void ModFancyBackground(ILContext il) {
+        public static void ModFancyBackground(ILContext il, Type EnumeratorType) {
             ILCursor cursor = new(il);
             if(!(
                 cursor.TryGotoNext(MoveType.Before, instr => instr.MatchIsinst<FancyText.Anchor>()) &&
@@ -52,10 +52,9 @@ namespace Celeste.Mod.artiboom {
             }
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Hooking into into Textbox.RunRoutine {cursor.Next}");
             cursor.Emit(OpCodes.Ldarg_0); // this
-            cursor.Emit(OpCodes.Ldfld,
-                typeof(Textbox)
-                    .GetNestedType("<RunRoutine>d__67", BindingFlags.NonPublic)
-                    .GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance)
+            cursor.Emit(
+                OpCodes.Ldfld, 
+                EnumeratorType.GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance)
             ); // current
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{cursor.Prev}");
             cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
@@ -70,7 +69,6 @@ namespace Celeste.Mod.artiboom {
                         typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance)
                             .SetValue(self, GFX.Portraits[text + "_overlay"]);
                     }
-
                 }
             });
         }

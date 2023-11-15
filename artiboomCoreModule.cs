@@ -38,10 +38,10 @@ namespace Celeste.Mod.artiboom
         public static artiboomModuleSession Session => (artiboomModuleSession)Instance._Session;
 
         private static readonly MethodInfo m_DashCoroutineEnumerator
-        = typeof(Player).GetMethod("DashCoroutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
+            = typeof(Player).GetMethod("DashCoroutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
         
-        private static readonly MethodInfo m_TextboxRoutineEnumerator
-        = typeof(Textbox).GetMethod("RunRoutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
+        private static readonly MethodInfo m_TextboxRoutineEnumerator 
+            = typeof(Textbox).GetMethod("RunRoutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
 
         public ArtiboomModule() {
             Instance = this;
@@ -60,6 +60,8 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
 
+
+
         public override void Load() {
             // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin += ModDashBurst;
@@ -72,10 +74,14 @@ namespace Celeste.Mod.artiboom
             IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
 
             On.Celeste.Player.ctor += AddStates;
-            hook_Textbox_RunRoutine = new ILHook(m_TextboxRoutineEnumerator, ModFancyBackground);
-            hook_Player_DashCoroutine = new ILHook(m_DashCoroutineEnumerator, ModNoDashSlash);
-            hook_StateMachine_ForceState = new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
-            hook_StateMachine_set_State = new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
+            hook_Textbox_RunRoutine = 
+                new ILHook(m_TextboxRoutineEnumerator, (il) => ModFancyBackground(il, m_TextboxRoutineEnumerator.DeclaringType));
+            hook_Player_DashCoroutine = 
+                new ILHook(m_DashCoroutineEnumerator, ModNoDashSlash);
+            hook_StateMachine_ForceState = 
+                new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
+            hook_StateMachine_set_State = 
+                new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
         }
 
@@ -203,7 +209,7 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
-            IL.Celeste.FancyText.Parse -= FancyBackground.ModFancyBackground;
+            IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
