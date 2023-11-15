@@ -70,7 +70,7 @@ namespace Celeste.Mod.artiboom {
                     }
                 }
             });
-            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{cursor.Prev}");
+            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{cursor.Context}");
         }
     }
 }
