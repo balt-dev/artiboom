@@ -52,19 +52,18 @@ namespace Celeste.Mod.artiboom {
             }
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Hooking into into Textbox.RunRoutine");
             cursor.Emit(OpCodes.Ldarg_0); // this
-            cursor.Emit<FancyText.Node>(OpCodes.Ldfld, "<current>5__4"); // current
+            cursor.Emit(OpCodes.Ldloc_0); // current
             cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
-                if (current is TextboxChanger) {
-                    var curr = (TextboxChanger)current;
+                if (current is TextboxChanger curr) {
                     string text = "textbox/" + curr.path;
-					typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
+                    typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
                         .SetValue(self, GFX.Portraits[text]);
-					if (GFX.Portraits.Has(text + "_overlay"))
-					{
+                    if (GFX.Portraits.Has(text + "_overlay"))
+                    {
                         typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance)
                             .SetValue(self, GFX.Portraits[text + "_overlay"]);
                     }
-                    
+
                 }
             });
         }
