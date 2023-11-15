@@ -460,7 +460,7 @@
 	MADELINE=			{# 841b3e}{savedata Name}{#}
 	MS_MADELINE=			{# 841b3e}Ms\. {savedata Name}{#}
 	RESORT=				{# b864be}Celestial Resort{#}
-	THOUGHT=			{# 696a6a}{~}(
+	THOUGHT=			{# 999a9a}{~}(
 	ENDTHOUGHT=			){/~}{#}
 	MOUNTAIN=			{# 96EFFF}Mountain{#}
 	CELESTE_MOUNTAIN=		{# 96EFFF}Celeste Mountain{#}
@@ -490,6 +490,7 @@
 	CH0_GRANNY=
 		{anchor top}
 
+		{artiboom_textbox madeline}
 		{+thought}What in the voids is...{+endthought}
 
 		Wawaa waa wa, wawa?
@@ -499,7 +500,8 @@
 
 		{trigger 0 Madeline walks forward}
 
-		{portrait none}				
+		{portrait none}	
+		{artiboom_textbox madeline}			
 		Waaw wawa {#841b3e}wawa wa{#} waaw wa.
 
 		{trigger 2 Granny laughs}
@@ -510,6 +512,7 @@
 		{trigger 4 Stop laughing}
 
 		{portrait none}
+		{artiboom_textbox madeline}
 		{+thought}{0.5}.....{0.2}{+endthought}
 
 		{trigger 3 Laugh Continues}
@@ -526,7 +529,7 @@
 		{trigger 6 pan to Maddy}
 
 		{portrait none}
-
+		{artiboom_textbox madeline}
 		{+thought}.{0.1}.{0.1}.{1.0}Fuck off.{+endthought}
 
 		{trigger 3 resume laughing}
@@ -539,28 +542,29 @@
 	CH1_THEO_A=
 		[THEO left wtf]
 		What in the...
-
 		[THEO left thinking]
 		Maybe I was right about the government cover-up.
 
 		{portrait none}	
+		{artiboom_textbox madeline}
 		{+thought}Oh... {0.1}hi.{+endthought}
 
 		{trigger 0 Madeline approaches}
 		
 		[THEO left worried]
 		Woah! Little close there, buddy.
-
 		[THEO left wtf]
 		What even are you? Some kind of mutated rabbit?
 
 		{portrait none}
+		{artiboom_textbox madeline}
 		{~}Waaw wa.{/~}				
 
 		[THEO left excited]
 		Wait, can you understand me?!
 
 		{portrait none}
+		{artiboom_textbox madeline}
 		{+thought}...{+endthought}
 		
 		[THEO left normal]
@@ -570,6 +574,7 @@
 		I'm {+ theo}, an adventurer from a {>> 0.3}{~}far off land!{/~}{>>}
 		
 		{portrait none}
+		{artiboom_textbox madeline}
 		{+thought}What{0.15} a{0.05}.{0.05}.{0.05}.{0.15} dumbass.{+endthought}
 
 		[THEO left thinking]
@@ -586,6 +591,7 @@
 		Why would an entire city be abandoned?
 		
 		{portrait none}
+		{artiboom_textbox madeline}
 		{+thought}Oh, I can think of a few reasons...{+endthought}		
 
 		[THEO left thinking]
