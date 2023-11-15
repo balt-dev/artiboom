@@ -57,6 +57,7 @@ namespace Celeste.Mod.artiboom {
                     .GetNestedType("<RunRoutine>d__67", BindingFlags.NonPublic)
                     .GetField("<current>5__4", BindingFlags.NonPublic | BindingFlags.Instance)
             ); // current
+            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{cursor.Prev}");
             cursor.EmitDelegate<Action<Textbox, FancyText.Node>>((self, current) => {
                 Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Checking for our thing...");
                 if (current is TextboxChanger curr) {
