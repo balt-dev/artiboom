@@ -50,7 +50,6 @@ namespace Celeste.Mod.artiboom {
                 Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "Failed to hook into Textbox.RunRoutine");
                 return;
             }
-            cursor.MoveBeforeLabels();
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Hooking into into Textbox.RunRoutine");
             cursor.Emit(OpCodes.Ldarg_0); // this
             cursor.Emit(OpCodes.Ldloc_0); // current
