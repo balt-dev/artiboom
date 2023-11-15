@@ -43,7 +43,7 @@ namespace Celeste.Mod.artiboom {
         }
 
         public static void ModFancyBackground(ILContext il, Type EnumeratorType) {
-            ILCursor cursor = new(il);
+            /*ILCursor cursor = new(il);
             if(!(
                 cursor.TryGotoNext(MoveType.Before, instr => instr.MatchIsinst<FancyText.Anchor>()) &&
                 cursor.TryGotoPrev(MoveType.Before, instr => instr.MatchLdarg(0))
@@ -70,7 +70,7 @@ namespace Celeste.Mod.artiboom {
                             .SetValue(self, GFX.Portraits[text + "_overlay"]);
                     }
                 }
-            });
+            });*/
         }
     }
 }
