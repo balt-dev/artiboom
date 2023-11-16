@@ -464,9 +464,8 @@
 	ENDTHOUGHT=			){/~}{#}
 	MOUNTAIN=			{# 96EFFF}Mountain{#}
 	CELESTE_MOUNTAIN=		{# 96EFFF}Celeste Mountain{#}
-	PART_OF_ME=			{# 380309}{~}her{/~}{#}
-	PART_OF_YOU=			{# 380309}{~}Part of You{/~}{#}
-	ST_BAD=				{# 380309}{~}
+	PART_OF_YOU=			{# 780309}{~}Part of You{/~}{#}
+	ST_BAD=				{# 780309}{~}
 	END_BAD=			{/~}{#}
 	GRANNY=				{# 66ea3a}Granny{#}
 	PART_OF_HER=			{# 66ea3a}{~}Part of Her{/~}{#}
@@ -477,6 +476,9 @@
 	THEO_SISTER_NAME=		Alex
 	THEO_SISTER_ALT_NAME=		Maddy
 	ALEX=					{# F94A4A}{savedata TheoSisterName}{#}
+
+# HACK
+	CLOSE=				{trigger 100 textbox close hack}	
 
 # ================================== IN-GAME DIALOG BEGINS HERE! ==================================
 
@@ -500,7 +502,6 @@
 
 		{trigger 0 Madeline walks forward}
 
-		{portrait none}	
 		{artiboom_textbox madeline}			
 		Waaw wawa {#841b3e}wawa wa{#} waaw wa.
 
@@ -511,7 +512,6 @@
 
 		{trigger 4 Stop laughing}
 
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}{0.5}.....{0.2}{+endthought}
 
@@ -528,7 +528,6 @@
 
 		{trigger 6 pan to Maddy}
 
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}.{0.1}.{0.1}.{1.0}Fuck off.{+endthought}
 
@@ -545,7 +544,6 @@
 		[THEO left thinking]
 		Maybe I was right about the government cover-up.
 
-		{portrait none}	
 		{artiboom_textbox madeline}
 		{+thought}Oh... {0.1}hi.{+endthought}
 
@@ -556,14 +554,12 @@
 		[THEO left wtf]
 		What even are you? Some kind of mutated rabbit?
 
-		{portrait none}
 		{artiboom_textbox madeline}
 		{~}Waaw wa.{/~}				
 
 		[THEO left excited]
 		Wait, can you understand me?!
 
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}...{+endthought}
 		
@@ -573,7 +569,6 @@
 		[THEO left excited]
 		I'm {+ theo}, an adventurer from a {>> 0.3}{~}far off land!{/~}{>>}
 		
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}What{0.15} a{0.05}.{0.05}.{0.05}.{0.15} dumbass.{+endthought}
 
@@ -590,7 +585,6 @@
 		[THEO left normal]
 		Why would an entire city be abandoned?
 		
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}Oh, I can think of a few reasons...{+endthought}		
 
@@ -618,7 +612,6 @@
 		Who perished on the climb	
 
 	CH1_END=
-		{portrait none}
 		{artiboom_textbox madeline}
 		{+thought}Ugh, I'm exhausted.{+endthought}
 
@@ -631,146 +624,143 @@
 	CH2_BADELINE_INTRO=
 		{anchor top}
 		
-		{portrait none}
+		{artiboom_textbox badeline}				
 		{+MADELINE}, dear, where are you going?
 
 		{trigger 0 Madeline turns around}
 		
-		[MADELINE right distracted]
+		{artiboom_textbox madeline}
 		{*}Who said that?{/*}
 		
-		[BADELINE left normal]
-		Oh, I'm simply a concerned observer.
-
 		{trigger 1 Badeline is revealed}
-		
-		[MADELINE right sad]
-		Are you... me?
 
-		[BADELINE left normal]
+		{artiboom_textbox badeline}
+		Oh, I'm simply a{0.1}.{0.1}.{0.1}.{0.3} concerned observer.
+		
+		{+close}
+		{artiboom_textbox madeline}
+		Who the{0.4} fuck{0.2} are{0.1}.{0.1}.{0.1}.
+		
+		{+close}
+		{artiboom_textbox badeline}
 		I'm {+PART_OF_YOU}.
 
-		[MADELINE right sad]
-		Why would {+PART_OF_ME} look so {0.3}{*}creepy?{/*}
+		{+close}
+		{artiboom_textbox madeline}
+		Why do {+ST_BAD}you{+END_BAD}...
 
-		[BADELINE left worried]
 		...
 
-		[BADELINE left angry]
-		This is just what I look like, okay?
-		Deal with it.
-
-		[MADELINE right distracted]
-		Sorry, I didn't mean-
-
-		[BADELINE left angry]
-		Forget about it.
-		I can't tell you what a relief it is{n}to {~}finally{/~} get out of your head.
-
-		[BADELINE left upset]
-		But look, I'm worried about us.
-
-		[BADELINE left normal]
-		We need a hobby, but this...
+		{artiboom_textbox madeline}
+		{*}...nevermind.{/*}
 		
-		[MADELINE right sad]
-		I know it sounds crazy, but{n}I need to climb this {+mountain}.
+		{+close}
+		{artiboom_textbox badeline}
+		Ah, it matters not.
+		I couldn't tell you what a relief it is{n}to {~}finally{/~} get out of your head.
+		
+		But look, I'm confused about this.
+		
+		We're in the middle of nowhere, probably not even where we belong, and your first decision is to-
+		
+		{+close}
+		{artiboom_textbox madeline}
+		{*}{!}Stop!{/!}{/*}
+
+		I know I'm crazy for it, but I...
 
 		{trigger 2 Badeline starts laughing}
 		
-		[BADELINE left scoff]
-		You are many things, darling,{n}but you are not a {~}mountain climber{/~}.
+		{artiboom_textbox badeline}
+		Running away from consequences again, {~}I presume?{/~}
 
-		[MADELINE right distracted]
-		Who says I can't be?
+		{+close}
+		{artiboom_textbox madeline}
+		{~}{*}.....{/*}{/~}
 
 		{trigger 3 Badeline stops laughing}
 		
-		[BADELINE left upset]
-		I know it's not your strong suit,{n}but be reasonable for once.
+		{artiboom_textbox badeline}
+		I know it's not your {~}strong suit{/~},{n}but be reasonable for once.
 		You have no idea what you're getting into.
+		
 		You can't handle this.
 		
-		[MADELINE right upset]
-		That is exactly why I need to do this.
-		Are you the weak {+PART_OF_ME}, or the lazy part?
+		{+close}
+		{artiboom_textbox madeline}
+		{0.4}{*}Shut{0.8} {!}UP!{/!}{1.2} {!}Shut{/!}{0.7} the {0.2}{!}fuck{/!}-{/*}
 
-		[BADELINE left upset]
-		I'm the pragmatic part.
+		{+close}
+		{artiboom_textbox badeline}
+		Ooh, spicy now, {~}aren't you!~{/~}
 		
-		[BADELINE left scoff]
-		And I'm {~}trying{/~} to be diplomatic here.
-		
-		[BADELINE left serious]
-		{s 4}Let's go home {.6}[BADELINE left serious_alt]together.
+		You're going to {~}{!}pay{/!}{/~}{0.3} for that.
 
 	CH2_DREAM_PHONECALL=
-		[MADELINE_PHONE left distracted]
+		{artiboom_textbox madeline}
 		Hello?
 		
-		[EX_PHONE right normal]
-		{+MADELINE}?
-		...are you calling from a payphone?
-
-		[MADELINE_PHONE left distracted]
-		Yeah.
-
-		[MADELINE_PHONE left sad]
-		No, wait... you called me.
-
-		[EX_PHONE right normal]
-		What are you talking about?
+		{portrait none}
+		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
 		
-		[MADELINE_PHONE left distracted]
-		It doesn't matter. I'm in trouble.
-		I'm being chased by... someone.
+		{+close}
+		{artiboom_textbox madeline}
+		?!
 
-		[MADELINE_PHONE left sad]
-		I don't really understand what's going on,{n}but I know I'm in danger. I can feel it.
-		
-		[EX_PHONE right normal]
-		{+MADELINE}, you only call me when you're{n}panicking in the middle of the night.
-		You don't have to make up some{n}ridiculous story just to get my attention.
-		
-		[MADELINE_PHONE left angry]
-		I'm not making it up!
-		You always do this!
-		
-		[EX_PHONE right normal]
-		{~}Shhh{/~} {0.5}it's alright, calm down.
-		I'm sorry sweetheart.
-		Talk to me.
-		
-		[MADELINE_PHONE left sad]
-		I'm climbing {+celeste_mountain}.{n}I found this old mirror, and it shattered,{n}but part of me escaped, and...
+		{artiboom_textbox madeline}
+		{!}{#97aedf}Storm{#}!{/!} Where are you!?
 
-		[MADELINE_PHONE left upset]
+		{portrait none}
+		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
+
+		{+close}
+		{artiboom_textbox madeline}
 		...
-		...I'm dreaming, aren't I?
 		
-		[EX_PHONE right normal]
-		{+MADELINE}. Of course you're dreaming.
-		I haven't spoken to you in months.
-		Why would I start now?
+		{portrait none}
+		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
 		
-		[MADELINE_PHONE left angry]
-		Ugh! Why am I even climbing this stupid {+mountain}?
+		{+close}
+		{artiboom_textbox madeline}
+		...that's not...
+
+		{portrait none}
+		{#97aedf}{*}Help!{0.2} Hel-{/*}{#}
+
+		{# 999a9a}*click*{#}
+
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...fuck.{/*}
+
+		Just another one of {~}those{/~} dreams, then...
 
 		{trigger 0 Badeline appears}
 		
-		[BADELINE right scoff]
-		I'm wondering the same thing.
+		{+close}
+		{artiboom_textbox badeline}
+		Look at you{~}{0.2} go!{/~} You finally figured it out.
 		
-		[BADELINE right upset]
-		It's time to give up and go home.
+		You could have {~}saved{/~} {#97aedf}her{#}, you know.
+
+		{+close}
+		{artiboom_textbox madeline}
+		{!}Don't{/!}{0.4} you fucking dare.
+
+		{+close}
+		{artiboom_textbox badeline}
+		Well,{0.3} {~}toodles!~{/~}
 
 	# if the MADELINE has never met Theo before
 	CH2_THEO_INTRO_NEVER_MET=
-		[THEO left normal]
-		Ho there, fellow explorer!
+		[THEO left wtf]
+		What is...
 		
-		[MADELINE right distracted]
-		Oh... hi.
+		{portrait none}
+		{artiboom_textbox madeline}
+		{+close}
+		
+		{+thought}Oh... great.{+endthought}
 
 		{trigger 0 Madeline approaches}
 

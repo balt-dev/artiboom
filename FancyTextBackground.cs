@@ -63,9 +63,18 @@ namespace Celeste.Mod.artiboom {
             cursor.Emit(OpCodes.Ldarg, 0);
             cursor.Emit(OpCodes.Ldfld, current);
             cursor.EmitDelegate<Func<Textbox, FancyText.Node, bool>>((self, node) => {
+                // Find the node
                 Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Searching for custom node...");
                 if(node is not TextboxChanger curr) return false;
                 Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found it!");
+
+                // Reset the portrait, since this shouldn't be used for anything that can speak
+                typeof(Textbox).GetField("portraitExists", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, false);
+                typeof(Textbox).GetField("activeTalker", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, null);
+                typeof(Textbox).GetField("isPortraitGlitchy", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, false);
+                typeof(Textbox).GetField("portrait", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, null);
+
+                // Set the background
                 string text = "textbox/" + curr.path;
                 typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
                     .SetValue(self, GFX.Portraits[text]);
