@@ -492,6 +492,7 @@
 	CH0_GRANNY=
 		{anchor top}
 
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}What in the voids is...{+endthought}
 
@@ -502,7 +503,8 @@
 
 		{trigger 0 Madeline walks forward}
 
-		{artiboom_textbox madeline}			
+		{+close}
+		{artiboom_textbox madeline}
 		Waaw wawa {#841b3e}wawa wa{#} waaw wa.
 
 		{trigger 2 Granny laughs}
@@ -512,6 +514,7 @@
 
 		{trigger 4 Stop laughing}
 
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}{0.5}.....{0.2}{+endthought}
 
@@ -528,8 +531,9 @@
 
 		{trigger 6 pan to Maddy}
 
+		{+close}
 		{artiboom_textbox madeline}
-		{+thought}.{0.1}.{0.1}.{1.0}Fuck off.{+endthought}
+		{+thought}.{0.1}.{0.1}.{1.0}not worth my time.{+endthought}
 
 		{trigger 3 resume laughing}
 
@@ -544,6 +548,7 @@
 		[THEO left thinking]
 		Maybe I was right about the government cover-up.
 
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}Oh... {0.1}hi.{+endthought}
 
@@ -554,12 +559,14 @@
 		[THEO left wtf]
 		What even are you? Some kind of mutated rabbit?
 
+		{+close}
 		{artiboom_textbox madeline}
 		{~}Waaw wa.{/~}				
 
 		[THEO left excited]
 		Wait, can you understand me?!
 
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}...{+endthought}
 		
@@ -569,6 +576,7 @@
 		[THEO left excited]
 		I'm {+ theo}, an adventurer from a {>> 0.3}{~}far off land!{/~}{>>}
 		
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}What{0.15} a{0.05}.{0.05}.{0.05}.{0.15} dumbass.{+endthought}
 
@@ -585,6 +593,7 @@
 		[THEO left normal]
 		Why would an entire city be abandoned?
 		
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}Oh, I can think of a few reasons...{+endthought}		
 
@@ -755,70 +764,51 @@
 	CH2_THEO_INTRO_NEVER_MET=
 		[THEO left wtf]
 		What is...
-		
-		{portrait none}
-		{artiboom_textbox madeline}
+
 		{+close}
+		{artiboom_textbox madeline}		
 		
-		{+thought}Oh... great.{+endthought}
+		{+thought}...great.{+endthought}
 
 		{trigger 0 Madeline approaches}
 
-		[THEO left normal]
-		Did you also trek up here to scope out these old ruins?
+		[THEO left thinking]
+		Maybe this {~}was{/~} a government cover-up after all.
 		
-		[MADELINE right sad]
-		Uhh... no, I'm headed for the summit.
+		{+close}{2}
 		
 		[THEO left excited]
-		Whoa, that's crazy!
+		Oh, can you understand me?
+
+		{+close}
+		{artiboom_textbox madeline}		
+		
+		{+thought}Oh, fuck off.{+endthought}
 		
 		[THEO left normal]
-		I'm {+ theo} by the way, an adventurer from a {>> 0.3}{~}far off land!{/~}{>>}
+		{>> 0.3}Yeah{/>>}, that's a look of understanding if I've ever seen it.
 		
-		[MADELINE right sad]
-		...{0.2}
+		{+close}
+		{artiboom_textbox madeline}
+		...wawa wa?{0.2}
 		
 		[THEO left thinking]
-		Not much of a talker, are you?
+		Ah, can't speak. Classic alien stuff.
 		
 		[THEO left normal]
-		Mysterious lone wolf type, I get it.{n}I'll just imagine some dark backstory for you.
+		I'll just imagine some dark backstory for you.
 
 	# if the MADELINE has met Theo, but never introduced herself
 	CH2_THEO_INTRO_NEVER_INTRODUCED=
-		[MADELINE right sad]
-		Hey {+ theo}, sorry about earlier.{n}I'm {+MADELINE}.
-		I've got a lot on my mind.
-		
-		[THEO left normal]
-		Well this is a good place for it.
-		Something about these ruins feels so introspective.
-		It's really making me take a{n}look in the mirror, so to speak.
-		
-		[MADELINE right distracted]
-		Yeah... I get that.
-
-		[MADELINE right normal]
-		So what "{>> 0.5}{~}far off land{/~}{>>}" do you hail from?
-		
-		[THEO left excited]
-		Well, my inquisitive compatriot, I doth hail{n}from the {0.3}{~}mystical,{0.4} enigmatic{/~}{0.4} kingdom of...
-		
-		[THEO left normal]
-		{0.4} Seattle.
-
-		[MADELINE right normal]
-		It sounds like a special place.
+		{+ CH2_THEO_A}
 
 	# added to the start of the CH2_THEO_A if the MADELINE has met and introduced themselves to Theo
 	# (if NEVER_MET and NEVER_INTRODUCED are skipped)
 	CH2_THEO_A_EXT=
 		[THEO left excited]
-		Hey, {+MADELINE}!{n}You made it!
+		Hey!{n}You made it!
 
 		{trigger 3 Madeline Approaches}
-
 		{+ CH2_THEO_A}
 
 	# normal conversation once introductions are out of the way
@@ -830,13 +820,11 @@
 		Just look at these ruins!
 		I took so many great pics, wanna see?
 		
-		[MADELINE right sad]
-		Oh... [MADELINE right normal]sure.
-
 		{trigger 0 Maddy walks to Theo}
 
-		[MADELINE right normal]
-		{+ theo}, these are great!
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}{>>}Huh!{/>>}{0.3} Those actually do look pretty nice.{+endthought}
 		
 		[THEO left thinking]
 		Maybe I'll finally hit a thousand followers with these.
@@ -849,98 +837,67 @@
 		[THEO left excited]
 		Take a selfie with me!
 		
-		[MADELINE right distracted]
-		Uhh... I don't know if that's such a good idea right now...
+		{+close}
+		{artiboom_textbox madeline}
+		{!}{*}Khhhh!{/*}{/!}
 		
-		[THEO left normal]
-		Come on, it's easy. Like this!
-
-		{trigger 2 Theo takes a selfie with Maddy by surprise}
-		
-		[MADELINE right upset]
-		...
+		[THEO left worried]
+		...or not.
 
 	CH2_THEO_B=
-		[THEO left normal]
+		[THEO left serious]
 		Sorry about that.
-		Don't worry, I won't post that one.
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		...
 		
-		[MADELINE right sad]
-		No, it's alright. You can post it.
-		I'm just{.2} not... photogenic.
-		
-		[THEO left normal]
-		{+MADELINE}, don't be so hard on yourself!
-		No one looks good without a filter.
+		{+thought}...whatever.{+endthought}
 
-		{trigger 0 Add filter to selfie}
-		
-		[THEO left thinking]
-		Casual, yet refined.
-
-	CH2_THEO_C=
-		[MADELINE right normal]
-		What made you want to try photography?
-
-		[THEO left normal]
-		My grandpa was really into it.
-
-		[THEO left thinking]
-		Apparently he was semi-famous{n}in the photography world.
-
-		[THEO left wtf]
-		I don't know if I'll ever be that good at it.
-
-		[THEO left normal]
-		But it's nice to feel close to him.
-
-	CH2_THEO_D=
-		[THEO left excited]
-		So you're determined to climb the entire {+mountain}?
-		
-		[MADELINE right normal]
-		Yeah, I told myself I would.
-
-		[MADELINE right sad]
-		I'm done breaking promises to myself.
-		
-		[THEO left excited]
-		Life goals! I dig it.
-		
-		[THEO left normal]
-		I doubt I'll make it to the top like you,{n}but I'm not ready to turn back just yet.
-
-	CH2_THEO_E=
+	CH2_THEO_C= 
 		[THEO left wtf]
 		Are you getting any data up here?
 		
-		[MADELINE right normal]
-		I don't have a smartphone.
+		{+close}
+		{artiboom_textbox madeline}
+		???
 		
-		[THEO left wtf]
-		{+MADELINE}. I don't even know how to respond to that.
+		[THEO left nailedit]
+		Right, you wouldn't have a phone.
 
+		[THEO left thinking]
+		Just talking on reflex, don't mind me.
+
+	CH2_THEO_D=
+
+	CH2_THEO_E=
+		
 	CH2_END_PHONECALL=
 		[MOM_PHONE right normal]
 		Hello?
 		
-		[MADELINE_PHONE left distracted]
-		Hey {+ mom}.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Wait, what?{+endthought}
 		
+		{+thought}{0.3}.{0.3}.{0.3}.{0.5}right,{0.5} {#cc6fc3}Pebbles{#} wouldn't be...{+endthought}
+
 		[MOM_PHONE right normal]
-		{+MADELINE}, what a nice surprise!
-		How's your trip?
-		
-		[MADELINE_PHONE left distracted]
-		It's okay, I'm just kind of... overwhelmed.
+		Is anyone there?
+
+		{+close}
+		{artiboom_textbox madeline}
+		Waaaw wa.
 		
 		[MOM_PHONE right concerned]
-		Oh no, are you having another panic attack?
-		Focus on your breathing honey, I'm here.
-		What's going on?
+		Oh, drat. The phone's acting up again.
+
+		[MOM_PHONE right normal]
+		Sorry, dearie, I'll have to call you back.
+		
+		# Done to avoid transition
+		{artiboom_textbox default}
+		{# 999a9a}*click*{#}
 
 	CH2_JOURNAL=
 		There's a dusty old book open on the table.
@@ -960,8 +917,9 @@
 		[OSHIRO right normal]
 		Welcome! May I help you?
 
-		[MADELINE left surprised]
-		Are you... a ghost?
+		{+close}
+		{artiboom_textbox madeline}
+		Wawa... waaw wa?
 		
 		[OSHIRO right worried]
 		A ghost? Don't be silly.
@@ -974,6 +932,16 @@
 
 		[OSHIRO right normal]
 		{+ mroshiro}, at your service.
+
+		{+close}
+		{artiboom_textbox madeline}
+		Wa, waww wa waaw waa?
+
+		[OSHIRO right nervous]
+		Well, of course I can understand you!
+
+		{portrait none}
+		{# 999a9a}Note:{n}From now on, text speaking with{n}{+ oshiro} will be translated.{#}
 		
 		[OSHIRO right sidehappy]
 		{+thought}Two guests in one day!{n}Business is finally picking up!{+endthought}

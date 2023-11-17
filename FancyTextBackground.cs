@@ -78,9 +78,11 @@ namespace Celeste.Mod.artiboom {
                 string text = "textbox/" + curr.path;
                 typeof(Textbox).GetField("textbox", BindingFlags.NonPublic | BindingFlags.Instance)
                     .SetValue(self, GFX.Portraits[text]);
+                var overlay = typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance);
                 if (GFX.Portraits.Has(text + "_overlay")) {
-                    typeof(Textbox).GetField("textboxOverlay", BindingFlags.NonPublic | BindingFlags.Instance)
-                        .SetValue(self, GFX.Portraits[text + "_overlay"]);
+                    overlay.SetValue(self, GFX.Portraits[text + "_overlay"]);
+                } else {
+                    overlay.SetValue(self, null);
                 }
                 return true;
             });
