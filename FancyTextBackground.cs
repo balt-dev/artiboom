@@ -63,9 +63,8 @@ namespace Celeste.Mod.artiboom {
             cursor.Emit(OpCodes.Ldfld, current);
             cursor.EmitDelegate<Func<Textbox, FancyText.Node, bool>>((self, node) => {
                 // Find the node
-                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Searching for custom node...");
                 if(node is not TextboxChanger curr) return false;
-                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found it!");
+                Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Found custom node");
 
                 // Reset the portrait, since this shouldn't be used for anything that can speak
                 typeof(Textbox).GetField("portraitExists", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(self, false);
