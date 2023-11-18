@@ -130,7 +130,7 @@ namespace Celeste.Mod.artiboom.Entities
             followY = ArtiboomModule.Settings.FollowY * 3;
 
             Depth = -10;
-            Add(bloom = new BloomPoint(2.0f, 8f));
+            Add(bloom = new BloomPoint(4.0f, 8f));
             Add(sprite);
 
         } 
