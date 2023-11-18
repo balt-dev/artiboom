@@ -199,6 +199,7 @@ namespace Celeste.Mod.artiboom
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Emitted :3");
         }
 
+
         public override void Unload() {
             // TODO: unapply any hooks applied in Load()
             // TODO: apply any hooks that should always be active

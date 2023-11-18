@@ -949,17 +949,18 @@
 		[OSHIRO right normal]
 		How long will you be staying with us?
 		
-		[MADELINE left normal]
-		Oh... I'm just passing through.{n}I'm climbing the {+mountain}.
-		Do you have a back exit?
+		{+close}
+		{artiboom_textbox madeline}
+		Uh... what do you mean?
 		
 		[OSHIRO right worried]
-		...a back exit?
+		...staying with us?
 		
 		[OSHIRO right sideworried]
-		{+thought}Just passing through? This will not do.{+endthought}
+		{+thought}Do they not know what a hotel is?{+endthought}
 		
-		[MADELINE left distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		You know I can still hear you, right?
 		
 		[OSHIRO right nervous]
@@ -974,8 +975,9 @@
 		[OSHIRO right normal]
 		Yes, you'll be quite comfortable up there.
 		
-		[MADELINE left distracted]
-		Maybe I could get on the roof from{n}there and climb down the back?
+		{+close}
+		{artiboom_textbox madeline}
+		That... sounds nice.
 		
 		[OSHIRO right sidehappy]
 		{+thought}The presidential suite, marvelous idea {+ oshiro}!{+endthought}
@@ -983,11 +985,13 @@
 		[OSHIRO right normal]
 		What is your name, for our records?
 		
-		[MADELINE left normal]
-		I'm {+MADELINE}. 
-		
-		[MADELINE left sad]
-		But again, I'm really not interested in staying.
+		{+close}
+		{artiboom_textbox madeline}
+		Well, I don't...
+
+		{+close}
+		{artiboom_textbox madeline}
+		{+MADELINE}. You can just call me {+MADELINE}. 
 
 		{trigger 0 Camera zooms back out}
 		
@@ -1006,29 +1010,31 @@
 		Please follow me closely, {+MS_MADELINE}.
 		The elevator is just down the hall.
 		
-		[MADELINE left distracted]
-		The hotel is in pretty rough shape...
+		{+close}
+		{artiboom_textbox madeline}
+		This place is in pretty rough shape...
 
-		[MADELINE left sad]
-		Is it really open for business?
+		You sure this is safe?
 		
 		[OSHIRO right nervous]
-		Of course we're open!
+		Of course it is!
 
 		[OSHIRO right worried]
-		The Celestial Resort Hotel would never{n}close during prime tourism season!
+		The Celestial Resort Hotel would never{n}endanger a patron!
 
 		[OSHIRO right sideworried]
 		{+thought}Rough shape? What did she mean by that?{+endthought}
 
 		[OSHIRO right normal]
-		Oh! Please allow me to carry your luggage.
+		Oh! Please allow me to carry your belongings.
 		
-		[MADELINE left sad]
-		My bag?
+		{+close}
+		{artiboom_textbox madeline}
+		...?
 
-		[MADELINE left normal]
-		No thanks, I'll keep it.
+		Oh, do you mean the drone?
+
+		No way in hell. I'm keeping it.
 		
 		[OSHIRO right normal]
 		Hmm. Very well.
@@ -1043,8 +1049,9 @@
 		[OSHIRO right worried]
 		I'm running a world-class establishment here.{n}I don't have time to wait around for meandering guests.
 		
-		[MADELINE left sad]
-		You really don't have to wait for me,{n}I'm just looking for a way through this place.
+		{+close}
+		{artiboom_textbox madeline}
+		Hey! It's not my fault this damned place is collapsing!
 		
 		[OSHIRO right sideworried]
 		{+thought}{+oshiro} you idiot, the customer is always right!{+endthought}
@@ -1081,8 +1088,9 @@
 		[OSHIRO left worried]
 		I don't even know where to begin...
 		
-		[MADELINE right sad]
-		{+mroshiro}, do you run this whole place by yourself?
+		{+close}
+		{artiboom_textbox madeline}
+		I {0.3}{>>}told{/>>} you this was unsafe.
 		
 		[OSHIRO left nervous]
 		You're right {+MS_MADELINE},{n}I'll never sort this mess out alone.
@@ -1092,18 +1100,13 @@
 		[OSHIRO left drama]
 		It's hopeless.
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		That's not what I meant...
 
-		[MADELINE right sad]
-		Just breathe, {+MROSHIRO}. Breathe.
-		It's just a little spring cleaning.
+		...		
 		
-		[MADELINE right distracted]
-		Well, more than a little...
-		
-		[MADELINE right normal]
-		But I can help!
+		maybe... {0.2}I could help out?
 		
 		[OSHIRO left normal]
 		You're too kind.
@@ -1113,43 +1116,23 @@
 		It's a lost cause.
 
 	CH3_OSHIRO_CLUTTER0_B=
-		[MADELINE right normal]
-		How long have you been running the hotel?
-
-		[OSHIRO left normal]
-		Oh, quite some time now.
-
-		[OSHIRO left sideworried]
-		{+thought}Business has been... slow.{+endthought}
-
-		[MADELINE right sad]
-		You must really love your work.
-
-		[OSHIRO left normal]
-		Oh yes, {+MS_MADELINE}.
-
 		{trigger 0 Oshiro gets back up}
 
-		[OSHIRO left normal]
-		In the hotel business, our passion is{n}perfecting the delicate art of hospitality.
-
-		[OSHIRO left worried]
-		A truly great hotel lives{.2} {~}eternally{/~} in the{n}cherished memories of its satisfied guests.
-
-		[MADELINE right normal]
-		That's the spirit!
-		Now let's get started on this mess.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}This better not be a mistake...{+endthought}
 
 	CH3_OSHIRO_CLUTTER1=
 		[OSHIRO right normal]
 		I haven't even begun cleaning and already{n}I feel a renewed lightness of spirit!
 		That's the power of positive thinking!
 		
-		[MADELINE left distracted]
-		Umm, actually...
+		{+close}
+		{artiboom_textbox madeline}
+		...really?
 		
-		[MADELINE left normal]
-		I cleared out some of the clutter for you.
+		{artiboom_textbox madeline}
+		{!}I{/!}{0.3} cleared out some of the clutter for you.
 		
 		[OSHIRO right normal]
 		Oh yes, thank you, {+MS_MADELINE}.
@@ -1161,11 +1144,9 @@
 		[OSHIRO right sideworried]
 		{+thought}Guests don't want to spend their time cleaning!{+endthought}
 		
-		[MADELINE left distracted]
-		Are you okay?
-		
-		[OSHIRO right nervous]
-		Yes, of course.
+		{+close}
+		{artiboom_textbox madeline}
+		...yeah.
 
 		[OSHIRO right worried]
 		This is the finest hotel you'll ever visit, you'll see!
@@ -1175,27 +1156,15 @@
 
 	CH3_OSHIRO_CLUTTER1_B=
 
-		[MADELINE left sad]
-		{+mroshiro}, it's okay if the{n}mess is making you anxious.
-
-		[MADELINE left normal]
-		I still can't stay the night, but I can help before I leave.
-
-		[OSHIRO right sideworried]
-		{+thought}She pities you, {+oshiro}. You're pathetic.{+endthought}
-
-		[MADELINE left upset]
-		...
-
 	CH3_OSHIRO_CLUTTER2=
-		[MADELINE left normal]
-		It's looking a lot nicer in here!
-		
-		[MADELINE left distracted]
-		Can you show me to the exit now?
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Voids, I'm tired...{+endthought}
+
+		Are you going to help me, or...
 
 		[OSHIRO right worried]
-		But {+MS_MADELINE}, you've barely enjoyed the{n}myriad luxuries that our hotel has to offer!
+		Yes, of course!
 		
 		[OSHIRO right normal]
 		We can talk more once I finish cleaning.
@@ -1204,31 +1173,13 @@
 		I'm very busy!
 
 		[OSHIRO right sidesuspicious]
-		{+thought}Yes... young people have no respect these days.{+endthought}
+		{+thought}Yes... people have no respect these days.{+endthought}
 		
-		[MADELINE left upset]
-		...you're welcome, sheesh.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}...fucking prick.{+endthought}
 
 	CH3_OSHIRO_CLUTTER2_B=
-		[MADELINE left angry]
-		Do you want my help{.3} or not?
-
-		[OSHIRO right sideworried]
-		{+thought}It's over, {+oshiro}. She hates you.{+endthought}
-
-		[MADELINE left upset]
-		I{.3} don't... 
-
-		[MADELINE left distracted]
-		I'm sorry. 
-
-		[MADELINE left sad]
-		Your hotel is...  it's beautiful. Truly world class.
-		I wish I could stay.
-
-		[OSHIRO right serious]
-		No need to humor me, {+MS_MADELINE}.
-		I understand.
 
 	CH3_OSHIRO_CLUTTER_ENDING=
 		{anchor bottom}
@@ -1236,14 +1187,16 @@
 		There you are!
 		You certainly have a knack for wandering off.
 		
-		[MADELINE right distracted]
-		It was tough, but I sorted everything out for you.
+		{+close}
+		{artiboom_textbox madeline}
+		...
 		
 		[OSHIRO left normal]
 		The Celestial Resort Hotel extends its{n}gratitude for your assistance, {+MS_MADELINE}.
 		Of course, the staff had the mess under control.
 		
-		[MADELINE right upset]
+		{+close}
+		{artiboom_textbox madeline}
 		Oh, sure. Yeah.
 		
 		[OSHIRO left sideworried]
@@ -1255,8 +1208,9 @@
 		[OSHIRO left normal]
 		It's just up the elevator and down the hall.
 		
-		[MADELINE right upset]
-		Sure, what the heck. 
+		{+close}
+		{artiboom_textbox madeline}
+		Sure, what the hell. 
 		Show me the presidential suite.
 		It sounds lovely.
 		
@@ -1264,23 +1218,31 @@
 		{+thought}Now's your last chance, {+oshiro}. Don't lose her now.{+endthought}
 
 	CH3_THEO_NEVER_MET=
-		[MADELINE left sad]
-		Oh hey, are you... {0.2}a guest here?
+		{+close}
+		{artiboom_textbox madeline}
+		Waaw, wawa wa?
 
 		{trigger 0 Theo stops trying to pry off the vent cover}
 		
 		[THEO right worried]
-		Wow, I am {~}{!}so{/!}{/~} happy to see another person right now.
-		This place seriously gives me the creeps.
-		
-		[MADELINE left sad]
-		There's definitely something strange about it.
+		{!}What the!?{/!}
 
-		[MADELINE left normal]
-		I'm {+MADELINE}, by the way.
+		[THEO right wtf]
+		Just when I thought today couldn't get any weirder.
 		
-		[THEO right normal]
-		Oh, I'm {+theo}.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Fuck, right, can't understand me.{+endthought}
+
+		{+close}
+		{artiboom_textbox madeline}
+		Wawa waw!
+		
+		[THEO right wtf]
+		A{0.2}a{0.2}nd it can understand me. Great.
+
+		[THEO right nailedit]
+		Well, the name's {+theo}.
 		
 		[THEO right thinking]
 		I'm all about spooky mysteries,{n}but this is getting too real.
@@ -1288,47 +1250,26 @@
 		{+CH3_THEO_ESCAPING}
 
 	CH3_THEO_NEVER_INTRODUCED=
-		[MADELINE left normal]
-		{+theo}! Are you a "guest" here too?
-
-		{trigger 0 Theo stops trying to pry off the vent cover}
-		
-		[THEO right worried]
-		Wow, I am {~}{!}so{/!}{/~} happy to see another person right now.
-		I'm all about spooky mysteries,{n}but this is getting too real.
-		
-		[MADELINE left sad]
-		There's definitely something strange about it.
-
-		[MADELINE left normal]
-		I'm {+MADELINE}, by the way.
-		Sorry about being antisocial earlier,{n}I had a lot on my mind.
-
-		{+CH3_THEO_ESCAPING}
+		{+CH3_THEO_INTRO}
 
 	CH3_THEO_INTRO=
-		[MADELINE left normal]
-		{+theo}! Are you a "guest" here too?
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}{+theo}!{+endthought}
 
 		{trigger 0 Theo stops trying to pry off the vent cover}
 		
 		[THEO right worried]
-		{+MADELINE}! I am {~}{!}so{/!}{/~} happy to see you right now.
+		Oh, thank God! I am {~}{!}so{/!}{/~} happy to see you right now.
 		I'm all about spooky mysteries,{n}but this is getting too real.
 
 		{+CH3_THEO_ESCAPING}
 
 	CH3_THEO_ESCAPING=
-		[MADELINE left sad]
-		Have you talked to {+mroshiro}?
-
-		[MADELINE left distracted]
-		I think he could really use some help.
-
 		{trigger 0 Theo stops trying to pry off the vent cover}
 		
 		[THEO right wtf]
-		You {~}think?{/~} 
+		You {~}see{/~} that {+oshiro} dude? 
 		He's a creepy old weirdo.
 		I bet he's cleaning out a nook{n}to hide our bodies as we speak.
 
@@ -1338,15 +1279,12 @@
 		I'm gonna crawl through this vent,{n}it's blowing cold air in from outside.
 		Come on!
 		
-		[MADELINE left sad]
-		{+mroshiro}'s troubled, but...{n}I don't think he wants to hurt us.
-		
-		[MADELINE left normal]
-		He just needs to clean up this mess.
-		I want to help him.
+		{+close}
+		{artiboom_textbox madeline}
+		Wawa {!}wa{/!}! Waaw wawa.
 		
 		[THEO right worried flip]
-		{+MADELINE}, that's very sweet, but this is dangerous.
+		...are you coming?
 		
 		{trigger 2 Theo removes vent cover and it flies off. Theo falls down as it comes off, and gets back up}
 
@@ -1354,11 +1292,9 @@
 		We need to get out of here and call{n}an expert on {0.2}{*}creepy old dudes{/*}.
 		We aren't prepared for this.
 		
-		[MADELINE left distracted]
-		I think I can get through to him.
-
-		[MADELINE left normal]
-		Go on ahead and I'll catch up with you later.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}I'll be fine!{+endthought}
 		
 		[THEO right wtf]
 		Man, you're more stubborn than my sister.
@@ -1367,51 +1303,37 @@
 		{trigger 3 Theo walks to Maddy}
 		
 		[THEO right serious]
-		Take care of yourself.
-
-		[MADELINE left normal]
-		Thanks {+theo}. I'll see you outside.
+		Take care of yourself. I'll see you outside.
 
 	CH3_THEO_VENTS=
 		{anchor bottom}
 		[THEO right normal upsidedown]
 		Man, it's a maze in here.
-		How's it going with {+elcreepo}?
+		{+elcreepo} treating you well?
 		
-		[MADELINE left sad]
-		I helped him clean up that huge mess,{n}but he was kind of a jerk about it.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Well, I wanted to stay, but then he started being a bitch about it.{+endthought}
 		
-		[MADELINE left upset]
-		And he still thinks he can convince me to stay.
-		
-		[THEO right wtf upsidedown]
-		{+MADELINE}, seriously.
-		My bad idea radar is {~}off the charts{/~} on this one. 
-		You should get out of here.
-		
-		[MADELINE left sad]
-		If I disappear now, {+mroshiro} could have a meltdown.
-		
-		[MADELINE left distracted]
-		And maybe I can actually do{n}something good.{.3} For once.
-		
-		[THEO right worried upsidedown]
-		Forget your {~}karma{/~}, dude.
+		{+thought}...ugh, that suite sounds nice, though...{+endthought}
 
 		[THEO right wtf upsidedown]
-		I think that guy is going to melt down no matter what.
+		Seriously. My bad idea radar is {~}off the charts{/~} on this one. 
+		You should get out of here.
 
 		[THEO right worried upsidedown]
 		You have to think about your safety.
 		
-		[MADELINE left upset]
-		{+theo}. I'll be okay.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}{+theo}. I'll be okay.{+endthought}
 		
 		[THEO right thinking upsidedown]
+		...
 		Yeah yeah, I didn't expect you to listen.
 
 		[THEO right wtf upsidedown]
-		See you on the outside, jailbird.
+		See you on the outside, jail... thing.
 
 	CH3_OSHIRO_BREAKDOWN=
 		{anchor top}
@@ -1472,70 +1394,59 @@
 		[OSHIRO right nervous]
 		So? What do you think?
 		
-		[MADELINE left sad]
-		It's... uh, it's beautiful.
-		The furniture looks expensive...
-
-		[MADELINE left distracted]
-		It's very... spacious.
-
-		[MADELINE left sad]
-		The colors are elegant.
-
-		[MADELINE left normal]
-		I can tell you put a lot of work into it.
+		{+close}
+		{artiboom_textbox madeline}
+		Well, alright.
+		This is pretty spacious, all things considered.
+		That bed looks comfy too.
+		Little rough around the edges, but I like it.
 
 		[OSHIRO right worried]
 		{*}I knew it would impress you!{/*}
 
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		Yeah.
 
-		[MADELINE left distracted]
 		...
-		So, can I get on the roof from here?
-		
-		[OSHIRO right sideworried]
-		{+thought}You imbecile, you're losing her!{+endthought}
-		
+
 		[OSHIRO right nervous]
 		Oh err, I almost forgot to mention... 
 		Valued guests such as yourself stay in{n}our finest accommodations at half price!
 		
-		[MADELINE left sad]
-		I... don't want to stay.
+		{+close}
+		{artiboom_textbox madeline}
+		...oh, shit. I don't have...
 
 		{trigger 0 Badeline appears in the mirror}
 		
 		[OSHIRO right serious]
 		Please, {+MS_MADELINE}.
-		Please stay.
+		Please stay. I can accomodate.
 		
-		[MADELINE left upset]
-		{+mroshiro}, I've already been sidetracked too long...
-
 		{trigger 1 Badeline escapes the mirror}
 		
-		[BADELINE right normal]
+		{+close}
+		{artiboom_textbox badeline}
 		{+MADELINE}, sweetie, forget this loser.
 		
 		[OSHIRO left serious]
 		Loser? {silent_trigger 6}
 		
-		[BADELINE right upset]
+		{+close}
+		{artiboom_textbox badeline}
 		You're in denial, old man. 
-		This resort is a {*}{!}dump{/!}{/*}{0.3}.
-
-		[BADELINE right yell]
-		No one would {*}{!}ever{/!}{/*} want to stay here.
+		This place is a dump.
+		No one would {~}ever{/~} want to stay here.
 		
-		[BADELINE right scoff]
-		Someone had to say it.
+		{0.4}{~}Someone had to say it.{/~}
 
 		{trigger 4 Madeline steps closer to Oshiro}
 		
-		[MADELINE left sad]
-		She doesn't mean that.
+		{+close}
+		{artiboom_textbox madeline}
+		Oh, fucking {*}you{/*} again.{0.5} Great.
+		{+oshiro}, don't pay attention to her.
 		
 		[OSHIRO right serious]
 		I... 
@@ -1544,13 +1455,15 @@
 		I'm very busy.
 		Please leave, {+MS_MADELINE}. {silent_trigger 5 Madeline jumps back}
 		
-		[BADELINE right upset]
+		{+close}
+		{artiboom_textbox badeline}
 		Come on {~}{+MS_MADELINE}{/~}, you heard the man.
 
 		{trigger 2 Badeline blasts a hole in the ceiling}
 		
-		[BADELINE left normal]
-		Where would you be without me?
+		{+close}
+		{artiboom_textbox madeline}
+		Hey, no!
 
 	CH3_OSHIRO_SUITE_SAD0=
 		{anchor bottom}
@@ -1588,28 +1501,30 @@
 		{+thought}But why was she so cruel?{+endthought}
 
 	CH3_OSHIRO_START_CHASE=
-		[BADELINE left normal]
-		I thought we'd never get rid of him.
-		You owe me one. 
+		{+close}
+		{artiboom_textbox badeline}
+		Wow, I thought we'd {~}never{/~} get rid of him.
+		You owe me one.
 
-		[BADELINE left scoff]
-		Add it to the list.
-		
-		[MADELINE right upset]
-		Leave me alone.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}{!}Owe you one!?{/!}{/*}
+		I nearly just got an actual rest and you ruined it!
+		How is {!}that{/!} a favor!?
 
 		{trigger 0 Maddy walks away}
 		
-		[BADELINE left upset]
-		I thought you were {~}soooo{/~}{n}determined to keep climbing.
-
-		[BADELINE left scoff]
-		Now all of a sudden you're some weirdo's therapist?
+		{+close}
+		{artiboom_textbox badeline}
+		{~}Aww, look at you~{/~}
+		You were so {~}determined{/~} before.
+		Now all of a sudden you're someone's {~}therapist{/~}?
 
 		{trigger 1 Maddy turns around}
 		
-		[MADELINE right angry]
-		Why won't you go away?
+		{+close}
+		{artiboom_textbox madeline}
+		Why won't you just fuck off?
 
 		{trigger 2 Oshiro enters}
 		
@@ -1621,22 +1536,19 @@
 		Why would you be so nice to me, only to run away?
 		What did I do wrong?
 		
-		[BADELINE right scoff]
-		Oh, give it a break. You still don't get it?
-
-		[BADELINE right upset]
+		{+close}
+		{artiboom_textbox badeline}
+		Oh, do you not understand?
 		She only helps people to feed her twisted ego.
+		She {~}never{/~} cared about you.
 		
-		[BADELINE right yell]
-		She {*}never{/*} cared about you.
-		
-		[MADELINE right angry]
-		Shut up! 
-		
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
+		Shut the fuck up! 
 		I just wanted to help.
 		
-		[BADELINE right scoff]
+		{+close}
+		{artiboom_textbox badeline}
 		You're both pathetic.
 
 		{trigger 3 Badeline disappears, Oshiro gets angry}
@@ -1648,13 +1560,13 @@
 
 	CH3_OSHIRO_CHASE_END=
 		{anchor top}
-		[MADELINE right surprised]
+		{artiboom_textbox madeline}
 		{+mroshiro}, stop!
 
 		{trigger 0 Oshiro slams the roof below their feet and it begins shaking}
 		
-		[MADELINE right surprised]
-		I just wanted to help!
+		{artiboom_textbox madeline}
+		You're going to get both of us killed!
 
 	CH3_ENDING=
 		[OSHIRO left serious]
@@ -1672,8 +1584,8 @@
 # *** Chapter 04 ***
 
 	CH4_GRANNY_1=
-		[MADELINE left upset]
-		Oh great, you again.
+		{artiboom_textbox madeline}
+		{+thought}Oh great, you again.{+endthought}
 
 		{trigger 3 zoom in}
 		
@@ -1683,16 +1595,16 @@
 		I see you made it through the hotel,{n}did you meet {+mroshiro}?
 
 		{trigger 4 maddy turns around}
-		
-		[MADELINE left upset flip]
-		Oh, I met him alright.
-		He chased me out of there.
-		After I cleaned up a bunch of junk for him.
+
+		{+close}
+		{artiboom_textbox madeline}
+		...
+		{*}Waaw waw wa!{/*}{n}Waaw, wawa, awaw awaw wa!
 
 		{trigger 0 Start Laughing}
 		
 		[GRANNY right laugh]
-		Oh ho ho, that sounds like a fun morning.
+		Ah, there it is. 
 
 		{trigger 1 Stop Laughing}
 		
@@ -1703,14 +1615,18 @@
 
 		{trigger 5 maddy approaches}
 		
-		[MADELINE left angry]
-		You know what I think?
-		I think this {+mountain} drove both of you crazy.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}{*}This {+mountain} must've drove both of you crazy.{/*}{+endthought}
 
 		{trigger 2 Wait a beat}
 		
 		[GRANNY right normal]
-		Y'know, you're not the first person to say that.
+		What, do you think I'm crazy for being up here?
+
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Oh, don't tell me you can read minds.{+endthought}
 
 		{trigger 0 Start Laughing}
 		
@@ -1722,7 +1638,11 @@
 		
 		[GRANNY right normal]
 		The way I see it, the {+mountain} can't{n}bring out anything that isn't already in you.
-
+		
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}...{+endthought}
+		
 		{trigger 0 Start Laughing}
 		
 		[GRANNY right laugh]
@@ -1730,22 +1650,12 @@
 
 		{trigger 2 Wait a beat}
 		
-		[MADELINE left upset]
-		What are you even talking about?
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}...okay, I think I'm in the clear.{+endthought}
 
 		{trigger 1 Stop Laughing}
-		
-		[GRANNY right mock]
-		Oh, I'm just rambling like the old bat I am.
-
-		[GRANNY right normal]
-		Are you ready to give up?{n}I know a shortcut back to your car.
-
 		{trigger 6 Maddy walks past granny}
-		 
-		[MADELINE right upset flip]
-		Back off, lady.
-		I'm heading for the summit.
 		
 		[GRANNY left normal flip]
 		Sometimes it's hard to tell the difference{n}between stubbornness and determination, isn't it?
@@ -1757,58 +1667,26 @@
 		Good luck, and mind the wind!
 
 	CH4_GRANNY_2=
-		[MADELINE left upset]
-		You don't get many visitors up here, do you?
-
-		[GRANNY right normal]
-		No, I can't say I do.
-		I don't mind the solitude, though.
-
-		[MADELINE left distracted]
-		Sometimes I think I should live in solitude too.
-
-		[MADELINE left sad]
-		I really tried to get through to {+mroshiro}.{n}I wanted to help him.
-
-		[GRANNY right normal]
-		{+OSHIRO} needs to move on from that hotel.
-		But it's not going to happen on your schedule.
-		And it doesn't help that you've got something to prove.
-
-		[MADELINE left distracted]
-		...
-
-	CH4_GRANNY_3=
-		[MADELINE left sad]
-		Don't you get lonely in that little cabin?
-
-		[GRANNY right normal]
-		I have friends, dear.
-
-		[GRANNY right mock]
-		I may be crazy, but I'm not a hermit.
-
-		[MADELINE left distracted]
-		Sorry.
-		I didn't mean to assume.
-
 		[GRANNY right normal]
 		When I was younger I couldn't imagine{n}staying in one place for this long.
 		But then I found this {+MOUNTAIN}.
 		I knew right away that it would be my home.
 
-		[MADELINE left sad]
-		What's so special about it?
+		{+close}
+		{artiboom_textbox madeline}
+		..?
 
 		[GRANNY right normal]
 		The {+MOUNTAIN} shows you who you really are.
 		Whether you're ready for it or not.
 		It keeps me honest.
 
+	CH4_GRANNY_3=
+
 	CH4_GONDOLA=
 		{anchor top}
 		[UNKNOWN]
-		{+MADELINE}! Wait up!
+		Hey! Wait up!
 
 		{trigger 0 Enter Theo from above, he falls and lands on the ground face-down}
 		
@@ -1817,11 +1695,12 @@
 
 		{trigger 1 Check on Theo}
 		
-		[MADELINE right sad]
-		{+theo}! Are you alright?
+		{+close}
+		{artiboom_textbox madeline}
+		Wa! Waaw wawa?
 		
 		[THEO left nailedit]
-		Oof. Yeah. 
+		Oof. Don't worry, I'm fine. 
 		Just give me a sec.
 
 		{trigger 2 Theo gets up}
@@ -1829,11 +1708,9 @@
 		[THEO left excited]
 		A gondola! I've always wanted to ride one of these.
 		
-		[MADELINE right sad]
-		It looks pretty old, but maybe it still works.
-		
-		[MADELINE right distracted]
-		I don't see any other way to cross this chasm.
+		{+close}
+		{artiboom_textbox madeline}
+		...{0.3}{*}wwrrrrr{/*}...
 		
 		[THEO left excited]
 		Let's do it!
@@ -1851,66 +1728,52 @@
 		[THEO right thinking]
 		I was probably a gondola operator in a past life.
 
-		[MADELINE left distracted]
-		Do you think this thing is safe?
-
-		[THEO right normal]
-		I'm sure it's fine.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}I don't think this thing is safe...{+endthought}
 
 		{trigger 5 Wait a bit}
 
 		[THEO right normal]
 		How'd it shake out with {+oshiro}?
 
-		[MADELINE left sad]
-		You were right.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...{/*}
 
-		[MADELINE left distracted]
-		I shouldn't have tried to help him.
-
+		[THEO right normal]
+		That look tells me everything.
+		
 		[THEO right thinking]
 		I hate to say I told you so, but...
 
-		[MADELINE left upset]
-		Yeah yeah...
-		I should've listened to you.
-
 		[THEO right normal]
 		You didn't get hurt, that's what matters.
-		
-		{trigger 5 Wait a bit}
-		
-		[MADELINE left sad]
-		The air is so thin up here.
-
-		[MADELINE left distracted]
-		I can barely breathe.
 
 		{trigger 6 Wait for gondola to reach center}
 		
 		[THEO right excited flip]
 		Okay, if we don't get a selfie on{n}this thing we're going to regret it.
 
-		[MADELINE left distracted flip]
-		I can't even see the ground through the mist...
-		How high up are we?
-
-		[THEO right thinking flip]
-		Less panicking, more posing.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}...ugh, fine.{+endthought}
 
 		{trigger 7 Seflie, then gondola stalls out and badeline appears}
 		{anchor bottom}
 		
-		[MADELINE left surprised]
-		What was that?
+		{+close}
+		{artiboom_textbox madeline}
+		Wwawaa!?
 		
 		[THEO right wtf flip]
 		Huh. Looks like we stalled out.
 
 		{trigger 8 Madeline moves left}
 		
-		[MADELINE left sad]
-		This is really bad...
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Fuck, this is really bad...{+endthought}
 
 		[THEO right wtf]
 		Maybe if I...
@@ -1922,28 +1785,24 @@
 
 		{trigger 10 tentacles appear}
 		
-		[MADELINE left panic]
-		No, this really isn't good.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...{/*}
 
 		{trigger 11 tentacles grow}
 		
 		[THEO right worried]
-		{+MADELINE}, you cool?
-
-		[MADELINE left panic]
-		Yeah... I just...
+		Hey, you cool?
 
 		{trigger 12 Maddy can't breathe}
-
-		[MADELINE left panic]
-		No, I'm not cool.
-		I can't breathe.
 		
 		[THEO right serious]
+		Hey. It's okay.
 		You're having a panic attack.
 
-		[MADELINE left angry]
-		Why would you think it's a good{n}idea to ride this stupid thing?
+		{+close}
+		{artiboom_textbox madeline}
+		{*}{!}Waawa wa kkrawa?!{/!}{/*}
 
 		[THEO right thinking]
 		Come on, don't take this out on me.
@@ -1965,16 +1824,11 @@
 		[THEO left normal]
 		Feeling any better?
 		
-		[MADELINE right distracted flip]
-		I think so. Thanks for helping me calm down.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...{/*}
 
 		{trigger 15 Wait a bit}
-		
-		[MADELINE right sad flip]
-		How did you know we'd start moving again?
-		
-		[THEO left normal]
-		Oh, I totally thought we were done for.
 
 		{trigger 16 Theo takes out phone}
 		
@@ -2007,12 +1861,10 @@
 
 		{trigger 0 Maddy turns right}
 
-		[MADELINE left sad]
-		Uh, I don't know. 
-		It looks pretty dark in there.
-
-		[MADELINE left distracted]
-		More like a nightmare than an adventure.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}It looks pretty dark in there...)
+		(...does he have a light?{+endthought}
 
 		{trigger 1 Theo turns left}
 		
@@ -2023,50 +1875,52 @@
 
 		[THEO right excited flip]
 		This place must be ancient!
-
-		[MADELINE left sad]
-		{+THEO}, wait.
 		
 		[THEO right excited flip]
 		My {# FFFF4C}InstaPix{#} followers are gonna eat this up.
 
 		{trigger 2 Theo leaves}
 		
-		[MADELINE left distracted]
-		There's no way this ends well.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}...)
+		(...something feels off...{+endthought}
 
 	CH5_PHONE=
-		[MADELINE left sad]
-		Uh oh.
+		{+close}
+		{artiboom_textbox madeline}
+		{+thought}Oh,{0.3} shit.{+endthought}
 
 		{trigger 0 Maddy walks to phone, ducks to pick it up}
 
-		[MADELINE left distracted]
-		This is {+THEO}'s phone...
+		{+thought}This is {+THEO}'s phone...{+endthought}
 
 		{trigger 1 Maddy stands back up}
 
-		[MADELINE left determinedclosed]
-		Don't panic, {+MADELINE}.
-		Maybe it just fell out of his pocket.
-		I'll give it back to him when I find him.
+		{+thought}Okay, okay, it's alright. Don't panic.)
+		(Maybe it just.{0.1}.{0.1}.{0.3} fell out of his pocket.)
+		(I'll give it back to him when I find him.{+endthought}
 
 	CH5_THEO_MIRROR=
-		[MADELINE left normal]
-		{+theo}! There you are!
+		{+close}
+		{artiboom_textbox madeline}
+		{>>}{+thought}Wait...{+endthought}
 		
 		[THEO_MIRROR right excited]
-		{+MADELINE}! Hey!
+		Hey!
 		
 		[THEO_MIRROR right wtf]
 		...uh, why are you inside a mirror?
 		
-		[MADELINE left sad]
-		I'm pretty sure you're the one in the mirror.
-		What happened?
+		{+close}
+		{artiboom_textbox madeline}
+		Wawa, {~}waawa{/} wa?
+
+		[THEO_MIRROR right thinking]
+		Let me start from the beginning.
 		
 		[THEO_MIRROR right wtf]
-		Well, I was taking a nonchalant mirror selfie...
+		I was taking a nonchalant mirror selfie...
 		Y'know, {~}{# aaaaaa}"It's your boy {+THEO}{# aaaaaa} in this{n}ancient temple, no big deal."{#}{/~}
 
 		[THEO_MIRROR right thinking]
@@ -2074,10 +1928,6 @@
 		
 		[THEO_MIRROR right serious]
 		Next thing I know I wake up lying on the ground.
-		
-		[MADELINE left sad]
-		What does it look like over there?
-		How can I find you?
 		
 		[THEO_MIRROR right serious]
 		It's, uh... it's really dark and weird. There's...

@@ -115,7 +115,7 @@
 			<Frames path="slide" hair="-2,-2|-2,-2|-2,-2"/>
 			<Frames path="jumpSlow" hair="-1,2|-1,2|-1,3|-2,3"/>
 			<Frames path="jumpFast" hair="-1,2|-1,2|-1,3|-2,3"/>
-			<Frames path="tired" hair="-2,6|-2,-2|-2,6|-2,5"/>
+			<Frames path="tired" hair="-2,6|-2,6|-2,6|-2,5"/>
 			<Frames path="climb" hair="-2,3|-2,3|-2,3|-2,3|-3,3|-3,3|-2,4|-1,3:1|0,3:2"/>
 			<Frames path="duck" hair="x"/>
 			<Frames path="fallPose" hair="x|x|x|x|x|x|x|x|x"/>

@@ -1,7 +1,8 @@
 using Microsoft.Xna.Framework;
+using Celeste;
 using Celeste.Mod;
-using Celeste.Mod.artiboom.Entities;
 using Celeste.Mod.artiboom;
+using Celeste.Mod.artiboom.Entities;
 using Monocle;
 
 internal class FollowerManager
@@ -10,9 +11,17 @@ internal class FollowerManager
 
 	private bool wasActiveOnLastFrame;
 
+	private void IsPastMirror() {
+		AreaKey area = SaveData.Instance.CurrentSession.Area;
+		var sid = area.GetSID();
+		var side = area.Mode;
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {sid} side {side}");
+	}
+
 	public void Load()
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loaded Sofanthiel.");
+		IsPastMirror();
 		Everest.Events.Level.OnPause += onPause;
 		On.Celeste.Level.LoadLevel += onLoadLevel;
 		On.Celeste.Player.Update += onPlayerUpdate;
