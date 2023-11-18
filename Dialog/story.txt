@@ -1940,152 +1940,163 @@
 		Be careful, okay?
 
 	CH5_SHADOW_MADDY_0=
-		[MADELINE left angry]
-		{*}Hey!{/*} Where are we?
-		{!}What did you do to {+theo}?{/!}
+		{+close}
+		{artiboom_textbox madeline}
+		{*}You!{/*}
+		Where the fuck are we?
+		{!}{*}What did you do?{/*}{/!}
 		
-		[BADELINE right scoff]
-		You think {~}I'm{/~} doing this?
-		That's cute.
+		{+close}
+		{artiboom_textbox badeline}
+		Oh, do you think {~}I'm{/~} doing this?
+		That's precious.
 		
-		[BADELINE right upset]
-		Sweetheart, this is exactly what I warned you about.
+		Darling, this is {~}exactly{/~} what I warned you about.
 		
 	CH5_SHADOW_MADDY_1=
-		[MADELINE left angry]
-		Don't try to make this my fault.
+		{+close}
+		{artiboom_textbox madeline}
+		Stop fucking running away from me!
+		Explain what's going on. {*}Now!{/*}
 
-		[BADELINE right scoff]
+		{+close}
+		{artiboom_textbox badeline}
 		You still don't get it?
 
-		[BADELINE right upset]
 		The {+mountain} gave me this body.
 
-		[BADELINE right scoff]
-		But I'm not the only {*}creepy thing{/*} living{n}in that messed up head of yours.
+		But I'm not the only thing living{n}in that{0.3} fucked up head of yours.
 
-		[BADELINE right normal]
 		Don't like what you see?
 
-		[BADELINE right scoff]
 		{~}What a surprise.{/~}
 		
-		[MADELINE left angry]
-		Shut up!
+		{+close}
+		{artiboom_textbox madeline}
+		{0.3}{!}Shut up!{/!}
 
-		[BADELINE right angry]
+		{+close}
+		{artiboom_textbox badeline}
 		I {~}tried{/~} to stop you.
 
-		[BADELINE right yell]
-		Look into the mirror, all of this is yours.
-
-		[BADELINE right angry]
-		This temple only magnifies the {+mountain}'s power.
-
-		[BADELINE right upset]
-		You're in control here, not me.
+		Look into the mirror, what do you see?
+		All of this is yours.
+		This temple only magnifies it.
 
 	CH5_SHADOW_MADDY_2=
-		[MADELINE left sad]
-		I don't believe you.
+		{+close}
+		{artiboom_textbox madeline}
+		Why are you {!}doing{/!} this?!
 
-		[MADELINE left distracted]
-		If you're {+PART_OF_ME}, why do you want to hurt me?
-
-		[BADELINE right angry]
-		Poor {+MADELINE}, {~}always the victim.{/~}
-
-		[BADELINE right yell]
-		All I do is babysit you, and you hate me for it.
-
-		[BADELINE right angry]
-		You're unravelling and you know it. 
-
-		[MADELINE left angry]
-		If you care so much about protecting me,{n}why didn't you just {*}explain{/*} what was going on?
-		
-		[BADELINE right angry]
-		Like you would have listened?
-		You never gave me a chance.
+		{+close}
+		{artiboom_textbox badeline}
+		Aw, poor {+MADELINE}, {~}always the victim.{/~}
+		You know why this is happening.
+		It's not me.
 
 	CH5_SHADOW_MADDY_3=
-		[MADELINE left panic]
-		Please, just help me get out of here.
+		{+close}
+		{artiboom_textbox madeline}
+		Why won't you just fucking {*}help{/*} me?
 
-		[BADELINE right scoff]
-		{~}Now{/~} you want me to save you?
+		{+close}
+		{artiboom_textbox badeline}
+		Now you want me to {~}save{/~} you?
 
-		[MADELINE left panic]
-		Why are you doing this?
-		Just be on my side here.
-		Please.
+		{+close}
+		{artiboom_textbox madeline}
+		Just be on my side here for once.
 
-		[BADELINE right angry]
+		{+close}
+		{artiboom_textbox badeline}
 		Stop trying to make me feel like a monster.
 		You {~}really{/~} want to know why I won't help?
+		{0.3}
+		You {!}deserve{/!} this.
 
-		[BADELINE right yell]
-		Because you {*}deserve{/*} this.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...{/*}
 
-		[MADELINE left panic]
-		...
-
-		[BADELINE right angry]
+		{+close}
+		{artiboom_textbox badeline}
 		Still think you can {~}climb this {+MOUNTAIN}?{/~}
 
-		[MADELINE left angry]
+		{trigger 0 Badeline Leaves}
+		{artiboom_textbox madeline}
 		{*}SHUT UP!{/*}
 
-		{trigger 0 Badeline Leaves}
 
-		[MADELINE left angry]
-		{*}I don't need your help.{/*}
+		{*}I don't need your void damned help.{/*}
 		I'll do this alone.
 
 	CH5_REFLECTION=
-		[MADELINE right sad]
-		If this is all in my head, why is it so hostile?
-		
-		[MADELINE right distracted]
-		Those {*}things{/*} are hunting me.
-		I'm a trespasser in my own world.
-
 		{trigger 0 Madeline falls to knees}
-		
-		[MADELINE right panic]
+
+		{artiboom_textbox madeline}
+		Those {*}things{/*} are hunting me.
+		{0.8}
 		{+theo} is trapped somewhere in here because of me.
-		If I give in fully, maybe the temple will let him go...
+		{1.3}
+		{+theo}, damn you...
 
 		{trigger 1 Madeline stops panicking}
 
-		[MADELINE_MIRROR left determinedclosed flip]
-		...
+		{portrait none}
+		{#999a9a}...
 		Breathe.
 		
-		[MADELINE_MIRROR left determined flip]
-		This is all coming from inside me.
-		Get up, {+MADELINE}.
-
 		{trigger 2 Madeline gets up}
 
-		[MADELINE_MIRROR left determinedclosed flip]
+		Get up, {+MADELINE}{#999a9a}.
+		You can save {+theo}{#999a9a}.
 		Think of the feather.
-		You can save {+theo}.
 
 	CH5_SEE_THEO=
-		[MADELINE left normal]
-		{+theo}! Thank God I found you.
+		{+close}
+		{artiboom_textbox madeline}
+		{+theo}!
+		
+		[THEO right worried]
+		What-
+
+		[THEO right excited]
+		Oh my God!{0.3} You can talk!?
+
+		{+close}
+		{artiboom_textbox madeline}
+		{!}You can hear me?!{/!}
 		
 		[THEO right excited]
-		{+MADELINE}! Wow, am I happy to see you.
+		Yeah! I{0.3}.{0.3}[THEO right normal].{0.3}.
+		[THEO right serious]
+		...what's wrong?
 
 		{trigger 0 zoom in}
 
-		[MADELINE left sad]
-		Are you alright?
+		{+close}
+		{artiboom_textbox madeline}
+		What do you mean?
 		
 		[THEO right serious]
-		Yeah, I'm fine. 	
+		You look.{0.1}.{0.1}.{0.1} awful.
+
+		{+close}
+		{artiboom_textbox madeline}
+		{*}What!?{/*}	
+
+		[THEO right worried]
+		No, not like that!
+		{+close}
+
+		{3.8}
+
+		{+close}
+		{artiboom_textbox madeline}
+		Are you okay?
+
+		[THEO right normal]
+		Yeah.
 
 		[THEO right thinking]
 		I've just been stuck in this... crystal thing for ages.
@@ -2093,28 +2104,18 @@
 		[THEO right wtf]
 		Do you get the feeling that this place{n}knows you better than you know yourself?
 		
-		[MADELINE left distracted]
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...{/*}
 		Yeah...
-		I'm so embarrassed that you{n}have to see this side of me.
-
-		[MADELINE left upset]
-		I tried to stop you.
-		I hope that selfie was worth it.
-
-		[THEO right yolo]
-		Selfies are always worth it, dude.
-
-		[MADELINE left distracted]
-		I shouldn't be mad, this isn't your fault.
-
-		[MADELINE left sad]
-		I'm glad you're safe, but{n}you're trapped because of me.
-
 		{trigger 1 Madeline turns around}
 
-		[MADELINE left distracted flip]
-		And now this temple is showing{n}you what I'm really like.
-		I'm horrible...
+		I didn't want you to{n}have to see this side of me.
+
+		You're trapped because of me.
+
+		And now this{0.4} temple is showing{n}you what I'm {~}really{/~} like.
+		I'm a monster...
 
 		{trigger 2 wait a bit}
 
@@ -2126,8 +2127,9 @@
 
 		{trigger 3 Madeline turns back, zoom out, room gets brighter}
 
-		[MADELINE left sad]
-		What do you mean?
+		{+close}
+		{artiboom_textbox madeline}
+		{*}How could it not be!?{/*}
 
 		[THEO right wtf]
 		You didn't trap me in this crystal.
@@ -2145,78 +2147,86 @@
 
 		{trigger 0 zoom back in}
 
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		...
-		
-		[MADELINE left distracted]
-		Okay.
-
-		[MADELINE left normal]
-		I've got your back.
+		Fine.
 		I'll bust you out of that thing,{n}then we'll escape together.
-
-		[MADELINE left sad]
 		Just as soon as I find my way around to you...
 		
 		[THEO right serious]
-		{+MADELINE}, you're my only hope right now.
+		You're my only hope right now.
 		I believe in you, for real.
 
-		[MADELINE left distracted]
-		I hope that's not a mistake.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}I...{/*}
+		I-{0.3} I hope that's not a mistake.
 
 	CH5_SEE_THEO_B=
-		[MADELINE left distracted]
-		If the temple is showing me who I really am...
-
-		[MADELINE left sad]
-		...then I deserve this, don't I?
+		{artiboom_textbox madeline}
+		I deserve this, don't I?
 
 		[THEO right wtf]
 		{+ALEX}, you have to stop being so hard on yourself.
 
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		...
 		Who's {+ALEX}?
 
 		[THEO right thinking]
-		Sorry, I meant {+MADELINE}.
+		Sorry, someone else.
 
 		[THEO right wtf]
 		But my comment still stands.
 		No one deserves this, least of all you.
 
-		[MADELINE left sad]
-		Yeah... you're right.
-
-		[MADELINE left determinedclosed]
-		Okay, I can do this.
+		{+close}
+		{artiboom_textbox madeline}
+		{*}...are you sure?{/*}
 
 	CH5_FOUND_THEO=
-		[MADELINE left normal]
-		{+theo}! I finally found you.
+		{+close}
+		{artiboom_textbox madeline}
+		{+theo}!
+		Oh, thank the voids.
 		
 		[THEO right excited]
 		I knew you'd make it!
 
-		[MADELINE left sad]
-		It wasn't easy...
-
-		[MADELINE left distracted]
-		Are those monsters really coming from inside me?
-		
-		[THEO right thinking]
-		{+MADELINE}, that's a valid question.
-		I'll be happy to discuss how the{n}monsters relate to your inner self...
-
 		[THEO right wtf]
-		But right now, {~}my{/~} inner self is real{n}sick of being stuck in this crystal.
-		
-		[MADELINE left sad]
-		Oh, right.
+		...wait, {!}what did you say!?{/!}
 
-		[MADELINE left normal]
-		Don't worry, I'll break you out!
+		{+close}
+		{artiboom_textbox madeline}
+		Uhh...
+
+		{+close}
+		{0.3}
+
+		[THEO right nailedit]
+		Nevermind.
+
+		[THEO right thinking]
+		Those monsters are {!}vicious!{/!}
+		
+		{+close}
+		{artiboom_textbox madeline}
+		Makes me wish I had a spear.
+		...or any bombs left.
+
+		[THEO right worried]
+		...
+		[THEO right wtf]
+		You're quite a fighter, huh?
+		[THEO right normal]
+		Think you could break me out of this crystal?
+		
+		{+close}
+		{artiboom_textbox madeline}
+		Fuck, right.
+		Let me try...
 
 		{trigger 0 Attempt to break the crystal, but it just falls to the ground}
 		
@@ -2226,8 +2236,9 @@
 		[THEO right wtf]
 		This crystal is, like, an expression of my{n}negative psychic energy... or whatever.
 
-		[MADELINE left sad]
-		Yeah, but how do we break it?
+		{+close}
+		{artiboom_textbox madeline}
+		Oh, isn't that just {~}lovely.{/~}
 
 		[THEO right serious]
 		If I knew {~}why{/~} I trapped myself in{n}this thing, maybe I could bust out.
@@ -2241,9 +2252,11 @@
 		[THEO right serious]
 		I hate to say it, but you might have to-
 		
-		[MADELINE left angry]
+		{+close}
+		{artiboom_textbox madeline}
 		{+theo}, don't even think about that!
-		I am {*}not{/*} leaving you behind!
+		{*}I'm not leaving {#97aedf}you{#}...{/*}
+		I'm {*}not{/*} leaving {#FF9523}you{#} behind!
 		
 		[THEO right worried]
 		{~}Hell no{/~}, you better not leave me in this place!
@@ -2251,15 +2264,14 @@
 		[THEO right thinking]
 		I was gonna say you might have to carry me.
 		
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		Oh.
-		
-		[MADELINE left normal]
 		Yeah, I can do that.
 
 	CH5_THEO_SAVING_LIFT=
 		[THEO left thinking]
-		Dang girl, you can lift.
+		Dang, you can lift.
 
 	CH5_THEO_SAVING_A=
 		[THEO left excited]
@@ -2295,7 +2307,7 @@
 
 	CH5_THEO_SAVING_E=
 		[THEO left worried]
-		Just a bit further. You can do this {+MADELINE}.
+		Just a bit further. You can do this.
 
 	CH5_BSIDE_THEO_A=
 		[THEO left excited]
@@ -2312,7 +2324,8 @@
 # *** Chapter 06 ***
 
 	CH6_THEO_INTRO=
-		[MADELINE right normal]
+		{+close}
+		{artiboom_textbox madeline}
 		{+theo}, you're awake!
 
 		[THEO left thinking]
@@ -2321,11 +2334,9 @@
 		[THEO left wtf]
 		I had a {~}messed up{/~} nightmare.
 		
-		[MADELINE right distracted]
-		Yeah, about that...
-
-		[THEO left wtf]
-		Wait...
+		{+close}
+		{artiboom_textbox madeline}
+		Oh, no, that wasn't a nightmare.
 
 		[THEO left thinking]
 		Oh, yep, it's all coming back to me now.
@@ -2336,11 +2347,11 @@
 		[THEO left serious]
 		Thanks for getting us out of there.
 
-		[MADELINE right distracted]
-		I'm glad we were in it together.
-
-		[MADELINE right sad]
-		I don't know if I could've done that alone.
+		{+close}
+		{artiboom_textbox madeline}
+		Not like I had a choice.
+		...
+		...no problem.
 
 	CH6_THEO_ASK_OUTFOR=
 		[THEO left thinking]
@@ -2349,17 +2360,21 @@
 		[THEO left thinking]
 		How long was I out for?
 
-		[MADELINE right sad]
-		It must've been a few hours...
+		{+close}
+		{artiboom_textbox madeline}
+		Hmm..
+		maybe about six or seven microcycles?
 
-		[THEO left serious]
-		Man, what a ride.
+		[THEO left wtf]
+		...
+		What?
 
-		[MADELINE right upset]
-		Tell me about it.
-
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
 		Are you okay?
+
+		[THEO left wtf]
+		...
 
 		[THEO left thinking]
 		I mean, aside from the existential crisis?
@@ -2372,33 +2387,36 @@
 		What's really going on here?
 	CH6_THEO_SAY_EXPLAIN=
 		[THEO left wtf]
-		Clearly this isn't a normal {+MOUNTAIN}.
+		Clearly you're not from here.
 		What's really going on here?
 
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
 		I should've told you sooner.
+		I'm not from this, uhh...
+		whatever this is.
 
-		[MADELINE right distracted]
-		Back at the old ruins, a...{n}{+PART_OF_ME} escaped from a mirror.
-		A part I'm not very proud of.
+		[THEO left normal]
+		Yeah, that sounds about right.
 
-		[MADELINE right upset]
-		I swear I dreamt it.
+		{+close}
+		{3.4}
+		
+		{artiboom_textbox madeline}
+		Back at the ruins...{n}{+ST_BAD}a part of me{+END_BAD} escaped from a mirror.
+		A part I'm not very...{0.8} proud{0.5} of.
+
+		I {>>}swear{/>>}{0.5} I dreamt it.
 
 		[THEO left serious]
 		You think the {+MOUNTAIN} made her real?
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		Yeah.
 		She's been haunting me the whole time.
-
-		[MADELINE right sad]
 		She lashed out at {+MROSHIRO}.
-
-		[MADELINE right distracted]
 		I think she was the reason the gondola stalled out.
-
-		[MADELINE right sad]
 		And she was there, in the temple.
 
 		[THEO left worried]
@@ -2406,32 +2424,26 @@
 		Why didn't you say something?
 		I wouldn't have gone into that temple{n}if I knew what this {+MOUNTAIN} was capable of...
 
-		[MADELINE right upset]		
-		I tried to stop you.	
+		{+close}
+		{artiboom_textbox madeline}		
+		I {!}couldn't{/!}, remember?
 		
-		[THEO left wtf]
-		You could have mentioned that your{n}{+ST_BAD}demon doppelgänger{+END_BAD} was on the loose.
+		[THEO left thinking]
+		Right.
 			
-		[MADELINE right upset]
-		Come on, {+THEO}.
-		You know how crazy this sounds.
-
-		[MADELINE right distracted]
-		I didn't even believe myself.
+		{+close}
+		{artiboom_textbox madeline}
+		She's just a bitch.
 
 		[THEO left wtf]
 		Okay, okay.
 		I understand.
 
 		[THEO left thinking]
-		Next time just {0.3}talk to me, though.
+		Next time, just {0.3}talk to me.
 		I promise I'll believe you.
 
-		[MADELINE right distracted]
-		Okay.
-
 	CH6_THEO_ASK_THANKYOU=
-		[MADELINE right distracted]
 		Thank you, for believing in me back there.
 	CH6_THEO_SAY_THANKYOU=
 		[MADELINE right distracted]

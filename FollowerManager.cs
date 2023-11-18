@@ -24,7 +24,7 @@ internal class FollowerManager
 		var chapter = area.ChapterIndex;
 		Logger.Log(nameof(ArtiboomModule), $"In chapter {chapter}");
 		if (chapter != 5) {
-			return chapter < 5;
+			return chapter > 5;
 		}
 		var side = area.Mode;
 		Logger.Log(nameof(ArtiboomModule), $"In side {side}");
