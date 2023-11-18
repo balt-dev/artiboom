@@ -23,7 +23,6 @@ internal class FollowerManager
 	public void Load()
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loaded Sofanthiel.");
-		IsPastMirror();
 		Everest.Events.Level.OnPause += onPause;
 		On.Celeste.Level.LoadLevel += onLoadLevel;
 		On.Celeste.Player.Update += onPlayerUpdate;
@@ -37,10 +36,11 @@ internal class FollowerManager
 		On.Celeste.Player.Update -= onPlayerUpdate;
 	}
 
-	private void onLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Celeste.Level self, Celeste.Player.IntroTypes playerIntro, bool isFromLoader)
+	private void onLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
 	{
 		orig.Invoke(self, playerIntro, isFromLoader);
-		Celeste.Player entity = self.Tracker.GetEntity<Celeste.Player>();
+		IsPastMirror();
+		Player entity = self.Tracker.GetEntity<Player>();
 		if (ArtiboomModule.Settings.EnableFollower && entity != null)
 		{
 			follower = new Sofanthiel(entity.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)entity.Facing, -ArtiboomModule.Settings.FollowY - 5f));
