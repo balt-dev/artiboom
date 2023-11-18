@@ -12,7 +12,8 @@ internal class FollowerManager
 	private bool wasActiveOnLastFrame;
 
 	private void IsPastMirror() {
-		AreaKey area = SaveData.Instance.CurrentSession.Area;
+		var session = SaveData.Instance.CurrentSession;
+		var area = session.Area;
 		var sid = area.GetSID();
 		var side = area.Mode;
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {sid} side {side}");
