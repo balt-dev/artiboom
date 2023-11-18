@@ -72,6 +72,7 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
             On.Celeste.Player.CreateTrail += ModNoTrail;
             IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
+            IL.Celeste.CS06_Campfire.Question.ctor += ModQuestionFallback;
 
             On.Celeste.Player.ctor += AddStates;
             hook_Textbox_RunRoutine = 
@@ -198,7 +199,6 @@ namespace Celeste.Mod.artiboom
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Emitted :3");
         }
-
 
         public override void Unload() {
             // TODO: unapply any hooks applied in Load()

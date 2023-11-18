@@ -2351,7 +2351,7 @@
 		{artiboom_textbox madeline}
 		Not like I had a choice.
 		...
-		...no problem.
+		{#999a9a}...no problem.{#}
 
 	CH6_THEO_ASK_OUTFOR=
 		[THEO left thinking]
@@ -2368,7 +2368,8 @@
 		[THEO left wtf]
 		...
 		What?
-
+		
+		{3}		
 		{+close}
 		{artiboom_textbox madeline}
 		Are you okay?
@@ -2444,6 +2445,7 @@
 		I promise I'll believe you.
 
 	CH6_THEO_ASK_THANKYOU=
+		{artiboom_textbox madeline}
 		Thank you, for believing in me back there.
 	CH6_THEO_SAY_THANKYOU=
 		[MADELINE right distracted]
