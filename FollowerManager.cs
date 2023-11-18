@@ -4,6 +4,7 @@ using Celeste.Mod;
 using Celeste.Mod.artiboom;
 using Celeste.Mod.artiboom.Entities;
 using Monocle;
+using System.Linq;
 
 internal class FollowerManager
 {
@@ -21,8 +22,8 @@ internal class FollowerManager
 		}
 		var chapter = area.ChapterIndex;
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {chapter}");
-		if (chapter < 5) {
-			return false;
+		if (chapter != 5) {
+			return chapter < 5;
 		}
 		var side = area.Mode;
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In side {side}");
@@ -31,7 +32,7 @@ internal class FollowerManager
         return side switch {
             AreaMode.CSide => false,
             AreaMode.Normal => false,
-            AreaMode.BSide => false,
+            AreaMode.BSide => room[0] == 'c' || room[0] == 'd',
             _ => true,
         };
     }
