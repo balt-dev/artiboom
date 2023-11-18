@@ -18,7 +18,8 @@ internal class FollowerManager
 			var campaign = area.GetLevelSet();
 			var chapter = area.ChapterIndex;
 			var side = area.Mode;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side}\n\n\n");
+			var room = area.ID;
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
 		}
 	}
 
@@ -47,7 +48,6 @@ internal class FollowerManager
 	{
 		orig.Invoke(self);
 		if (Engine.Scene is Level level) {
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{wasActiveOnLastFrame} {ArtiboomModule.Settings.EnableFollower} {level.Tracker.CountEntities<Sofanthiel>()}");
 			if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 			{
 				IsPastMirror();
