@@ -35,7 +35,6 @@ namespace Celeste.Mod.artiboom {
                     switch(s){
                         case "artiboom_textbox":
                             nodes.Add(new TextboxChanger(vals.FirstOrDefault() ?? "default"));
-                            Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{nodes}");
                             break;
                     }
                 });

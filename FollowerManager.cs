@@ -27,6 +27,7 @@ internal class FollowerManager
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loaded Sofanthiel.");
 		Everest.Events.Level.OnPause += OnPause;
 		On.Celeste.Level.LoadLevel += OnLoadLevel;
+		On.Celeste.Level.UnloadLevel += OnUnloadLevel;
 		On.Celeste.Player.Update += OnPlayerUpdate;
 	}
 
@@ -48,6 +49,11 @@ internal class FollowerManager
 			self.Add(follower);
 		}
 		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
+	}
+
+	private void OnUnloadLevel(On.Celeste.Level.orig_UnloadLevel orig, Level self) {
+		orig.Invoke(self);
+		wasActiveOnLastFrame = false;
 	}
 
 	public void OnPlayerUpdate(On.Celeste.Player.orig_Update orig, Player self)
