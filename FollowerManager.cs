@@ -12,13 +12,20 @@ internal class FollowerManager
 	private bool wasActiveOnLastFrame = false;
 	private bool pastMirror = false;
 
-	private void CheckPastMirror(Level level) {
+	private bool CheckPastMirror(Level level) {
 		var area = level.Session.Area;
 		var campaign = area.GetLevelSet();
+		if (campaign != "Celeste") {
+			return true;
+		}
 		var chapter = area.ChapterIndex;
+		if (chapter < 5) {
+			return false;
+		}
 		var side = area.Mode;
 		var room = level.Session.LevelData.Name;
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
+		return true;
 	}
 
 	public void Load()
