@@ -25,20 +25,20 @@ internal class FollowerManager
 	public void Load()
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loaded Sofanthiel.");
-		Everest.Events.Level.OnPause += onPause;
-		On.Celeste.Level.LoadLevel += onLoadLevel;
-		On.Celeste.Player.Update += onPlayerUpdate;
+		Everest.Events.Level.OnPause += OnPause;
+		On.Celeste.Level.LoadLevel += OnLoadLevel;
+		On.Celeste.Player.Update += OnPlayerUpdate;
 	}
 
-	public void unLoad()
+	public void UnLoad()
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Unloaded Sofanthiel.");
-		Everest.Events.Level.OnPause += onPause;
-		On.Celeste.Level.LoadLevel -= onLoadLevel;
-		On.Celeste.Player.Update -= onPlayerUpdate;
+		Everest.Events.Level.OnPause += OnPause;
+		On.Celeste.Level.LoadLevel -= OnLoadLevel;
+		On.Celeste.Player.Update -= OnPlayerUpdate;
 	}
 
-	private void onLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
+	private void OnLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
 	{
 		orig.Invoke(self, playerIntro, isFromLoader);
 		Player entity = self.Tracker.GetEntity<Player>();
@@ -50,7 +50,7 @@ internal class FollowerManager
 		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 	}
 
-	public void onPlayerUpdate(On.Celeste.Player.orig_Update orig, Player self)
+	public void OnPlayerUpdate(On.Celeste.Player.orig_Update orig, Player self)
 	{
 		orig.Invoke(self);
 		Level level = Engine.Scene as Level;
@@ -77,11 +77,8 @@ internal class FollowerManager
 		}
 	}
 
-	public void onPause(Celeste.Level level, int startIndex, bool minimal, bool quickReset)
+	public void OnPause(Level level, int startIndex, bool minimal, bool quickReset)
 	{
-		if (follower != null)
-		{
-			follower.UpdateSettings();
-		}
+		follower?.UpdateSettings();
 	}
 }

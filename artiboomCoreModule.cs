@@ -217,7 +217,7 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_set_State.Dispose();
             hook_Player_DashCoroutine.Dispose();
             hook_Textbox_RunRoutine.Dispose();
-            followerManager.unLoad();
+            followerManager.UnLoad();
         }
     }
 }
