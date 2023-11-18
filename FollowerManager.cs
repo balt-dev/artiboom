@@ -53,9 +53,9 @@ internal class FollowerManager
 	{
 		orig.Invoke(self);
 		Level level = Engine.Scene as Level;
-		//IsPastMirror();
 		if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 		{
+			IsPastMirror();
 			follower = new Sofanthiel(self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f));
 			level.Add(follower);
 			follower.Position = self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f);
