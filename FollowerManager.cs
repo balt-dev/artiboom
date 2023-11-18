@@ -31,7 +31,7 @@ internal class FollowerManager
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In room {room}");
         return side switch {
             AreaMode.CSide => false,
-            AreaMode.Normal => false,
+            AreaMode.Normal => room[0] == 'c' || room[0] == 'd' || room[0] == 'e',
             AreaMode.BSide => room[0] == 'c' || room[0] == 'd',
             _ => true,
         };
@@ -60,7 +60,10 @@ internal class FollowerManager
 		orig.Invoke(self, playerIntro, isFromLoader);
 		Player entity = self.Tracker.GetEntity<Player>();
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loading level...");
-		CheckPastMirror(self);
+		pastMirror = CheckPastMirror(self);
+		if (pastMirror) {
+			Logger.Log(nameof(ArtiboomModule), "Past mirror!");
+		}
 		if (ArtiboomModule.Settings.EnableFollower && entity != null)
 		{
 			follower = new Sofanthiel(entity.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)entity.Facing, -ArtiboomModule.Settings.FollowY - 5f));
