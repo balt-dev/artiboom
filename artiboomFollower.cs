@@ -94,7 +94,7 @@ namespace Celeste.Mod.artiboom.Entities
             {
                 Vector2 position = Position;
                 Vector2 playerPosition = player.Position + new Vector2(0, -followY - 5f);
-                Position = position + (playerPosition - position) * (1f - (float)Math.Pow(0.1, Engine.DeltaTime));
+                Position = position + (playerPosition - position) * (1f - (float)Math.Pow(0.0001, Engine.DeltaTime));
             }
         }
 
@@ -129,7 +129,7 @@ namespace Celeste.Mod.artiboom.Entities
 
             followY = ArtiboomModule.Settings.FollowY * 3;
 
-            Depth = -10;
+            Depth = 10;
             Add(bloom = new BloomPoint(0.3f, 8f));
             Add(sprite);
 
