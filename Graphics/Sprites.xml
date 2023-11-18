@@ -4,6 +4,11 @@
 		<Loop id="idleLoop" path="normal" delay="0.15" frames="0"/>
 	</sofanthiel>
 
+	<communication_mark path="communication_mark/idle/" start="idleLoop">
+		<Center/>
+		<Loop id="idleLoop" path="normal" delay="0.15" frames="0"/>
+	</communication_mark>
+
 	<player path="playerSkin/Characters/player/" start="idle">
 		<Origin x="16" y="32" />
 
