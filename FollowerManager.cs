@@ -12,16 +12,13 @@ internal class FollowerManager
 	private bool wasActiveOnLastFrame = false;
 	private bool pastMirror = false;
 
-	private void CheckPastMirror() {
-		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nAttempting to load\n\n\n");
-		if (Engine.Scene is Level level) {
-			var area = level.Session.Area;
-			var campaign = area.GetLevelSet();
-			var chapter = area.ChapterIndex;
-			var side = area.Mode;
-			var room = level.Session.LevelData.Name;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
-		}
+	private void CheckPastMirror(Level level) {
+		var area = level.Session.Area;
+		var campaign = area.GetLevelSet();
+		var chapter = area.ChapterIndex;
+		var side = area.Mode;
+		var room = level.Session.LevelData.Name;
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
 	}
 
 	public void Load()
@@ -47,7 +44,7 @@ internal class FollowerManager
 		orig.Invoke(self, playerIntro, isFromLoader);
 		Player entity = self.Tracker.GetEntity<Player>();
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loading level...");
-		CheckPastMirror();
+		CheckPastMirror(self);
 		if (ArtiboomModule.Settings.EnableFollower && entity != null)
 		{
 			follower = new Sofanthiel(entity.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)entity.Facing, -ArtiboomModule.Settings.FollowY - 5f));
