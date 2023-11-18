@@ -40,7 +40,6 @@ internal class FollowerManager
 	private void onLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
 	{
 		orig.Invoke(self, playerIntro, isFromLoader);
-		IsPastMirror();
 		Player entity = self.Tracker.GetEntity<Player>();
 		if (ArtiboomModule.Settings.EnableFollower && entity != null)
 		{
@@ -50,10 +49,11 @@ internal class FollowerManager
 		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 	}
 
-	public void onPlayerUpdate(On.Celeste.Player.orig_Update orig, Celeste.Player self)
+	public void onPlayerUpdate(On.Celeste.Player.orig_Update orig, Player self)
 	{
 		orig.Invoke(self);
-		Celeste.Level level = Engine.Scene as Celeste.Level;
+		Level level = Engine.Scene as Level;
+		IsPastMirror();
 		if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 		{
 			follower = new Sofanthiel(self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f));
@@ -69,7 +69,7 @@ internal class FollowerManager
 
 	public static void RefreshSettings()
 	{
-		Celeste.Level level = Engine.Scene as Celeste.Level;
+		Level level = Engine.Scene as Level;
 		foreach (Sofanthiel item in level.Entities.FindAll<Sofanthiel>())
 		{
 			item.UpdateSettings();
