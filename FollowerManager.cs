@@ -18,8 +18,8 @@ internal class FollowerManager
 			var campaign = area.GetLevelSet();
 			var chapter = area.ChapterIndex;
 			var side = area.Mode;
-			var room = area.ID;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room # {room}\n\n\n");
+			var room = level.Session.LevelData.Name;
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
 		}
 	}
 
@@ -27,6 +27,7 @@ internal class FollowerManager
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loaded Sofanthiel.");
 		Everest.Events.Level.OnPause += OnPause;
+		On.Celeste.Level.LoadLevel += OnLoadLevel;
 		On.Celeste.Level.UnloadLevel += OnUnloadLevel;
 		On.Celeste.Player.Update += OnPlayerUpdate;
 	}
@@ -35,8 +36,22 @@ internal class FollowerManager
 	{
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Unloaded Sofanthiel.");
 		Everest.Events.Level.OnPause -= OnPause;
+		On.Celeste.Level.LoadLevel -= OnLoadLevel;
 		On.Celeste.Level.UnloadLevel -= OnUnloadLevel;
 		On.Celeste.Player.Update -= OnPlayerUpdate;
+	}
+
+	private void OnLoadLevel(On.Celeste.Level.orig_LoadLevel orig, Level self, Player.IntroTypes playerIntro, bool isFromLoader)
+	{
+		orig.Invoke(self, playerIntro, isFromLoader);
+		Player entity = self.Tracker.GetEntity<Player>();
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Loading level...");
+		if (ArtiboomModule.Settings.EnableFollower && entity != null)
+		{
+			follower = new Sofanthiel(entity.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)entity.Facing, -ArtiboomModule.Settings.FollowY - 5f));
+			self.Add(follower);
+		}
+		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 	}
 
 	private void OnUnloadLevel(On.Celeste.Level.orig_UnloadLevel orig, Level self) {
@@ -50,7 +65,6 @@ internal class FollowerManager
 		if (Engine.Scene is Level level) {
 			if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 			{
-				IsPastMirror();
 				follower = new Sofanthiel(self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f));
 				level.Add(follower);
 				follower.Position = self.Center + new Vector2(ArtiboomModule.Settings.FollowX * (int)self.Facing, -ArtiboomModule.Settings.FollowY - 5f);
@@ -59,6 +73,7 @@ internal class FollowerManager
 			{
 				follower.Disable();
 			}
+			IsPastMirror();
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 		} else {
 			wasActiveOnLastFrame = false;
