@@ -47,6 +47,7 @@ internal class FollowerManager
 	{
 		orig.Invoke(self);
 		if (Engine.Scene is Level level) {
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"{wasActiveOnLastFrame} {ArtiboomModule.Settings.EnableFollower} {level.Tracker.CountEntities<Sofanthiel>()}");
 			if (!wasActiveOnLastFrame && ArtiboomModule.Settings.EnableFollower && level.Tracker.CountEntities<Sofanthiel>() == 0)
 			{
 				IsPastMirror();
@@ -59,8 +60,6 @@ internal class FollowerManager
 				follower.Disable();
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
-		} else {
-			wasActiveOnLastFrame = false;
 		}
 	}
 
