@@ -15,16 +15,19 @@ internal class FollowerManager
 	private bool CheckPastMirror(Level level) {
 		var area = level.Session.Area;
 		var campaign = area.GetLevelSet();
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In campaign {campaign}");
 		if (campaign != "Celeste") {
 			return true;
 		}
 		var chapter = area.ChapterIndex;
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {chapter}");
 		if (chapter < 5) {
 			return false;
 		}
 		var side = area.Mode;
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In side {side}");
 		var room = level.Session.LevelData.Name;
-		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In room {room}");
 		return true;
 	}
 
