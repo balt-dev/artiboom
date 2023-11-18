@@ -15,9 +15,10 @@ internal class FollowerManager
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nAttempting to load\n\n\n");
 		if (Engine.Scene is Level level) {
 			var area = level.Session.Area;
-			var sid = area.ChapterIndex;
+			var campaign = area.GetLevelSet();
+			var chapter = area.ChapterIndex;
 			var side = area.Mode;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn chapter {sid} side {side}\n\n\n");
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side}\n\n\n");
 		}
 	}
 
