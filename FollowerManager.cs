@@ -28,8 +28,13 @@ internal class FollowerManager
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In side {side}");
 		var room = level.Session.LevelData.Name;
 		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In room {room}");
-		return true;
-	}
+        return side switch {
+            AreaMode.CSide => false,
+            AreaMode.Normal => false,
+            AreaMode.BSide => false,
+            _ => true,
+        };
+    }
 
 	public void Load()
 	{
