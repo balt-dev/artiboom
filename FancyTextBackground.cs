@@ -107,7 +107,7 @@ namespace Celeste.Mod.artiboom {
             cursor.Emit(OpCodes.Ldloc_3);
             cursor.EmitDelegate((object self, FancyText.Node maybe) => {
                 if (maybe is TextboxChanger node) {
-                    Logger.Log(nameof(ArtiboomModule), $"Setting textbox to {node.path}");
+                    Logger.Log(nameof(ArtiboomModule), $"Setting textbox to {node.path} and clearing portrait");
                     var selfData = DynamicData.For(self);
                     selfData.Set("Textbox", "textbox/" + node.path + "_ask");
                     var portrait = GFX.PortraitsSpriteBank.Create("empty");
