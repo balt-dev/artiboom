@@ -12,11 +12,12 @@ internal class FollowerManager
 	private bool wasActiveOnLastFrame;
 
 	private void IsPastMirror() {
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nAttempting to load\n\n\n");
 		if (Engine.Scene is Level level) {
 			var area = level.Session.Area;
 			var sid = area.ChapterIndex;
 			var side = area.Mode;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {sid} side {side}");
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn chapter {sid} side {side}\n\n\n");
 		}
 	}
 
