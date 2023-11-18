@@ -2355,7 +2355,7 @@
 
 	CH6_THEO_ASK_OUTFOR=
 		# [THEO left thinking]
-		{artiboom_textbox madeline}
+		[empty left normal]
 		How long was I out for?
 	CH6_THEO_SAY_OUTFOR=
 		[THEO left thinking]
