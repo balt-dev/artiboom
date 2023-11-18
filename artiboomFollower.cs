@@ -94,7 +94,7 @@ namespace Celeste.Mod.artiboom.Entities
             {
                 Vector2 position = Position;
                 Vector2 playerPosition = player.Position + new Vector2(0, -followY - 5f);
-                Position = position + (playerPosition - position) * (1f - (float)Math.Pow(0.0001, Engine.DeltaTime));
+                Position = position + (playerPosition - position) * (1f - (float)Math.Pow(0.000001, Engine.DeltaTime));
             }
         }
 
