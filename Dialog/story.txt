@@ -2354,7 +2354,8 @@
 		{#999a9a}...no problem.{#}
 
 	CH6_THEO_ASK_OUTFOR=
-		[THEO left thinking]
+		# [THEO left thinking]
+		{artiboom_textbox madeline}
 		How long was I out for?
 	CH6_THEO_SAY_OUTFOR=
 		[THEO left thinking]
