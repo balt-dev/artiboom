@@ -60,6 +60,8 @@ internal class FollowerManager
 				follower.Disable();
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
+		} else {
+			wasActiveOnLastFrame = false;
 		}
 	}
 
