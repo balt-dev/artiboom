@@ -2446,7 +2446,7 @@
 		I promise I'll believe you.
 
 	CH6_THEO_ASK_THANKYOU=
-		{artiboom_textbox madeline}
+		[empty left normal]
 		Thank you, for believing in me back there.
 	CH6_THEO_SAY_THANKYOU=
 		[MADELINE right distracted]
