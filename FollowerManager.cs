@@ -14,7 +14,7 @@ internal class FollowerManager
 	private void IsPastMirror() {
 		if (Engine.Scene is Level level) {
 			var area = level.Session.Area;
-			var sid = area.GetSID();
+			var sid = area.ChapterIndex;
 			var side = area.Mode;
 			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"In chapter {sid} side {side}");
 		}
