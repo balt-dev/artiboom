@@ -86,34 +86,5 @@ namespace Celeste.Mod.artiboom {
             });
             cursor.Emit(OpCodes.Brtrue, label);
         }
-    
-        public static void ModQuestionFallback(ILContext il) {
-            ILCursor cursor = new(il);
-            if (!(
-                cursor.TryGotoNext(
-                    MoveType.Before,
-                    instr => instr.MatchIsinst<FancyText.Portrait>()
-                ) &&
-                cursor.TryGotoPrev(
-                    MoveType.After,
-                    instr => instr.MatchStloc(3)
-                )
-            )) {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find constructor logic in campfire questions. This WILL cause a crash in that scene!");
-                return;
-            }
-            cursor.MoveAfterLabels();
-            cursor.Emit(OpCodes.Ldarg_0);
-            cursor.Emit(OpCodes.Ldloc_3);
-            cursor.EmitDelegate((object self, FancyText.Node maybe) => {
-                if (maybe is TextboxChanger node) {
-                    Logger.Log(nameof(ArtiboomModule), $"Setting textbox to {node.path} and clearing portrait");
-                    var selfData = DynamicData.For(self);
-                    selfData.Set("Textbox", "textbox/" + node.path + "_ask");
-                    var portrait = GFX.PortraitsSpriteBank.Create("portrait_empty");
-                    selfData.Set("Portrait", portrait);
-                }
-            });
-        }
     }
 }
