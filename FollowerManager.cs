@@ -56,6 +56,7 @@ internal class FollowerManager
 
 	private void OnUnloadLevel(On.Celeste.Level.orig_UnloadLevel orig, Level self) {
 		orig.Invoke(self);
+		Logger.Log(LogLevel.Info, nameof(ArtiboomModule), "Unloading level...");
 		wasActiveOnLastFrame = false;
 	}
 
