@@ -19,7 +19,7 @@ internal class FollowerManager
 			var chapter = area.ChapterIndex;
 			var side = area.Mode;
 			var room = area.ID;
-			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room {room}\n\n\n");
+			Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"\n\n\nIn campaign {campaign} chapter {chapter} side {side} room # {room}\n\n\n");
 		}
 	}
 
