@@ -211,6 +211,8 @@ namespace Celeste.Mod.artiboom
             On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
             IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
+            IL.Celeste.CS06_Campfire.Question.ctor -= ModQuestionFallback;
+
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
