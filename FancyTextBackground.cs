@@ -110,7 +110,7 @@ namespace Celeste.Mod.artiboom {
                     Logger.Log(nameof(ArtiboomModule), $"Setting textbox to {node.path} and clearing portrait");
                     var selfData = DynamicData.For(self);
                     selfData.Set("Textbox", "textbox/" + node.path + "_ask");
-                    var portrait = GFX.PortraitsSpriteBank.Create("portrait_empty");
+                    var portrait = GFX.PortraitsSpriteBank.Create("portrait_empty/normal");
                     selfData.Set("Portrait", portrait);
                 }
             });
