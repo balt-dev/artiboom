@@ -68,7 +68,6 @@ namespace Celeste.Mod.artiboom
             On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
-            On.Celeste.PlayerHair.ctor += ModHairSpacing;
             On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
@@ -85,13 +84,6 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_set_State = 
                 new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
-        }
-
-        private void ModHairSpacing(On.Celeste.PlayerHair.orig_ctor orig, PlayerHair self, PlayerSprite sprite)
-        {
-            orig(self, sprite);
-            Logger.Log(nameof(ArtiboomModule), "\n\n\n\n\nConstructing hair\n\n\n\n\n");
-            self.StepPerSegment = TAIL_SPACING;
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
@@ -152,6 +144,7 @@ namespace Celeste.Mod.artiboom
             if (self.Entity == null) {orig(self); return;}
             if (self.Entity is Player player && player.Sprite != null)
                 player.Sprite.HairCount = TAIL_LENGTH;
+            self.StepPerSegment = TAIL_SPACING;
             orig(self);
         }
 
