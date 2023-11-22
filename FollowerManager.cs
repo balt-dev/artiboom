@@ -108,16 +108,16 @@ internal class FollowerManager
 					follower.Disable();
 				if (level.Tracker.CountEntities<CommunicationMark>() > 0)
 					mark.Disable();
-				else {
-					if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badeline") {
-						mark.sprite.Play("badeline");
-					}
-					if (!SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "madeline") {
-						mark.sprite.Play("madeline");
-					}
-				}
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
+			if (mark.Active) {
+				if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badeline") {
+					mark.sprite.Play("badeline");
+				}
+				if (!SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "madeline") {
+					mark.sprite.Play("madeline");
+				}
+			}
 		} else {
 			wasActiveOnLastFrame = false;
 		}
