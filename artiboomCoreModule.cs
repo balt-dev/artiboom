@@ -14,8 +14,8 @@ namespace Celeste.Mod.artiboom
 {
     public class ArtiboomModule : EverestModule
     {
-        private const int TAIL_LENGTH = 9;
-        private const float TAIL_SCALE = .7f;
+        private const int TAIL_LENGTH = 7;
+        private const float TAIL_SCALE = 1.1f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
