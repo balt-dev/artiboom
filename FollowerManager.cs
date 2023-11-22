@@ -71,12 +71,15 @@ internal class FollowerManager
 			self.Add(follower);
 			if (pastMirror) {
 				mark = new CommunicationMark(entity.Center + new Vector2(0, -ArtiboomModule.Settings.FollowY - 5f));
+				if (SaveData.Instance.Assists.PlayAsBadeline) {
+					mark.sprite.Play("badeline");
+				}
 				self.Add(mark);
 			}
 		}
 		wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 	}
-
+	
 	private void OnUnloadLevel(On.Celeste.Level.orig_UnloadLevel orig, Level self) {
 		orig.Invoke(self);
 		Logger.Log(nameof(ArtiboomModule), "Unloading level...");
@@ -105,6 +108,14 @@ internal class FollowerManager
 					follower.Disable();
 				if (level.Tracker.CountEntities<CommunicationMark>() > 0)
 					mark.Disable();
+				else {
+					if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badeline") {
+						mark.sprite.Play("badeline");
+					}
+					if (!SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "madeline") {
+						mark.sprite.Play("madeline");
+					}
+				}
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 		} else {

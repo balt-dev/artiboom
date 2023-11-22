@@ -4,9 +4,10 @@
 		<Loop id="idleLoop" path="normal" delay="0.15" frames="0"/>
 	</sofanthiel>
 
-	<communication_mark path="communication_mark/idle/" start="idleLoop">
+	<communication_mark path="communication_mark/idle/" start="madelineLoop">
 		<Center/>
-		<Loop id="idleLoop" path="normal" delay="0.15" frames="0"/>
+		<Loop id="madelineLoop" path="madeline" delay="0.15" frames="0"/>
+		<Loop id="badelineLoop" path="badeline" delay="0.15" frames="0"/>
 	</communication_mark>
 
 	<player path="characters/player/" start="idle">
