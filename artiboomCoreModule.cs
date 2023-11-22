@@ -14,8 +14,8 @@ namespace Celeste.Mod.artiboom
 {
     public class ArtiboomModule : EverestModule
     {
-        private const int TAIL_LENGTH = 7;
-        private const float TAIL_SCALE = .8f;
+        private const int TAIL_LENGTH = 5;
+        private const float TAIL_SCALE = .7f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
@@ -148,7 +148,7 @@ namespace Celeste.Mod.artiboom
 
         private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index) {
             Vector2 scale = orig(self, index);
-            return scale * new Vector2(TAIL_SCALE);
+            return scale * Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), index / (float) TAIL_LENGTH);
         }
 
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
