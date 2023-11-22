@@ -131,8 +131,8 @@ namespace Celeste.Mod.artiboom.Entities
 
             Depth = -10;
             bloom = new BloomPoint(4.0f, 8f);
-            bloom.Entity.Depth = 10;
             Add(bloom);
+            bloom.Entity.Depth = 10;
             Add(sprite);
 
         } 
