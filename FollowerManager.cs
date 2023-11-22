@@ -72,7 +72,7 @@ internal class FollowerManager
 			if (pastMirror) {
 				mark = new CommunicationMark(entity.Center + new Vector2(0, -ArtiboomModule.Settings.FollowY - 5f));
 				if (SaveData.Instance.Assists.PlayAsBadeline) {
-					mark.sprite.Play("badeline");
+					mark.sprite.Play("badelineLoop");
 				}
 				self.Add(mark);
 			}
@@ -111,11 +111,11 @@ internal class FollowerManager
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
 			if (mark.Active) {
-				if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badeline") {
-					mark.sprite.Play("badeline");
+				if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badelineLoop") {
+					mark.sprite.Play("badelineLoop");
 				}
-				if (!SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "madeline") {
-					mark.sprite.Play("madeline");
+				if (!SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "madelineLoop") {
+					mark.sprite.Play("madelineLoop");
 				}
 			}
 		} else {
