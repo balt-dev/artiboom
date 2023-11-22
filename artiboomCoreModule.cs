@@ -16,6 +16,7 @@ namespace Celeste.Mod.artiboom
     {
         private const int TAIL_LENGTH = 7;
         private const float TAIL_SCALE = 0.6f;
+        private Vector2 TAIL_SPACING = new(0.0f, 5.0f);
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
@@ -67,6 +68,7 @@ namespace Celeste.Mod.artiboom
             On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
+            On.Celeste.PlayerHair.ctor += ModHairSpacing;
             On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
             On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
             On.Celeste.PlayerHair.GetHairScale += ModHairScale;
@@ -83,6 +85,12 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_set_State = 
                 new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
+        }
+
+        private void ModHairSpacing(On.Celeste.PlayerHair.orig_ctor orig, PlayerHair self, PlayerSprite sprite)
+        {
+            orig(self, sprite);
+            self.StepPerSegment = TAIL_SPACING;
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
