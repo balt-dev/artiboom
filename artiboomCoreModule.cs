@@ -17,6 +17,7 @@ namespace Celeste.Mod.artiboom
         private const int TAIL_LENGTH = 7;
         private const float TAIL_SCALE = 0.6f;
         private const float TAIL_STEP = 40f;
+        private const float TAIL_FACING_STEP = 40f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
@@ -147,6 +148,7 @@ namespace Celeste.Mod.artiboom
                 player.Sprite.HairCount = TAIL_LENGTH;
             self.StepApproach = 120f;
             self.StepPerSegment = Vector2.UnitY * TAIL_STEP;
+            self.StepInFacingPerSegment = TAIL_FACING_STEP;
             orig(self);
         }
 
