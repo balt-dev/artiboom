@@ -16,8 +16,8 @@ namespace Celeste.Mod.artiboom
     {
         private const int TAIL_LENGTH = 7;
         private const float TAIL_SCALE = 0.6f;
-        private Vector2 TAIL_SPACING = new(0.0f, 5.0f);
-        private const float TAIL_SPACING_IN = 5.0f;
+        private Vector2 TAIL_SPACING = new(0.0f, 50.0f);
+        private const float TAIL_SPACING_IN = 50.0f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
@@ -88,6 +88,7 @@ namespace Celeste.Mod.artiboom
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
+            // Do nothing
             return;
         }
 
