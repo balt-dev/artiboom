@@ -147,7 +147,7 @@ namespace Celeste.Mod.artiboom
         }
 
         private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index) {
-            return Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), float.Pow(index / (float) TAIL_LENGTH, 0.75f));
+            return Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), float.Pow(index / (float) TAIL_LENGTH, 3.75f));
         }
 
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
