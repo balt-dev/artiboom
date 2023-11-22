@@ -16,6 +16,7 @@ namespace Celeste.Mod.artiboom
     {
         private const int TAIL_LENGTH = 7;
         private const float TAIL_SCALE = 0.6f;
+        private const float TAIL_STEP = 40f;
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
@@ -144,7 +145,8 @@ namespace Celeste.Mod.artiboom
             if (self.Entity == null) {orig(self); return;}
             if (self.Entity is Player player && player.Sprite != null)
                 player.Sprite.HairCount = TAIL_LENGTH;
-            self.StepApproach = 24f;
+            self.StepApproach = 120f;
+            self.StepPerSegment = Vector2.UnitY * TAIL_STEP;
             orig(self);
         }
 
