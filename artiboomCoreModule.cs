@@ -144,7 +144,7 @@ namespace Celeste.Mod.artiboom
             if (self.Entity == null) {orig(self); return;}
             if (self.Entity is Player player && player.Sprite != null)
                 player.Sprite.HairCount = TAIL_LENGTH;
-            self.StepApproach = 1f;
+            self.StepApproach = 256f;
             orig(self);
         }
 
