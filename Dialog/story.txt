@@ -2324,6 +2324,9 @@
 # *** Chapter 06 ***
 
 	CH6_THEO_INTRO=
+		{#999a9a}Note:{n}Due to this cutscene being heavily hardcoded,{n}{+MADELINE}'s dialogue options will have {# F94A4A}Madeline{#}'s icon next to them.
+		This is a technical limitation that I attempted to overcome, but ultimately could not.{#}
+		
 		{+close}
 		{artiboom_textbox madeline}
 		{+theo}, you're awake!
@@ -2354,8 +2357,7 @@
 		{#999a9a}...no problem.{#}
 
 	CH6_THEO_ASK_OUTFOR=
-		# [THEO left thinking]
-		[empty left normal]
+		[THEO left thinking]
 		How long was I out for?
 	CH6_THEO_SAY_OUTFOR=
 		[THEO left thinking]
@@ -2369,9 +2371,10 @@
 		[THEO left wtf]
 		...
 		What?
+		{+close}
 		
 		{3}		
-		{+close}
+
 		{artiboom_textbox madeline}
 		Are you okay?
 
@@ -2389,7 +2392,7 @@
 		What's really going on here?
 	CH6_THEO_SAY_EXPLAIN=
 		[THEO left wtf]
-		Clearly you're not from here.
+		Clearly something's up with you.
 		What's really going on here?
 
 		{+close}
@@ -2403,15 +2406,27 @@
 
 		{+close}
 		{3.4}
+
+		{artiboom_textbox madeline}
+		Where I'm from, I had to fight every day to stay alive.
+		Hunting, hiding, all of it.
+		There wasn't really anyone else around.
+		I've grown strong enough to hold my own,{n}but some days, it's just too much. 
+
+		[THEO left serious]
+		You must've been pretty lonely.
+
+		{+close}
+		{3.4}
 		
 		{artiboom_textbox madeline}
-		Back at the ruins...{n}{+ST_BAD}a part of me{+END_BAD} escaped from a mirror.
+		Back at the ruins...{n}a {+ST_BAD}part of me{+END_BAD} escaped from a mirror.
 		A part I'm not very...{0.8} proud{0.5} of.
 
 		I {>>}swear{/>>}{0.5} I dreamt it.
 
 		[THEO left serious]
-		You think the {+MOUNTAIN} made her real?
+		You think the {+MOUNTAIN} made it real?
 
 		{+close}
 		{artiboom_textbox madeline}
@@ -2446,44 +2461,43 @@
 		I promise I'll believe you.
 
 	CH6_THEO_ASK_THANKYOU=
-		[empty left normal]
-		Thank you, for believing in me back there.
+		[MADELINE right upset]
+		How did you know we were going to escape?
 	CH6_THEO_SAY_THANKYOU=
-		[MADELINE right distracted]
-		Thank you, {+THEO}.
-		...for believing in me back there, I mean.
-
-		[THEO left wtf]
-		Believing in you was the easy part.
+		{+close}
+		{artiboom_textbox madeline}
+		How did you know we were going to escape?
 
 		[THEO left thinking]
-		I wish I could've helped.
+		I don't actually know.
+		Just a hunch.
+		
+		{+close}
+		{1.2}
 
 		[THEO left wtf]
 		I was pretty useless, stuck in that thing.
 
-		[MADELINE right sad]
-		You actually helped a lot.
-
-		[MADELINE right distracted]
-		Honestly, I couldn't have made it without your support.
+		{+close}
+		{artiboom_textbox madeline}
+		Yeah...
 
 	CH6_THEO_ASK_TRUST=
-		[MADELINE right distracted] 
-		Why is it so easy for you to trust me?
+		[MADELINE right upset] 
+		Why do you trust me?
 	CH6_THEO_SAY_TRUST=
-		[MADELINE right distracted] 
-		Why is it so easy for you to trust me?
-
-		[MADELINE right sad]
-		Seriously, you barely know me.
+		{+close}
+		{artiboom_textbox madeline}
+		Why do you trust me?
+		Seriously, you barely even know me.
 
 		[THEO left normal]
 		Honestly?
 		You remind me of my sister.
 
-		[MADELINE right normal]
-		That's adorable. 
+		{+close}
+		{artiboom_textbox madeline}
+		Huh.
 		What's she like?
 
 		[THEO left excited]
@@ -2498,9 +2512,9 @@
 		[THEO left excited]
 		She's a {~}literal{/~} rockstar.
 
-		[MADELINE right normal]
-		She's a musician?
-		That's so cool!
+		{+close}
+		{artiboom_textbox madeline}
+		She's...{0.4} a musician?
 
 		[THEO left thinking]
 		Okay, she's not {~}literally{/~} a literal rockstar.
@@ -2509,17 +2523,18 @@
 		{+ALEX} is just... amazing at everything.
 		She's studying to be a civil rights lawyer.
 
-		[MADELINE right normal]
-		Wow!
-
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
+		A...{0.6} what?
+		Actually, nevermind.
 		How do I remind you of her?
 
 		[THEO left wtf]
 		You both live so deep inside your own heads.
 
-		[MADELINE right distracted]
-		Oh...
+		{+close}
+		{artiboom_textbox madeline}
+		{!}Hey!{/!}
 
 		[THEO left thinking]
 		{+ALEX} has this amazing internal compass.
@@ -2532,11 +2547,13 @@
 		I wish I could say the same for myself.
 		
 	CH6_THEO_ASK_WHY=
-		[MADELINE right distracted]
-		Your sister sounds great. I really remind you of her?
+		[MADELINE right upset]
+		Your sister sounds nice. How do I remind you of her?
 	CH6_THEO_SAY_WHY=
-		[MADELINE right distracted]
-		Your sister sounds great. I really remind you of her?
+		{+close}
+		{artiboom_textbox madeline}
+		Your sister sounds nice.
+		How do {~}I{/~} remind you of her?
 
 		[THEO left thinking]
 		Are you kidding me?
@@ -2550,7 +2567,8 @@
 		[THEO left excited]
 		That's classic {+ALEX}.
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		...
 
 		[THEO left thinking]
@@ -2559,207 +2577,133 @@
 		[THEO left normal]
 		Why {~}are{/~} you climbing the {+MOUNTAIN}, anyways?
 
-		[MADELINE right distracted]
-		You're right, I don't even know why.
-
-		[MADELINE right sad]
-		I just{0.4} had to get out of my {*}head.{/*}
-		I'm stuck in a cycle.
+		{+close}
+		{artiboom_textbox madeline}
+		...You're right,{0.5} I don't know.
+		I woke up near, and it just felt nice to...
+		get up high somewhat.
 
 		[THEO left normal]
-		You're preaching to the choir here.
-		I've had many a soul-destroying day job.
-
-		[MADELINE right sad]
-		Work is fine actually, I just...
-
-		[MADELINE right distracted]
 		...
-
-		[MADELINE right upset]
-		I'm going crazy.
-		I can't stop thinking about{n}dumb crap that doesn't matter.
-
-		[MADELINE right sad]
-		My brain fixates on these stupid {.4}{>> .3}{*}things{/*}{>>}{.4}{n}that happened forever ago.
-
-		[MADELINE right angry]
-		I should be {*}over them.{/*} 
-		{*}None of it even matters.{/*}
 
 		{trigger 0 Wait a bit}
 
-		[MADELINE right distracted]
-		...
-		I'm good at keeping up appearances, but{n}the truth is I'm barely holding it together.
-
-		[THEO left worried]
-		I'm sorry, that's pretty rough stuff.
-		Can I help?
-
-		[MADELINE right sad]
-		You're already helping.
-		It feels good to say it out loud.
-
-		[THEO left wtf]
-		You don't talk to anyone about it?
-
-		[MADELINE right distracted]
-		No... not really.
-
-		[MADELINE right sad]
-		My mom knows I get depressed,{n}and have panic attacks.
-
-		[MADELINE right distracted]
-		That's about it.
-
 		[THEO left thinking]
-		No wonder you feel trapped.
-		
-		[THEO left wtf]
-		How do you cope with... anything?
+		What {~}is{/~} your name, anyways?
 
-		[MADELINE right upset]
-		I drink, mostly.
-		And get mad at people on the internet.
+		{+close}
+		{artiboom_textbox madeline}
+		I never really...
+		{1}{+MADELINE}. You can call me {+MADELINE}.
+ 
+		{trigger 0 Wait a bit}
+
+		{+close}
+		{artiboom_textbox madeline}
+		Are you sure I remind you of {+ALEX}?
+		She sounds a lot better than me.
+
+		[THEO left wtf]
+		What do you mean?
+
+		{trigger 0 Wait a bit}
+
+		{+close}
+		{artiboom_textbox madeline}
+		I've done some things in the past that I'm...
+		...not the proudest of.
+		And, no matter how hard I try...{n}I can't move on from it.
+
+		[THEO left serious]
+		Hm.
 
 	CH6_THEO_ASK_DEPRESSION=
 		[THEO left serious]
-		Would you mind talking about what depression is like?
+		Would you mind talking about what happened?
 	CH6_THEO_SAY_DEPRESSION=
 		[THEO left serious]
-		Would you mind talking about what depression is like?
+		Would you mind talking about what happened?
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		...
 
-		[MADELINE right upset]
-		It sucks.
-
-		[THEO left wtf]
-		Yeah, but what does it {~}feel like?{/~}
-
-		[THEO left serious]
-		{+ALEX} struggles with it too.{n}I really want to understand.
-
+		{+close}
+		{5}
+		
 		[THEO left normal]
 		We can talk about something else if you want.
 
-		[MADELINE right distracted]
-		...
-		It's like...
+		{+close}
+		{artiboom_textbox madeline}
+		...no, you should know.
 
-		[MADELINE right sad]
-		I'm at the bottom of the ocean.
-		I can't see anything in any direction.
+		I used to have two pups.
 
-		[MADELINE right distracted]
-		It's claustrophobic, yet I feel exposed.
-		...
+		One was {#97aedf}Storm{#}, and the other...
+		...died before I could name him.
 
-		{trigger 0 Wait a bit}
-
-		[MADELINE right sad]
-		I remember feeling normal.
-		But now it feels just out of{n}reach, no matter what I try.
+		They were the lights of my life.
 		
-		[MADELINE right distracted]
-		Then again, I was probably always messed up.
-		It just took something hurtful to bring it out.
-
-		[MADELINE right upset]
-		There must be something wrong with me.
-
-		[THEO left serious]
-		Whatever happened, I'm sure it's not your fault.
-
-		{trigger 0 Wait a bit}
-
-		[MADELINE right sad]
-		I guess I thought that I could...
-
-		[MADELINE right distracted]
-		I don't know.
-		I'm just floating in this abyss,{n}swimming in a random direction.
-
-		[MADELINE right sad]
-		Hoping that I find {*}something.{/*}
-
-		[MADELINE right distracted]
-		That's really why I'm here.
-		...
-		But I can't escape myself.
-
-		[MADELINE right upset]
-		I'm literally {*}fighting myself{/*} the entire way.
-
-		[MADELINE right distracted]
-		Maybe this is all pointless.
-
-		{trigger 0 Wait a bit}
-
-		[THEO left serious]
-		{+MADELINE}, you {~}just{/~} saved my life.
-
-		[THEO left wtf]
-		That's not pointless.
-
-		[MADELINE right distracted]
-		Yeah...
-
-		{trigger 0 Wait a bit}
-
-		[THEO left wtf]
-		Look, you're a good person.
-
+		{+close}
+		{2}
+		Do you know what scavengers are?
+		
 		[THEO left thinking]
-		You're a little intense, but you're a {~}good person.{/~}
+		...Not to you, I don't.
+		
+		{+close}
+		{artiboom_textbox madeline}
+		They're these little buggers, about as tall as I am.
+		They usually group up in outposts, and...
+		they are {~}obsessed{/~} with pearls.
 
-		[THEO left wtf]
-		I think you're just trying to push{n}out of that rut you're stuck in.
+		One day, while we were crossing through an outpost,
+		{#97aedf}Storm{#} took one of their pearls.
+		{+close}
+		{3}
+		I tried to escape, but she...
+		...she fell behind.
 
-		[THEO left excited]
-		And that's a totally legit reason to climb the {+MOUNTAIN}!
+		[THEO left worried]
+		That's {1.0}[THEO left serious]{0.5}really hard.
+		
+		{+close}
+		{artiboom_textbox madeline}
+		I couldn't- {0.3}{*}can't{/*}- {0.3}forgive them for what they did.
+		
+		[THEO left serious]
+		...
 
-		[MADELINE right distracted]
-		Maybe.
-
-		[MADELINE right sad]
-		That's... helpful.
-
-		{trigger 0 Wait a bit}
-
-		[THEO left normal]
-		This {+PART_OF_YOU} that's haunting you,{n}maybe she comes with the territory.
-
-		[MADELINE right upset]
-		So you think I'm stuck with her forever?
-
-		[THEO left normal]
-		Well, she's stuck with you, too.
-
-		[MADELINE right upset]
-		That's {*}not{/*} helpful.
+		{+close}
+		{artiboom_textbox madeline}
+		I can't tell you how many I've killed.
+		It...{0.5} has to be somewhere in the thousands.
+		{+close}
+		[THEO left worried]
+		...
+		{+close}
+		{3}
 
 	CH6_THEO_ASK_DEFENSE=
 		[THEO left wtf]
-		So you want to destroy this {+PART_OF_YOU}?
+		I think I saw that {+PART_OF_YOU}.
 	CH6_THEO_SAY_DEFENSE=
 		[THEO left wtf]
-		So you want to destroy this {+PART_OF_YOU}?
-		Won't that hurt you, too?
+		I think I saw that {+PART_OF_YOU} you were talking about.
+		Back in the temple, I mean.
 
-		[MADELINE right sad]
-		If I don't she's just going to keep bullying me.
-
-		[MADELINE right upset]
-		She says she's protecting me,{n}but that's obviously not true.
+		{+close}
+		{artiboom_textbox madeline}
+		Oh, yeah, that fucker.
+		She's so demeaning to me. I hate it.
+		And she keeps just {~}running away{/~}.
 
 		[THEO left normal]
-		Maybe she thinks she is.
-		She could be some kind of...{n}twisted defense mechanism.
+		Maybe she could be some kind of...{n}twisted defense mechanism.
 		
-		[MADELINE right upset]
+		{+close}
+		{artiboom_textbox madeline}
 		Honestly, who cares?
 		She has so much control over me.
 		I hate it.
@@ -2767,101 +2711,66 @@
 		[THEO left wtf]
 		Maybe you can learn to control her instead.
 
-		[MADELINE right distracted]
+		{+close}
+		{artiboom_textbox madeline}
+		...
 		The feather helps a lot.
-
-		[MADELINE right sad]
-		Thanks for teaching me that.
+		Thanks. {0.8}For teaching me that, I mean.
 
 		[THEO left thinking]
 		Just one of my grandpa's many nuggets of wisdom.
 
 	CH6_THEO_ASK_VACATION=
 		[THEO left thinking]
-		Why not take a vacation instead?
+		How did you get here?
 	CH6_THEO_SAY_VACATION=
 		[THEO left thinking]
-		Why not take a vacation instead?
+		How did you get here?
 
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
 		What do you mean?
 
 		[THEO left normal]
-		Dude, you needed a change{n}so you chose to {>> .2}climb a {+MOUNTAIN}{>>}...
+		Dude, you're from a {~}completely{n}different dimension{/~} or something.
 
 		[THEO left thinking]
-		Why not do something relaxing instead?
+		How are you here?
 
-		[THEO left wtf]
-		Go to Hawaii, or like, {0.3}take a bath.
-
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
 		...
-		I guess I feel like I need to accomplish something.
+		I don't really remember it well.
+		Last thing I remember was jumping{n}into some {#ffdb6d}golden sea{#},
+		seeing some fucking colossal worms,
+		then I blacked out and woke up somewhere near here.
 
 		[THEO left wtf]
-		It sounds like you have{n}enough on your plate already.
+		...
+		[THEO left thinking]
+		Trippy.	
+		[THEO left normal]
+		How big are we talking?
 
-		[MADELINE right distracted]
-		I guess it is kind of extreme.
-		But that's how I am.
-		I need something to challenge me.
+		{+close}
+		{artiboom_textbox madeline}
+		...
+		Their head's about as large as that ridge behind you,
+		and by length, I have no fucking idea.
+		Maybe about three or four hundred times as long{n}as this {+MOUNTAIN} is tall?
 
-		[MADELINE right sad]
-		And I can't just do something a little bit.
-		It's all of me, or nothing.
+		[THEO left worried]
+		Dang. No kidding.
 
 	CH6_THEO_ASK_FAMILY=
-		[MADELINE right normal]
-		What brought you to the {+MOUNTAIN}?
+		[MADELINE right upset]
+		Dying sucks.
+
 	CH6_THEO_SAY_FAMILY=
-		[MADELINE right normal]
-		How about you?
-		What brought you to the {+MOUNTAIN}?
-
-		[THEO left normal]
-		I'm just kind of bumming around.
-		
-		[THEO left thinking]
-		As usual.
-
-		[THEO left normal]
-		I started this new job in Seattle.
-		I thought I {~}finally{/~} knew what I was{n}supposed to be doing with my life...
-
-		[THEO left wtf]
-		But I hated it.
-
-		[THEO left thinking]
-		So I quit after a week and hopped a bus to Canada.
-
-		[THEO left wtf]
-		I just felt this urge to...{n}get lost in the middle of nowhere.
-		...
-		Now that I'm saying it out loud,{n}I realize how flakey it sounds.
-
-		[MADELINE right sad]
-		It just sounds like you're under a lot of pressure.
-
-		[THEO left thinking]
-		Not really.
-		Everyone is so patient with me.
-
-		[THEO left serious]
-		Though I guess I am putting a{n}lot of pressure on {~}myself.{/~}
-
-		[THEO left wtf]
-		People always think I'm comparing myself to{n}{+ALEX}, but I {~}swear{/~} that isn't the problem.
-		I'm just worried that I'll never{n}figure out where I'm going.
-		
-		[MADELINE right distracted]
-		You said you wanted to feel lost...
-
-		[MADELINE right normal]		
-		Maybe you should just embrace that for now.
-
-		[THEO left serious]
-		Maybe.
+		{+close}
+		{artiboom_textbox madeline}
+		Dying fucking sucks.
+		# Theo should mention his grandpa here.
 
 	CH6_THEO_ASK_GRANDPA=
 		[MADELINE right normal]
@@ -2946,30 +2855,42 @@
 		[THEO left wtf]
 		Who do you think built the temple?
 
-		[MADELINE right sad]
+		{+close}
+		{artiboom_textbox madeline}
+		Fuck if I know, I just got here.
+
+		[THEO left thinking]
 		It looks ancient...
 		It must predate everything else on the {+MOUNTAIN}.{n}The resort, the ruins, the city...
 
 		[THEO left serious]
 		There's a lot of history here.
 
-		[MADELINE right distracted]
-		Yeah. 
+		{+close}
+		{artiboom_textbox madeline}
+		Eh, I'm used to it.
+		Back where I was from, everything was like that.
+		Giant fucking supercomputers tall as a {+MOUNTAIN},{n}walled with tapestries...
+		...and graffiti.
+		The people who made them are all long gone by now.
+
+		{+close}
+		{3}
+		[THEO left serious]
 		This {+MOUNTAIN} has meant so{n}many things to so many people.
 
-		[MADELINE right normal]
+		[THEO left thinking]
 		I'm starting to understand why{n}that crazy old lady lives here.
 
-		[THEO left excited]
+		{+close}
+		{artiboom_textbox madeline}
 		You ran into her too?
-
-		[THEO left thinking]
 		What's her deal?
 
-		[MADELINE right upset]
-		I think she's just a mean person.
+		[THEO left thinking]
+		I think she's just off in the head.
 
-		[MADELINE right distracted]
+		[THEO left normal]
 		...but she does seem pretty content living out here.
 
 	CH6_THEO_ASK_SELFIE=
