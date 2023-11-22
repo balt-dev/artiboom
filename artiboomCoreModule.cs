@@ -90,6 +90,7 @@ namespace Celeste.Mod.artiboom
         private void ModHairSpacing(On.Celeste.PlayerHair.orig_ctor orig, PlayerHair self, PlayerSprite sprite)
         {
             orig(self, sprite);
+            Logger.Log(nameof(ArtiboomModule), "Constructing hair");
             self.StepPerSegment = TAIL_SPACING;
         }
 
