@@ -110,7 +110,7 @@ internal class FollowerManager
 					mark.Disable();
 			}
 			wasActiveOnLastFrame = ArtiboomModule.Settings.EnableFollower;
-			if (mark.Active) {
+			if (mark?.Active == true) { // If not null and not false
 				if (SaveData.Instance.Assists.PlayAsBadeline && mark.sprite.CurrentAnimationID != "badelineLoop") {
 					mark.sprite.Play("badelineLoop");
 				}

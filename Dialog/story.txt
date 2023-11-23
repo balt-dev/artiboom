@@ -1502,8 +1502,8 @@
 	CH3_OSHIRO_START_CHASE=
 		{+close}
 		{artiboom_textbox badeline}
-		Wow, I thought we'd {~}never{/~} get rid of him.
-		You owe me one.
+		That was adorable.
+		I thought we'd {~}never{/~} get rid of him.{n}You owe me one.
 
 		{+close}
 		{artiboom_textbox madeline}
@@ -1516,8 +1516,8 @@
 		{+close}
 		{artiboom_textbox badeline}
 		{~}Aww, look at you~{/~}
-		You were so {~}determined{/~} before.
-		Now all of a sudden you're someone's {~}therapist{/~}?
+		Trying out therapy for a change?
+		Maybe you need some yourself~
 
 		{trigger 1 Maddy turns around}
 		
@@ -1537,8 +1537,8 @@
 		
 		{+close}
 		{artiboom_textbox badeline}
-		Oh, do you not understand?
-		She only helps people to feed her twisted ego.
+		{~}Oh{/~}, do you not understand?
+		She only helped you because she pitied you.
 		She {~}never{/~} cared about you.
 		
 		{+close}
@@ -1548,12 +1548,12 @@
 		
 		{+close}
 		{artiboom_textbox badeline}
-		You're both pathetic.
+		You're both useless.
 
 		{trigger 3 Badeline disappears, Oshiro gets angry}
 
 		[OSHIRO left lostcontrol]
-		Pathetic!?
+		Useless!?
 		You only came here to humiliate me...
 		I won't grovel at your feet any longer!
 
