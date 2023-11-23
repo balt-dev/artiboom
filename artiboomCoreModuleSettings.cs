@@ -5,7 +5,7 @@ namespace Celeste.Mod.artiboom
 {
     public class artiboomModuleSettings : EverestModuleSettings {
         [SettingName("SETTING_CREDITS")]
-        [SettingSubHeader("--------------------------------------\n\nOriginal Artificer design by @allinluck\nOriginal Slugcat in Celeste concept by @lush_nyaa\n\n--------------------------------------")]
+        [SettingSubText("--------------------------------------\n\nOriginal Artificer design by @allinluck\nOriginal Slugcat in Celeste concept by @lush_nyaa\n\n--------------------------------------")]
         public bool Credits {get; set;} = true;
 
         [SettingName("SETTING_ALTER_DASH")]
