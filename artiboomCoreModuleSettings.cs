@@ -9,9 +9,10 @@ namespace Celeste.Mod.artiboom
         public bool Credits {get; set;} = true;
 
         [SettingName("SETTING_ALTER_DASH")]
-        [SettingSubHeader("Alters the dash mechanics to make them more true to Artificer's Rain World mechanics.\nBuggy, and may make some maps impossible.")]
+        [SettingSubText("Alters the dash mechanics to make them more true to Artificer's Rain World mechanics.\nBuggy, and may make some maps impossible.")]
         public bool AlterDash {get; set;} = false;
         [SettingName("SETTING_FOLLOW_ENABLE")]
+        [SettingSubText("Enables a cosmetic follower, the Citizen ID Drone.")]
         public bool EnableFollower {get; set;} = true;
         [SettingName("SETTING_FOLLOW_X")]
 	    [SettingRange(-32, 32)]
