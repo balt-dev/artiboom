@@ -9,7 +9,8 @@ namespace Celeste.Mod.artiboom
         public bool Credits {get; set;} = true;
 
         [SettingName("SETTING_ALTER_DASH")]
-        public bool AlterDash {get; set;} = true;
+        [SettingSubHeader("Alters the dash mechanics to make them more true to Artificer's Rain World mechanics.\nBuggy, and may make some maps impossible.")]
+        public bool AlterDash {get; set;} = false;
         [SettingName("SETTING_FOLLOW_ENABLE")]
         public bool EnableFollower {get; set;} = true;
         [SettingName("SETTING_FOLLOW_X")]
