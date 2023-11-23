@@ -17,6 +17,6 @@ namespace Celeste.Mod.artiboom
         public int FollowX {get; set;} = -6;
         [SettingName("SETTING_FOLLOW_Y")]
 	    [SettingRange(-32, 32)]
-        public int FollowY {get; set;} = 2;
+        public int FollowY {get; set;} = 6;
     }
 }
