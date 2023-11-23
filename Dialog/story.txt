@@ -531,6 +531,7 @@
 
 		{trigger 6 pan to Maddy}
 
+		{+close}
 		{artiboom_textbox madeline}
 		{+thought}.{0.1}.{0.1}.{1.0}not worth my time.{+endthought}
 
