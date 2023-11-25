@@ -2769,26 +2769,105 @@
 		{+close}
 		{artiboom_textbox madeline}
 		Dying fucking sucks.
-		# Theo should mention his grandpa here.
+		Were you counting how many times I died back there?
+
+		[THEO left wtf]
+		Yeah, what was that about?
+		You just come back like nothing happened?
+		[THEO left thinking]
+		It's the {+MOUNTAIN}, I'm calling it now.
+
+		{+close}
+		{artiboom_textbox madeline}
+		What? That's normal.
+
+		[THEO left wtf]
+		...No?
+		[THEO left thinking]
+		People don't usually just{0.8} {~}come back from the dead{/~} like that.
+
+		{+close}
+		{1}
+		{artiboom_textbox madeline}
+		{!}Oh shit!{/!}
+		Do you guys not have {#ffdb6d}the cycle{#} here?
+
+		[THEO left wtf]
+		...the what?
+
+		{+close}
+		{artiboom_textbox madeline}
+		Fuck, okay.
+		Let me explain.
+		{#ffdb6d}The cycle{#} is some kind of force or something.
+		It affects everything around us,
+		from you to me to that fly behind you,
+
+		[THEO right worried]
+		{!}Ah!{/!}
+		{+close}
+		{0.8}
+		[THEO right nailedit]
+		Okay, it's dead.
+		[THEO left normal]
+		What were you saying?
+
+		{+close}
+		{artiboom_textbox madeline}
+		...{#ffdb6d}the cycle{#} makes people come back.
+		No matter what, as long as you aren't too young or old,
+		you wake up the next day.
+		And even then, if you are, your soul doesn't leave either.
+
+		[THEO left excited]
+		Oh, I get it!
+		[THEO left normal]
+		Samsara and all, right?
+
+		{+close}
+		{artiboom_textbox madeline}
+		...you think I know what that is?
+
+		[THEO left normal]
+		Right.
+		[THEO left thinking]
+		That definitely makes your, uh, genocide{n}feel a bit less horrible.
+		[THEO left wtf]
+		Still not good though.
+		
+		{+close}
+		{5}
+		
+		{artiboom_textbox madeline}
+		Are you alright?
+		
+
+		[THEO left thinking]
+		Yeah, I'm just remembering something.
+
+		[THEO left thinking]
+		My grandpa taught me about this {+MOUNTAIN}.
+		He always said to live life like you'd die tomorrow.
+		[THEO left normal]
+		It felt like he was telling me to come here.
 
 	CH6_THEO_ASK_GRANDPA=
-		[MADELINE right normal]
+		[MADELINE right upset]
 		Are you close to your grandpa?
 	CH6_THEO_SAY_GRANDPA=
-		[MADELINE right normal]
+		{+close}
+		{artiboom_textbox madeline}
 		Are you close to your grandpa?
 
 		[THEO left serious]
 		Yeah... I was.
 
-		[MADELINE right distracted]
-		Oh... I'm sorry.
+		{+close}
+		{artiboom_textbox madeline}
+		Ah. I see.
 
 		[THEO left serious]
 		It's okay. That's just how it is.
-
-		[MADELINE right distracted]
-		...
 
 		[THEO left wtf]
 		All I can do is stay positive.
@@ -2798,18 +2877,21 @@
 
 		{trigger 0 Wait a bit}
 
-		[MADELINE right sad]
-		I'm so sorry, {+THEO}.
+		{+close}
+		{artiboom_textbox madeline}
+		I...
+		I'm sorry, {+THEO}.
 
 		[THEO left serious]
 		Thanks.
 
 	CH6_THEO_ASK_TIPS=
-		[MADELINE right normal]
+		[MADELINE right upset]
 		What else did you learn from your grandpa?
 	CH6_THEO_SAY_TIPS=
-		[MADELINE right normal]
-		What else did you learn from your grandpa?
+		{+close}
+		{artiboom_textbox madeline}
+		So, what else did you learn from your grandpa?
 
 		[THEO left excited]
 		So much stuff!
@@ -2825,20 +2907,18 @@
 		[THEO left wtf]
 		Grandpa said that the {+MOUNTAIN} was {~}"special."{/~}
 
-		[MADELINE right sad]
-		Do you think he went through the temple like us?
-
-		[MADELINE right normal]
-		Do you think he understood{n}the power of the {+MOUNTAIN}?
+		{+close}
+		{artiboom_textbox madeline}
+		Huh.
+		You think he went through the temple?
+		Saw what we saw, and all?
 		
 		[THEO left thinking]
 		He never talked about what happened here.
 
-		[MADELINE right distracted]
-		I doubt your grandpa was as messed up as me...
-
-		[MADELINE right sad]
-		His experience was probably less... violent.
+		{+close}
+		{artiboom_textbox madeline}
+		His experience was probably less, uh... violent.
 
 		[THEO left wtf]
 		He found the {+MOUNTAIN} before I was born.
@@ -2893,21 +2973,24 @@
 		...but she does seem pretty content living out here.
 
 	CH6_THEO_ASK_SELFIE=
-		[MADELINE right normal]
-		I want to remember this night...
+		[MADELINE right upset]
+		I'm gonna head to sleep.
 	CH6_THEO_SAY_SELFIE=
-		[MADELINE right normal]
-		You know what?
-		I want to remember this night...
-		Let's take a selfie!
-
 		[THEO left normal]
-		I thought you'd never ask.
+		You know what, actually?
+		I want to remember this night.
+		Selfie?
 
-		{trigger 1 selfie sequence}
+		{+close}
+		{artiboom_textbox madeline}
+		...
+		Nah.
+		Don't really like pictures.
 
-		[MADELINE right normal]
-		Y'know despite everything,{n}I feel pretty good right now.
+		[THEO left thinking]
+		Fair enough.
+		{+close}
+		{3}
 
 		[THEO left wtf]
 		Wait a second...
@@ -2915,24 +2998,20 @@
 		[THEO left excited]
 		You're going to reach the summit tomorrow!
 
-		[MADELINE right upset]
-		Don't jinx it.
-
-		[MADELINE right distracted]
-		...yeah, I'm excited.
-
-		[MADELINE right normal]
-		I'm ready to put this all behind me.
+		{+close}
+		{artiboom_textbox madeline}
+		Wait, really?
+		Oh shit, yeah, you're right!
 
 		[THEO left normal]
 		I'll be cheering you on.
 		We should get some sleep.
 
-		[MADELINE right normal]
-		Okay, goodnight, {+THEO}.
-
-		[MADELINE right distracted]
-		Thanks for... being cool.
+		{+close}
+		{artiboom_textbox madeline}
+		Alright.
+		Night, {+THEO}.
+		Thanks for being awesome.
 
 		[THEO left thinking]
 		What can I say? It comes naturally.
@@ -2941,8 +3020,10 @@
 		[MADELINE right distracted]
 		I should get some sleep.
 	CH6_THEO_SAY_SLEEP=
-		[MADELINE right distracted]
-		I should get some sleep.
+		{+close}
+		{artiboom_textbox madeline}
+		Fuck, I'm exhausted.
+		I'm gonna head to sleep.
 
 		[THEO left thinking]
 		Oh, are you sure you don't want to keep talking?
@@ -2954,76 +3035,81 @@
 		[MADELINE right sad]
 		Yeah, sorry, I'm really tired.
 	CH6_THEO_SAY_SLEEP_CONFIRM=
-		[MADELINE right sad]
-		Yeah, sorry, I'm really tired.
+		{+close}
+		{artiboom_textbox madeline}
+		Yeah, nah.
 
 		{+CH6_THEO_SAY_SELFIE}
 
 	CH6_THEO_ASK_SLEEP_CANCEL=
-		[MADELINE right normal]
+		[MADELINE right upset]
 		You're right, I can sleep later.
 	CH6_THEO_SAY_SLEEP_CANCEL=
-		[MADELINE right sad]
-		You're right, I can sleep later.
+		{+close}
+		{artiboom_textbox madeline}
+		...fine.
 
 	CH6_DREAMING=
-		[MADELINE left normal]
-		The northern lights are so beautiful.
+		{+close}
+		{artiboom_textbox madeline}
+		These lights are so pretty...
 
-		[BADELINE right worried]
+		{+close}
+		{artiboom_textbox badeline}
 		Yeah... they are...
 		...
+		Where{0.5} are we?
 
-		[BADELINE right worriedAlt]
-		Where are we?
-
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		We need to talk.
 
-		[BADELINE right worried]
-		...okay.
+		{+close}
+		{artiboom_textbox badeline}
+		...about?
 
-		[MADELINE left distracted]
-		I finally understand who you are.
+		{+close}
+		{artiboom_textbox madeline}
+		I finally understand what you are.
+		You're not my real reflection.
 
-		[MADELINE left sad]
-		You're not my true reflection.
+		{+close}
+		{artiboom_textbox badeline}
+		You-
+		I'm not?
 
-		[BADELINE right worriedAlt]
-		...I'm not?
-
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		You're everything I need to leave behind.
-		You're cruel, paranoid, controlling...
+		You're cruel, sadistic, controlling...
 
-		[BADELINE right worriedAlt]
-		Why would you say that?
+		{+close}
+		{artiboom_textbox badeline}
+		{*}Excuse me!?{/*}
 
-		[MADELINE left normal]
-		No, it's okay!
-		I understand now.
+		{+close}
+		{artiboom_textbox madeline}
+		No, you don't get it.
 		I don't need you anymore.
+		So you{0.8} can go ahead and leave now.
 
-		[BADELINE right worried]
-		So you're just... abandoning me?
+		{+close}
+		{artiboom_textbox badeline}
+		So you're just... {!}abandoning{/!} me?
 
-		[MADELINE left sad]
-		I'm setting you free.
+		{+close}
+		{artiboom_textbox madeline}
+		Yeah!
+		Do what you want, we're dreaming.
+		You can't touch me.
 
-		[MADELINE left normal]
-		We'll both be so much happier.
+		{+close}
+		{artiboom_textbox badeline}
+		You...
 
-		[BADELINE right worried]
-		You're so...
-
-		[BADELINE right sad]
-		so...
-
-		[BADELINE right freakA pop]
 		{silent_trigger 0 Tentacles Appear}
-		...so stupid!
+		...{!}fucking {*}IMBECILE!{/*}{/!}
 
-		[BADELINE right freakB pop]
 		{silent_trigger 0 Tentacles Appear More}
 		You think you can just {~}leave me behind?{/~}
 		{silent_trigger 0 Tentacles Appear moooore}
@@ -3031,33 +3117,31 @@
 		{silent_trigger 0 Tentacles Appear EVEN MORE}
 		You think you're {~}above{/~} me!?
 
-		[BADELINE right freakC pop]
 		{silent_trigger 1 Tentacles grab Madeline}
 		{!}{*}ANSWER ME!{/*}{/!}
 
-		[MADELINE left panic]
-		Calm down, please...
+		{+close}
+		{artiboom_textbox madeline}
+		Nope! Can't touch this.
 
 		{trigger 4 start circling the player}
-		[BADELINE right freakC_cont]
-		{!}{*}Calm down!?{/*}{/!}
+		{artiboom_textbox badeline}
+		{!}{*}YOU FUCKING DICK!{/*}{/!}
 
-		[MADELINE left determinedclosed]
-		Breathe, {+MADELINE}.
+		{+close}
+		{artiboom_textbox madeline}
+		Alright, this is it.
 		Use the feather.
 
 		{trigger 2 Feather minigame}
 
-		[BADELINE right freakBAlt]
+		{artiboom_textbox badeline}
 		You're going to {~}think about a feather{/~} to stop me?
 
 		{trigger 3 Destroy feather minigame}
 
-		[BADELINE right freakBAlt]
 		You are not {*}above me.{/*}
 		And you {*}can't{/*} climb this {+MOUNTAIN}.
-
-		[BADELINE right freakCAlt pop]
 		It's time to accept that.
 
 	CH6_THEO_WATCHOUT=
