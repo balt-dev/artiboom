@@ -4,11 +4,8 @@ using Microsoft.Xna.Framework.Input;
 namespace Celeste.Mod.artiboom
 {
     public class artiboomModuleSettings : EverestModuleSettings {
-        [SettingName("SETTING_CREDITS")]
-        [SettingSubText("--------------------------------------\n\nOriginal Artificer design by @allinluck\nOriginal Slugcat in Celeste concept by @lush_nyaa\n\n--------------------------------------")]
-        public bool Credits {get; set;} = true;
-
         [SettingName("SETTING_ALTER_DASH")]
+        [SettingSubHeader("--------------------------------------\n\nOriginal Artificer design by @allinluck\nOriginal Slugcat in Celeste concept by @lush_nyaa\n\n--------------------------------------")]
         [SettingSubText("Alters the dash mechanics to make them more true to Artificer's Rain World mechanics.\nBuggy, and may make some maps impossible.")]
         public bool AlterDash {get; set;} = false;
         [SettingName("SETTING_FOLLOW_ENABLE")]
