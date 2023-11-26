@@ -2323,9 +2323,6 @@
 # *** Chapter 06 ***
 
 	CH6_THEO_INTRO=
-		{#999a9a}Note:{n}Due to this cutscene being heavily hardcoded,{n}{+MADELINE}'s dialogue options will have {# F94A4A}Madeline{#}'s icon next to them.
-		This is a technical limitation that I attempted to overcome, but ultimately could not.{#}
-		
 		{+close}
 		{artiboom_textbox madeline}
 		{+theo}, you're awake!
@@ -3149,57 +3146,46 @@
 		{+MADELINE}, what's happening!?
 
 	CH6_REFLECT_AFTER=
-		[MADELINE left sad]
-		I was so close.
-
-		[MADELINE left panic]
-		It's over now.
-		Why won't she leave me alone?
-
-		[MADELINE left angry]
-		I {*}hate{/*} her.
-		...
-
-		[MADELINE left distracted]
-		...
-		But she's {+PART_OF_ME}.
-		I'll never be able to get rid of her.
-
-		[MADELINE left sad]
-		And she was right.
-		I couldn't climb the {+MOUNTAIN}.
+		{+close}
+		{artiboom_textbox madeline}
+		Fuck...
+		That {*}bitch{/*}...
+		Now what?
 
 	CH6_OLDLADY=
 		[GRANNY right normal]
 		Oh, hello again.
 
-		[MADELINE left upset]
-		Of course you're here.
+		{+close}
+		{artiboom_textbox madeline}
+		Of fucking course you're here.
 
 		{trigger 0 Zoom in}
 
 		[GRANNY right mock]
 		Callin' it quits I see.
 		
-		[MADELINE left upset]
-		No, I fell.
-		It's over.
-
+		{+close}
+		{artiboom_textbox madeline}
+		Why do {*}you{/*} care?
+		Why are you even here?
+		
 		[GRANNY right normal]
-		That's probably for the best.
 		The {+MOUNTAIN} doesn't pull any punches.
+		[GRANNY right laughing]
+		Just wanted to make sure you made it.
 
-		[MADELINE left upset]
-		Yeah, I get it. 
-		I wasn't strong enough to climb your stupid {+MOUNTAIN}.
-
-		[MADELINE left distracted]
-		You can laugh at me again if you want.
+		{+close}
+		{artiboom_textbox madeline}
+		Yeah, well I'm fine.
+		Just had a hard fall.
+		Leave it.
 
 		{trigger 1 Start laughing}
 		
-		[MADELINE left upset]
-		I didn't mean actually laugh...
+		{+close}
+		{artiboom_textbox madeline}
+		...
 
 		{trigger 2 Stop laughing}
 		
@@ -3209,39 +3195,28 @@
 
 		{trigger 3 Maddy walks right}
 		
-		[MADELINE left angry]
+		{+close}
+		{artiboom_textbox madeline}
 		You know what?
-		I had a lot of time to think,{n}climbing out of this cave...	
-		And I'm already {*}over it.{/*}
+		No.
+		I'm tired of fucking things up.
 
 		{trigger 4 Maddy walks left}
 
-		[MADELINE left upset flip]
-		That {0.4}{+PART_OF_ME}{0.4} was right, I can't do this.
-
-		[MADELINE left panic flip]
-		I'll just... go home to my sad life{n}and {.4}be miserable forever.
+		{+close}
+		{artiboom_textbox madeline}
+		I can fucking do this.
+		I just gotta get through {+ST_BAD}her{+END_BAD} first.
 
 		{trigger 5 Wait a bit}
-		
-		[GRANNY right normal]
-		You clearly aren't over it.
-
-		{trigger 6 Maddy turns right}
-		
-		[MADELINE left upset]
-		Shut up, I know.
-
-		[MADELINE left distracted]
-		I don't want to give up...
-		But no matter how hard I try, she{n}sabotages me every step of the way.
 		
 		[GRANNY right normal]
 		A lot of kids come here to climb{n}this {+mountain}, only to give up.
 		It's a shame that you fell,{n}I was starting to think you'd make it.
 
-		[MADELINE left sad]
-		What makes me so special?
+		{+close}
+		{artiboom_textbox madeline}
+		Yeah, well, what makes {~}me{/~} so special?
 
 		[GRANNY right normal]
 		I've never met someone so angry at themself.
@@ -3251,20 +3226,20 @@
 		[GRANNY right laugh]
 		Honestly, I thought you'd reach{n}the summit just to spite yourself.
 
-		[MADELINE left upset]
-		Gee, thanks.
-
 		{trigger 2 Stop laughing}
 
 		[GRANNY right normal]
-		This girl you're talking about,{n}it sounds like she's holding you back.
+		This girl you're talking about.
+		She's {+ST_BAD}Part of You{+END_BAD}, isn't she?
+		You can't get rid of her without hurting you too.
+		It sounds like she's scared.
 		Talk to her.
-		Figure out why she's so scared.
+		Figure out why she's hurting.
 		
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		You think she's... scared?
-
-		[MADELINE left distracted]
+		I...
 		I guess I never thought of it that way.
 		
 		[GRANNY right normal]
@@ -3272,43 +3247,35 @@
 		What have you got to lose?
 
 	CH6_OLDLADY_B=
-		[MADELINE left sad]
-		I don't know how to find her...
+		{+close}
+		{artiboom_textbox madeline}
+		Hold on.
+		Why are you not like...
+		suprised to see me talk?
 
-		[GRANNY right normal]
-		She's {+PART_OF_YOU}, right?
-		If you look for her, she won't take long to find.
+		[GRANNY right laugh]
+		Well, that {#96EFFF}temple{#} always does something.
 
-		[MADELINE left upset]
+		{+close}
+		{artiboom_textbox madeline}
 		...so you know about the {+MOUNTAIN}'s power.
 
 		[GRANNY right normal]
 		Of course I know, I live here.
 		I tried to warn you.
 
-		[MADELINE left upset]
-		You need to work on your messaging.
+		{+close}
+		{artiboom_textbox madeline}
+		You...
+		You really need to work on your messaging.
 
 		[GRANNY right normal]
 		A glimpse at the truth is good for people.
 		Even if most can't accept what they see.
-		There's no shame in running back{n}to your car and driving away.
-		Some day you'll be ready,{n}then you'll come back.
-
-		[MADELINE left distracted]
-		...
-		No.
-
-		[MADELINE left sad]
-		I'm going to see this through.
-		No more running.
-
-		[GRANNY right normal]
-		I thought so.
-		Good luck.
 
 	CH6_OLDLADY_C=
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
 		How can you stand living here?
 		Isn't it hard to deal with this all the time?
 
@@ -3317,8 +3284,10 @@
 		But it keeps me sharp.
 		I like that about it.
 
-		[MADELINE left sad]
-		But the {+MOUNTAIN} is so... confrontational.
+		{+close}
+		{artiboom_textbox madeline}
+		But the {+MOUNTAIN} is so...
+		...angry.
 
 		[GRANNY right normal]
 		Sure, it doesn't beat around the bush.
@@ -3326,113 +3295,118 @@
 		The first step of healing{n}is confronting the problem.
 		It's never easy.
 
-		[MADELINE left upset]
-		Tell me about it.
-
 	CH6_BOSS_START=
-		[BADELINE right angry flip]
+		{+close}
+		{artiboom_textbox badeline}
 		Looking for me?
-		I thought you were done with me.
+		I thought you were {*}done{/*} with me.
 
-		[MADELINE left sad]
-		That was a mistake.
+		{+close}
+		{artiboom_textbox madeline}
+		I...
 		I'm sorry.
+		I made a mistake.
 
-		[BADELINE right scoff flip]
-		You think you've got it {~}all figured out.{/~}
-
-		[BADELINE right angry flip]
+		{+close}
+		{artiboom_textbox badeline}
+		Oh, you think you've got it {~}all figured out.{/~}
 		You think you don't need me.
 		
-		[MADELINE left upset]
-		I said I'm sorry.
-
-		[MADELINE left sad]
+		{+close}
+		{artiboom_textbox madeline}
+		I...
 		We need to move past this.
 
 		{trigger 0 Badeline floats, zooms in}
 
-		[BADELINE right yell]
+		{+close}
+		{artiboom_textbox badeline}
 		You expect me to trust you?
+		You know what you did.
 
-		[MADELINE left angry]
+		{+close}
+		{artiboom_textbox madeline}
 		You aren't innocent here either.
 		...
-
-		[MADELINE left determinedclosed]
-		But I know you're scared.
+		I know you're hurting.
 		
 		{trigger 1 Maddy steps forward}
 		
-		[MADELINE left sad]
 		Look, we're at rock bottom.
-		There's no point in fighting.
+		There's really no point in fighting.
+		I can't hurt you without hurting{n}myself, and same with you.
 
-		[BADELINE right scoff]
+		{+close}
+		{artiboom_textbox badeline}
 		I can keep digging.
+		I could pull us down to the center of the earth again.
 
-		[BADELINE right angry]
-		I could pull us down to the center of the earth.
-
-		[MADELINE left sad]
-		What would be the point?
-
-		[MADELINE left together]
-		{s 4}Let's climb out of here {.6}[MADELINE left togetherZoom]together.
+		{+close}
+		{artiboom_textbox madeline}
+		Why? What would be the point?
+		Just to run away again?
+		Let's climb out of here. {.6}Together.
 		
-		[BADELINE right yell]
-		Come close to me and I'll make you regret it.
+		{+close}
+		{artiboom_textbox badeline}
+		Come close to me and I'll make you {!}regret{/!} it.
 
 	CH6_BOSS_TIRED_A=
-		[BADELINE right angry]
+		{+close}
+		{artiboom_textbox badeline}
 		I did you a favor.
 
 	CH6_BOSS_TIRED_B=
-		[BADELINE right yell]
+		{+close}
+		{artiboom_textbox badeline}
 		You aren't a {*}mountain climber.{/*}
 
 	CH6_BOSS_TIRED_C=
-		[BADELINE right yell]
+		{+close}
+		{artiboom_textbox badeline}
 		{*}I'm just trying to help you!{/*}
 
 	CH6_BOSS_MIDDLE=
-		[BADELINE right yell]
+		{+close}
+		{artiboom_textbox badeline}
 		None of this would have {*}happened{/*}{n}if you had {*}listened to me!{/*}
 
 	CH6_BOSS_ENDING=
-		[BADELINE right sigh flip]
+		{+close}
+		{artiboom_textbox badeline}
 		Fine.
 		You win.
 
 		{silent_trigger 0 Music starts}
 
-		[BADELINE right worried flip]
 		I guess you don't need me after all.
-
-		[BADELINE right worriedAlt flip]
+		If...
 		If you want me to go away, I'll try.
 		
-		[MADELINE left distracted]
+		{+close}
+		{artiboom_textbox madeline}
 		That's not what I want.
+		What we did was horrible, but...
+		We need to face it head-on.
 		I need your help now more than ever.
 
-		[MADELINE left sad]
-		Please. Let's work together.
-
-		[BADELINE right worried flip]
-		Work together?
-
-		[BADELINE right worriedAlt flip]
+		{+close}
+		{artiboom_textbox badeline}
+		You want to work together?
 		You're joking, right?
 
 		{trigger 1 Madeline puts hand on Badeline}
 
-		[MADELINE left sad]
-		It's okay to be scared.
+		{+close}
+		{artiboom_textbox madeline}
+		Hey.
+		It's okay.
+		We'll make it home.
 
 		{trigger 2 Badeline calms down}
 
-		[BADELINE right worried flip]
+		{+close}
+		{artiboom_textbox badeline}
 		...
 
 	CH6_ENDING=

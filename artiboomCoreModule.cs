@@ -24,7 +24,7 @@ namespace Celeste.Mod.artiboom
         private static readonly Color[] DashColors = new Color[3]{
             Calc.HexToColor("561329"),
             Calc.HexToColor("70233c"),
-            Calc.HexToColor("87354f")
+            Calc.HexToColor("b54f6f")
         };
 
         private static readonly Color[] BadelineDashColors = new Color[3]{
