@@ -187,4 +187,11 @@
 		<Anim id="eat" path="phone" delay="0.08" frames="46-73,83*2,84*2,85*2,86*2,87*2,74-82"/>
 		<Loop id="monsterIdle" path="phone" delay="0.2" frames="83-87"/>
 	</payphone>
+
+	<badelineBoost path="objects/badelineboost/" start="idle">
+		<Justify x="0.5" y="0.5"/>
+		<Anim id="idle" path="idle" frames="0-5" delay="0.08" goto="idle:10,flash:2,blink"/>
+		<Anim id="flash" path="idle" frames="6-11" delay="0.08" goto="idle"/>
+		<Anim id="blink" path="idle" frames="12-25" delay="0.08" goto="idle"/>
+	</badelineBoost>
 </Sprites>
