@@ -1,5 +1,5 @@
-- Name: artiboom
-  Version: 0.1.0
+- Name: Artiboom
+  Version: 1.0.2
   DLL: bin/artiboom.dll
   Dependencies:
     - Name: EverestCore
