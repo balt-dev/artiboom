@@ -52,7 +52,7 @@ namespace Celeste.Mod.artiboom
             Logger.SetLogLevel(nameof(ArtiboomModule), LogLevel.Verbose);
 #else
             // release builds use info logging to reduce spam in log files
-            Logger.SetLogLevel(nameof(artiboomModule), LogLevel.Info);
+            Logger.SetLogLevel(nameof(ArtiboomModule), LogLevel.Info);
 #endif
         }
 
@@ -190,7 +190,7 @@ namespace Celeste.Mod.artiboom
                 instr => instr.MatchLdloc(1)
             );
             Logger.Log(LogLevel.Info, nameof(ArtiboomModule), $"Next: {cursor.Next}");
-            cursor.EmitDelegate(() => Console.WriteLine("\n\n\nThis should never show!!!\n\n\n"));
+            cursor.EmitDelegate(() => Logger.Log(LogLevel.Error, nameof(ArtiboomModule), "This should never show!"));
             cursor.GotoPrev(
                 MoveType.Before,
                 instr => instr.MatchLdloc(1)
