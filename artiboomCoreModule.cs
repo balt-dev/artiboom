@@ -144,6 +144,7 @@ namespace Celeste.Mod.artiboom
             cursor.EmitDelegate(() => {
                 return new ParticleType(Player.P_DashA) {
                     Color = ParticleColors[random.Next(0, ParticleColors.Length)],
+                    Color2 = ParticleColors[random.Next(0, ParticleColors.Length)],
                     FadeMode = ParticleType.FadeModes.Linear,
                     ColorMode = ParticleType.ColorModes.Choose
                 };
