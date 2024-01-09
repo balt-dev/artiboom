@@ -198,9 +198,10 @@ namespace Celeste.Mod.artiboom
         }
 
         [Command("playanim", "Plays a player animation")]
-        public static void PlayAnimation(string animation) {
+        #nullable enable
+        public static void PlayAnimation(string? animation) {
             Player player = Engine.Scene.Tracker.GetEntity<Player>();
-            if (player.Sprite.Animations.ContainsKey(animation)) {
+            if (animation is not null && player.Sprite.Animations.ContainsKey(animation)) {
                 player.Sprite.Stop();
                 player.Sprite.Play(animation, true);            
             } else {
