@@ -202,6 +202,7 @@ namespace Celeste.Mod.artiboom
         public static void PlayAnimation(string? animation) {
             Player player = Engine.Scene.Tracker.GetEntity<Player>();
             if (animation is not null && player.Sprite.Animations.ContainsKey(animation)) {
+                Engine.Commands.ExecuteCommand("q", []);
                 player.Sprite.Stop();
                 player.Sprite.Play(animation, true);            
             } else {
@@ -213,7 +214,6 @@ namespace Celeste.Mod.artiboom
                 Engine.Commands.Log("Valid animations: ", color);
                 Engine.Commands.Log(string.Join(", ", player.Sprite.Animations.Keys), color);
             }
-            
         }
     }
 }
