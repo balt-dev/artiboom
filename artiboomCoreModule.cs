@@ -104,7 +104,7 @@ namespace Celeste.Mod.artiboom
                 Audio.Play("event:/char/madeline/dash_red_right");
                 Level level = playerBody.SceneAs<Level>();
                 if (level is null) {
-                    throw new Exception("wuh oh level dne");
+                    throw new Exception("wuh oh level doesnt exist");
                 }
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 12f, 36f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 24f, 48f, 0.5f);
