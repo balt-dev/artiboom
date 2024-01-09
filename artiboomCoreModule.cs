@@ -44,9 +44,6 @@ namespace Celeste.Mod.artiboom
         
         private static readonly MethodInfo m_TextboxRoutineEnumerator 
             = typeof(Textbox).GetMethod("RunRoutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
-        
-        private static readonly MethodInfo m_DeathCoroutineEnumerator 
-            = typeof(PlayerDeadBody).GetMethod("DeathRoutine", BindingFlags.NonPublic | BindingFlags.Instance).GetStateMachineTarget();
 
         public ArtiboomModule() {
             Instance = this;
@@ -64,7 +61,6 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_StateMachine_set_State;
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
-        private static ILHook hook_PlayerDeadBody_DeathCoroutine;
 
 
 
@@ -80,39 +76,11 @@ namespace Celeste.Mod.artiboom
                 new ILHook(m_TextboxRoutineEnumerator, (il) => ModFancyBackground(il, m_TextboxRoutineEnumerator.DeclaringType));
             hook_Player_DashCoroutine = 
                 new ILHook(m_DashCoroutineEnumerator, ModNoDashSlash);
-            hook_PlayerDeadBody_DeathCoroutine = 
-                new ILHook(m_DeathCoroutineEnumerator, ModDeath);
             hook_StateMachine_ForceState = 
                 new ILHook(typeof(StateMachine).GetMethod("ForceState"), VivHack.ForceSetStateOverrideOnPlayerDash);
             hook_StateMachine_set_State = 
                 new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
-        }
-
-        private void ModDeath(ILContext il) {
-            ILCursor cursor = new(il);
-
-            if (!cursor.TryGotoNext(
-                MoveType.After,
-                instr => instr.MatchCall("Celeste.Audio", "Play")
-            )) {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find death effect in PlayerDeadBody. Did something else change it?");
-                return;
-            }
-            cursor.Emit(OpCodes.Ldarg_0); // this
-            var field = il.Method.DeclaringType.FindField("<>4__this");
-            cursor.Emit(OpCodes.Ldfld, field);
-            cursor.EmitDelegate<Action<PlayerDeadBody>>((playerBody) => {
-                Audio.Play("event:/char/madeline/dash_red_right");
-                Level level = playerBody.SceneAs<Level>();
-                level.Displacement.AddBurst(playerBody.Position, 0.4f, 12f, 36f, 0.5f);
-                level.Displacement.AddBurst(playerBody.Position, 0.4f, 24f, 48f, 0.5f);
-                level.Displacement.AddBurst(playerBody.Position, 0.4f, 36f, 60f, 0.5f);
-                for (float num = 0f; num < MathF.PI * 2f; num += 0.5f) {
-                    Vector2 position = playerBody.Center + Calc.AngleToVector(num + Calc.Random.Range(-MathF.PI / 90f, MathF.PI / 90f), Calc.Random.Range(12, 18));
-                    level.Particles.Emit(Seeker.P_Regen, position, num);
-                }
-            });
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
@@ -226,7 +194,6 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_set_State.Dispose();
             hook_Player_DashCoroutine.Dispose();
             hook_Textbox_RunRoutine.Dispose();
-            hook_PlayerDeadBody_DeathCoroutine.Dispose();
             followerManager.UnLoad();
         }
     }
