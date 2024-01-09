@@ -102,13 +102,10 @@ namespace Celeste.Mod.artiboom
             cursor.Emit(OpCodes.Ldarg_0); // this
             cursor.EmitDelegate<Action<PlayerDeadBody>>((playerBody) => {
                 Audio.Play("event:/char/madeline/dash_red_right");
-                Level level = playerBody.SceneAs<Level>();
-                if (level is null) {
-                    throw new Exception("wuh oh level doesnt exist");
-                }
-                if (playerBody is null) {
-                    throw new Exception("AH!!!!");
-                }
+                Player player = (Player) typeof(PlayerDeadBody)
+                    .GetField("player", BindingFlags.NonPublic | BindingFlags.Instance)
+                    .GetValue(playerBody);
+                Level level = player.SceneAs<Level>();
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 12f, 36f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 24f, 48f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 36f, 60f, 0.5f);
