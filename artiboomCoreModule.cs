@@ -146,7 +146,8 @@ namespace Celeste.Mod.artiboom
                     Color = ParticleColors[random.Next(0, ParticleColors.Length)],
                     Color2 = ParticleColors[random.Next(0, ParticleColors.Length)],
                     FadeMode = ParticleType.FadeModes.Late,
-                    ColorMode = ParticleType.ColorModes.Choose
+                    ColorMode = ParticleType.ColorModes.Choose,
+                    LifeMax = 0.2f
                 };
             }); 
             cursor.Emit(OpCodes.Stloc_S, (byte)7);
