@@ -96,7 +96,7 @@ namespace Celeste.Mod.artiboom
                 MoveType.After,
                 instr => instr.MatchCall("Celeste.Audio", "Play")
             )) {
-                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find death effect in PlayerDeadBody. Did something else change it?");
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}:  Hook failed to find death effect in PlayerDeadBody. Did something else change it?");
                 return;
             }
             cursor.Emit(OpCodes.Ldarg_0); // this
