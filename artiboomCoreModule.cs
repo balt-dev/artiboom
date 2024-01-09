@@ -134,8 +134,8 @@ namespace Celeste.Mod.artiboom
             cursor.MoveAfterLabels();
             cursor.EmitDelegate(() => {
                 return new ParticleType(Player.P_DashA) {
-                    Color = Calc.HexToColor("efff3e"),
-                    Color2 = Calc.HexToColor("760e00"),
+                    Color = Calc.HexToColor("dbd148"),
+                    Color2 = Calc.HexToColor("ed6904"),
                     FadeMode = ParticleType.FadeModes.Linear,
                     ColorMode = ParticleType.ColorModes.Choose
                 };
