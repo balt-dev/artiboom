@@ -183,7 +183,7 @@ namespace Celeste.Mod.artiboom
 
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
             Level level = self.SceneAs<Level>();
-		    level.Displacement.AddBurst(self.Center, 0.2f, 8f, 64f, 1f, Ease.QuadOut, Ease.QuadOut);
+		    level.Displacement.AddBurst(self.Center, 0.2f, 24f, 96f, 2f, Ease.QuadOut, Ease.QuadOut);
             self.SceneAs<Level>().ParticlesFG.Emit(
                 SummitGem.P_Shatter,
                 5,
