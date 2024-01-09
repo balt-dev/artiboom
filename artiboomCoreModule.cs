@@ -106,6 +106,9 @@ namespace Celeste.Mod.artiboom
                 if (level is null) {
                     throw new Exception("wuh oh level doesnt exist");
                 }
+                if (playerBody is null) {
+                    throw new Exception("AH!!!!");
+                }
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 12f, 36f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 24f, 48f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 36f, 60f, 0.5f);
