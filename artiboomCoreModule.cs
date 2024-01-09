@@ -30,6 +30,7 @@ namespace Celeste.Mod.artiboom
         ];
 
         private static readonly Color[] ParticleColors = [
+                Calc.HexToColor("FFFFFF"),
                 Calc.HexToColor("dbd148"),
                 Calc.HexToColor("e57804"),
                 Calc.HexToColor("c43019"),
@@ -148,7 +149,7 @@ namespace Celeste.Mod.artiboom
                     FadeMode = ParticleType.FadeModes.Late,
                     ColorMode = ParticleType.ColorModes.Fade,
                     LifeMax = 0.4f,
-                    LifeMin = 0.3f
+                    LifeMin = 0.0f
                 };
             }); 
             cursor.Emit(OpCodes.Stloc_S, (byte)7);
