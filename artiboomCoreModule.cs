@@ -146,7 +146,7 @@ namespace Celeste.Mod.artiboom
                     Color = ParticleColors[random.Next(0, ParticleColors.Length)],
                     Color2 = ParticleColors[random.Next(0, ParticleColors.Length)],
                     FadeMode = ParticleType.FadeModes.Late,
-                    ColorMode = ParticleType.ColorModes.Choose,
+                    ColorMode = ParticleType.ColorModes.Fade,
                     LifeMax = 0.4f,
                     LifeMin = 0.1f
                 };
