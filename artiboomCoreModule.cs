@@ -71,7 +71,7 @@ namespace Celeste.Mod.artiboom
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
             On.Celeste.Player.CreateTrail += ModNoTrail;
             IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
-
+            On.Celeste.Player.Die += ModDeath;
             On.Celeste.Player.ctor += AddStates;
             hook_Textbox_RunRoutine = 
                 new ILHook(m_TextboxRoutineEnumerator, (il) => ModFancyBackground(il, m_TextboxRoutineEnumerator.DeclaringType));
@@ -82,6 +82,13 @@ namespace Celeste.Mod.artiboom
             hook_StateMachine_set_State = 
                 new ILHook(typeof(StateMachine).GetProperty("State").GetSetMethod(), VivHack.ForceSetStateOverrideOnPlayerDash);
             followerManager.Load();
+        }
+
+        private PlayerDeadBody ModDeath(On.Celeste.Player.orig_Die orig, Player self, Vector2 direction, bool evenIfInvincible, bool registerDeathInStats) {
+            Level level = self.SceneAs<Level>();
+		    level.Displacement.AddBurst(self.Center, 0.2f, 8f, 80f, 2f, Ease.ExpoOut, Ease.ExpoOut);
+            self.Play("event:/char/madeline/dash_red_right");
+            return orig(self, direction, evenIfInvincible, registerDeathInStats);
         }
 
         private void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
@@ -186,6 +193,7 @@ namespace Celeste.Mod.artiboom
             // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin -= ModDashBurst;
             On.Celeste.Player.UpdateHair -= ModHairColor;
+            On.Celeste.Player.Die -= ModDeath;
             IL.Celeste.BadelineOldsite.cctor -= ModBadelineHairColor;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
             IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
