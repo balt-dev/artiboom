@@ -63,15 +63,16 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
 
-        private static readonly ParticleType par = Player.P_DashA;
+        private static readonly ParticleType par = new(Player.P_DashA) {
+            Color = Calc.HexToColor("efff3e"),
+            Color2 = Calc.HexToColor("760e00"),
+            FadeMode = ParticleType.FadeModes.Linear,
+            ColorMode = ParticleType.ColorModes.Choose
+        };
 
 
 
         public override void Load() {
-            par.Color = Calc.HexToColor("efff3e");
-            par.Color2 = Calc.HexToColor("760e00");
-            par.FadeMode = ParticleType.FadeModes.Linear;
-            par.ColorMode = ParticleType.ColorModes.Choose;
 
             // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin += ModDashBurst;
