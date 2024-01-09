@@ -143,7 +143,7 @@ namespace Celeste.Mod.artiboom
             cursor.Emit(OpCodes.Stloc_S, (byte)7);
             cursor.GotoPrev(
                 MoveType.Before, 
-                instr => instr.MatchLdfld<Player>("wasDashB"),
+                instr => instr.MatchLdfld<bool>("wasDashB"),
                 instr => instr.MatchLdarg(0)
             );
             cursor.MoveAfterLabels();
