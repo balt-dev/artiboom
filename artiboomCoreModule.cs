@@ -140,7 +140,7 @@ namespace Celeste.Mod.artiboom
             ILLabel label = cursor.MarkLabel();
             cursor.MoveAfterLabels();
             cursor.EmitDelegate(() => par); 
-            cursor.Emit(OpCodes.Stloc_S, 7);
+            cursor.Emit(OpCodes.Stloc_S, (byte)7);
             cursor.GotoPrev(
                 MoveType.Before, 
                 instr => instr.MatchLdfld<Player>("wasDashB"),
