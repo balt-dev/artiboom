@@ -1,6 +1,8 @@
 - Name: Artiboom
-  Version: 1.0.2
+  Version: 1.1.0
   DLL: bin/artiboom.dll
   Dependencies:
     - Name: EverestCore
       Version: 1.4054.0
+    - Name: DownpourOfSlugcats
+      Version: 1.0.0

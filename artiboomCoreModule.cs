@@ -69,9 +69,6 @@ namespace Celeste.Mod.artiboom
             On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
             IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
-            On.Celeste.PlayerHair.AfterUpdate += ModHairAmount;
-            On.Celeste.PlayerHair.GetHairTexture += ModHairTexture;
-            On.Celeste.PlayerHair.GetHairScale += ModHairScale;
             On.Celeste.Player.CreateTrail += ModNoTrail;
             IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
 
@@ -116,8 +113,6 @@ namespace Celeste.Mod.artiboom
             if ((idx >= 0) & (self.StateMachine.State != Player.StStarFly)) {
                 if (SaveData.Instance.Assists.PlayAsBadeline) {
                     self.Hair.Color = BadelineDashColors[idx];
-                } else if (!Settings.CompatibilityMode) {
-                    self.Hair.Color = DashColors[idx];
                 }
             }
         }
@@ -136,28 +131,6 @@ namespace Celeste.Mod.artiboom
             cursor.RemoveRange(2);
             // ...and put in new
             cursor.EmitDelegate(() => BadelineDashColors[1]);
-        }
-
-        private MTexture ModHairTexture(On.Celeste.PlayerHair.orig_GetHairTexture orig, PlayerHair self, int index) {
-            return orig(self, 1);
-        }
-
-        private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self) {
-            if (Settings.CompatibilityMode) {orig(self); return;}
-            if (self.Entity == null) {orig(self); return;}
-            if (self.Entity is Player player && player.Sprite != null)
-                player.Sprite.HairCount = TAIL_LENGTH;
-            self.StepApproach = 120f;
-            self.StepPerSegment = Vector2.UnitY * TAIL_STEP;
-            self.StepInFacingPerSegment = TAIL_FACING_STEP;
-            orig(self);
-        }
-
-        private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index) {
-            if (!Settings.CompatibilityMode) {
-                return Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), index / (float) TAIL_LENGTH);
-            }
-            return orig(self, index);
         }
 
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
@@ -214,9 +187,6 @@ namespace Celeste.Mod.artiboom
             On.Celeste.Player.DashBegin -= ModDashBurst;
             On.Celeste.Player.UpdateHair -= ModHairColor;
             IL.Celeste.BadelineOldsite.cctor -= ModBadelineHairColor;
-            On.Celeste.PlayerHair.AfterUpdate -= ModHairAmount;
-            On.Celeste.PlayerHair.GetHairTexture -= ModHairTexture;
-            On.Celeste.PlayerHair.GetHairScale -= ModHairScale;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
             IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
 

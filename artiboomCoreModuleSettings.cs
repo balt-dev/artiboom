@@ -17,8 +17,5 @@ namespace Celeste.Mod.artiboom
         [SettingName("SETTING_FOLLOW_Y")]
 	    [SettingRange(-32, 32)]
         public int FollowY {get; set;} = 6;
-        [SettingName("COMPATIBILITY_MODE")]
-        [SettingSubText("Removes some features made redundant by Downpour of Slugcats+.\nFor full compatibility, it's recommended to\ndelete the player sprite folders\ninside \"Graphics/Atlases/Gameplay/characters/\".")]
-        public bool CompatibilityMode {get; set;} = false;
     }
 }
