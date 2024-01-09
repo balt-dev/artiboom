@@ -17,5 +17,8 @@ namespace Celeste.Mod.artiboom
         [SettingName("SETTING_FOLLOW_Y")]
 	    [SettingRange(-32, 32)]
         public int FollowY {get; set;} = 6;
+        [SettingName("COMPATIBILITY_MODE")]
+        [SettingSubText("Removes some features made redundant by Downpour of Slugcats+.")]
+        public bool CompatibilityMode {get; set;} = false;
     }
 }

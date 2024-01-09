@@ -116,7 +116,7 @@ namespace Celeste.Mod.artiboom
             if ((idx >= 0) & (self.StateMachine.State != Player.StStarFly)) {
                 if (SaveData.Instance.Assists.PlayAsBadeline) {
                     self.Hair.Color = BadelineDashColors[idx];
-                } else {
+                } else if (!Settings.CompatibilityMode) {
                     self.Hair.Color = DashColors[idx];
                 }
             }
@@ -143,6 +143,7 @@ namespace Celeste.Mod.artiboom
         }
 
         private void ModHairAmount(On.Celeste.PlayerHair.orig_AfterUpdate orig, PlayerHair self) {
+            if (Settings.CompatibilityMode) {orig(self); return;}
             if (self.Entity == null) {orig(self); return;}
             if (self.Entity is Player player && player.Sprite != null)
                 player.Sprite.HairCount = TAIL_LENGTH;
@@ -153,7 +154,10 @@ namespace Celeste.Mod.artiboom
         }
 
         private Vector2 ModHairScale(On.Celeste.PlayerHair.orig_GetHairScale orig, PlayerHair self, int index) {
-            return Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), index / (float) TAIL_LENGTH);
+            if (!Settings.CompatibilityMode) {
+                return Vector2.Lerp(Vector2.One, new Vector2(TAIL_SCALE), index / (float) TAIL_LENGTH);
+            }
+            return orig(self, index);
         }
 
         private void ModDashBurst(On.Celeste.Player.orig_DashBegin orig, Player self) {
