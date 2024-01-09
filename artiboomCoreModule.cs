@@ -23,17 +23,25 @@ namespace Celeste.Mod.artiboom
         private readonly FollowerManager followerManager = new();
         public static ArtiboomModule Instance { get; private set; }
 
-        private static readonly Color[] DashColors = new Color[3]{
+        private static readonly Color[] DashColors = [
             Calc.HexToColor("561329"),
             Calc.HexToColor("70233c"),
             Calc.HexToColor("b54f6f")
-        };
+        ];
 
-        private static readonly Color[] BadelineDashColors = new Color[3]{
+        private static readonly Color[] ParticleColors = [
+                Calc.HexToColor("dbd148"),
+                Calc.HexToColor("e57804"),
+                Calc.HexToColor("c43019"),
+                Calc.HexToColor("890a01"),
+                Calc.HexToColor("210702")
+        ];
+
+        private static readonly Color[] BadelineDashColors = [
             Calc.HexToColor("000000"),
             Calc.HexToColor("1f0000"),
             Calc.HexToColor("330404")
-        };
+        ];
 
         public override Type SettingsType => typeof(artiboomModuleSettings);
         public static artiboomModuleSettings Settings => (artiboomModuleSettings)Instance._Settings;
@@ -132,10 +140,10 @@ namespace Celeste.Mod.artiboom
             cursor.MoveAfterLabels();
             ILLabel label = cursor.MarkLabel();
             cursor.MoveAfterLabels();
+            Random random = new();
             cursor.EmitDelegate(() => {
                 return new ParticleType(Player.P_DashA) {
-                    Color = Calc.HexToColor("dbd148"),
-                    Color2 = Calc.HexToColor("ed6904"),
+                    Color = ParticleColors[random.Next(0, ParticleColors.Length)],
                     FadeMode = ParticleType.FadeModes.Linear,
                     ColorMode = ParticleType.ColorModes.Choose
                 };
