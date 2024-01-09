@@ -200,7 +200,13 @@ namespace Celeste.Mod.artiboom
         [Command("playanim", "Plays a player animation")]
         public static void PlayAnimation(string animation) {
             Player player = Engine.Scene.Tracker.GetEntity<Player>();
-            player.Sprite.Play(animation);
+            if (player.Sprite.Animations.ContainsKey(animation)) {
+                player.Sprite.Play(animation);            
+            } else {
+                Engine.Commands.Log($"Invalid animation {animation}! Valid animations: ", Color.Red);
+                Engine.Commands.Log(player.Sprite.Animations.Keys.ToString(), Color.Red);
+            }
+            
         }
     }
 }
