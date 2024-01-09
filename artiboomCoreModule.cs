@@ -205,8 +205,13 @@ namespace Celeste.Mod.artiboom
                 player.Sprite.Stop();
                 player.Sprite.Play(animation, true);            
             } else {
-                Engine.Commands.Log($"Invalid animation {animation}! Valid animations: ", Color.Red);
-                Engine.Commands.Log(string.Join(", ", player.Sprite.Animations.Keys), Color.Red);
+                Color color = Color.White;
+                if (animation is not null) {
+                    color = Color.Red;
+                    Engine.Commands.Log($"Invalid animation {animation}!", color);
+                }
+                Engine.Commands.Log("Valid animations: ", color);
+                Engine.Commands.Log(string.Join(", ", player.Sprite.Animations.Keys), color);
             }
             
         }
