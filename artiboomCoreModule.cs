@@ -100,12 +100,10 @@ namespace Celeste.Mod.artiboom
                 return;
             }
             cursor.Emit(OpCodes.Ldarg_0); // this
+            cursor.Emit(OpCodes.Ldfld, il.Method.DeclaringType.FindField("<>4__this"));
             cursor.EmitDelegate<Action<PlayerDeadBody>>((playerBody) => {
                 Audio.Play("event:/char/madeline/dash_red_right");
-                Player player = (Player) typeof(PlayerDeadBody)
-                    .GetField("player", BindingFlags.NonPublic | BindingFlags.Instance)
-                    .GetValue(playerBody);
-                Level level = player.SceneAs<Level>();
+                Level level = playerBody.SceneAs<Level>();
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 12f, 36f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 24f, 48f, 0.5f);
                 level.Displacement.AddBurst(playerBody.Position, 0.4f, 36f, 60f, 0.5f);
