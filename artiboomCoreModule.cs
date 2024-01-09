@@ -63,7 +63,7 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
 
-        private static readonly ParticleType par = new(Player.P_DashA) {
+        private static readonly ParticleType par = new() {
             Color = Calc.HexToColor("efff3e"),
             Color2 = Calc.HexToColor("760e00"),
             FadeMode = ParticleType.FadeModes.Linear,
