@@ -137,6 +137,7 @@ namespace Celeste.Mod.artiboom
             cursor.GotoPrev(MoveType.Before, instr => instr.MatchLdarg(0));
             cursor.MoveAfterLabels();
             ILLabel label = cursor.MarkLabel();
+            cursor.MoveAfterLabels();
             cursor.EmitDelegate(() => par); 
             cursor.Emit(OpCodes.Stloc_S, 7);
             cursor.GotoPrev(
