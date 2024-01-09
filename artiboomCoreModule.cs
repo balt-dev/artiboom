@@ -101,12 +101,6 @@ namespace Celeste.Mod.artiboom
 
             StSemiDash = self.StateMachine.AddState(SemiDash.SemiDashUpdate, SemiDash.SemiDashCoroutine, SemiDash.SemiDashStart, SemiDash.SemiDashEnd);
             SemiDash.StSemiDash = StSemiDash;
-
-            Player.P_DashA.Color = Calc.HexToColor("efff3e");
-            Player.P_DashA.Color2 = Calc.HexToColor("760e00");
-            Player.P_DashA.FadeMode = ParticleType.FadeModes.Linear;
-            Player.P_DashA.ColorMode = ParticleType.ColorModes.Choose;
-            Player.P_DashB = Player.P_DashA;
         }
 
         private void ModHairColor(On.Celeste.Player.orig_UpdateHair orig, Player self, bool applyGravity) {
@@ -150,6 +144,11 @@ namespace Celeste.Mod.artiboom
                 Color.White,
                 self.Speed.Angle() + (float) Math.PI
             );
+            Player.P_DashA.Color = Calc.HexToColor("efff3e");
+            Player.P_DashA.Color2 = Calc.HexToColor("760e00");
+            Player.P_DashA.FadeMode = ParticleType.FadeModes.Linear;
+            Player.P_DashA.ColorMode = ParticleType.ColorModes.Choose;
+            Player.P_DashB = Player.P_DashA;
             orig(self);
         }
 
