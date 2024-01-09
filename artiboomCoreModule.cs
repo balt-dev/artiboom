@@ -63,9 +63,16 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
 
+        private static readonly ParticleType par = Player.P_DashA;
+
 
 
         public override void Load() {
+            par.Color = Calc.HexToColor("efff3e");
+            par.Color2 = Calc.HexToColor("760e00");
+            par.FadeMode = ParticleType.FadeModes.Linear;
+            par.ColorMode = ParticleType.ColorModes.Choose;
+
             // TODO: apply any hooks that should always be active
             On.Celeste.Player.DashBegin += ModDashBurst;
             On.Celeste.Player.UpdateHair += ModHairColor;
@@ -73,6 +80,7 @@ namespace Celeste.Mod.artiboom
             On.Celeste.Player.CreateTrail += ModNoTrail;
             IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
             On.Celeste.Player.ctor += AddStates;
+            IL.Celeste.Player.DashUpdate += ModDashTrail;
             hook_Textbox_RunRoutine = 
                 new ILHook(m_TextboxRoutineEnumerator, (il) => ModFancyBackground(il, m_TextboxRoutineEnumerator.DeclaringType));
             hook_Player_DashCoroutine = 
@@ -117,6 +125,32 @@ namespace Celeste.Mod.artiboom
             }
         }
 
+        private void ModDashTrail(ILContext il) {
+            ILCursor cursor = new(il);
+
+            if (!cursor.TryGotoNext(MoveType.Before, 
+                instr => instr.MatchLdfld<Level>("ParticlesFG")
+            )) {
+                Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find particles in Player. Did something else change it?");
+                return;
+            }
+            cursor.GotoPrev(MoveType.Before, instr => instr.MatchLdarg(0));
+            cursor.MoveAfterLabels();
+            ILLabel label = cursor.MarkLabel();
+            cursor.EmitDelegate(() => par); 
+            cursor.Emit(OpCodes.Stloc_S, 7);
+            cursor.GotoPrev(
+                MoveType.Before, 
+                instr => instr.MatchLdfld<Player>("wasDashB"),
+                instr => instr.MatchLdarg(0)
+            );
+            cursor.MoveAfterLabels();
+            cursor.Emit(
+                OpCodes.Br,
+                label
+            );
+        } 
+
         private void ModBadelineHairColor(ILContext il) {
             ILCursor cursor = new(il);
 
@@ -144,11 +178,6 @@ namespace Celeste.Mod.artiboom
                 Color.White,
                 self.Speed.Angle() + (float) Math.PI
             );
-            Player.P_DashA.Color = Calc.HexToColor("efff3e");
-            Player.P_DashA.Color2 = Calc.HexToColor("760e00");
-            Player.P_DashA.FadeMode = ParticleType.FadeModes.Linear;
-            Player.P_DashA.ColorMode = ParticleType.ColorModes.Choose;
-            Player.P_DashB = Player.P_DashA;
             orig(self);
         }
 
@@ -194,6 +223,7 @@ namespace Celeste.Mod.artiboom
             IL.Celeste.BadelineOldsite.cctor -= ModBadelineHairColor;
             On.Celeste.Player.CreateTrail -= ModNoTrail;
             IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
+            IL.Celeste.Player.DashUpdate -= ModDashTrail;
 
             On.Celeste.Player.ctor -= AddStates;
             hook_StateMachine_ForceState.Dispose();
