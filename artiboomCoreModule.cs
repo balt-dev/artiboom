@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
+using IL.System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Mono.Cecil.Cil;
 using Mono.CompilerServices.SymbolWriter;
@@ -62,14 +63,6 @@ namespace Celeste.Mod.artiboom
         private static ILHook hook_StateMachine_set_State;
         private static ILHook hook_Player_DashCoroutine;
         private static ILHook hook_Textbox_RunRoutine;
-
-        private static readonly ParticleType par = new() {
-            Color = Calc.HexToColor("efff3e"),
-            Color2 = Calc.HexToColor("760e00"),
-            FadeMode = ParticleType.FadeModes.Linear,
-            ColorMode = ParticleType.ColorModes.Choose
-        };
-
 
 
         public override void Load() {
@@ -139,7 +132,14 @@ namespace Celeste.Mod.artiboom
             cursor.MoveAfterLabels();
             ILLabel label = cursor.MarkLabel();
             cursor.MoveAfterLabels();
-            cursor.EmitDelegate(() => par); 
+            cursor.EmitDelegate(() => {
+                return new ParticleType(Player.P_DashA) {
+                    Color = Calc.HexToColor("efff3e"),
+                    Color2 = Calc.HexToColor("760e00"),
+                    FadeMode = ParticleType.FadeModes.Linear,
+                    ColorMode = ParticleType.ColorModes.Choose
+                };
+            }); 
             cursor.Emit(OpCodes.Stloc_S, (byte)7);
             cursor.GotoPrev(
                 MoveType.Before, 
