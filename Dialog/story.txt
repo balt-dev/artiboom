@@ -493,9 +493,10 @@
 		{anchor top}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		{+thought}What in the voids is...{+endthought}
 
+		[MADELINE left normal]
 		Wawaa waa wa, wawa?
 
 		[GRANNY left normal]
@@ -504,7 +505,7 @@
 		{trigger 0 Madeline walks forward}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Waaw wawa {#841b3e}wawa wa{#} waaw wa.
 
 		{trigger 2 Granny laughs}
@@ -515,7 +516,7 @@
 		{trigger 4 Stop laughing}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		{+thought}{0.5}.....{0.2}{+endthought}
 
 		{trigger 3 Laugh Continues}
@@ -531,8 +532,8 @@
 
 		{trigger 6 pan to Maddy}
 
-		{artiboom_textbox madeline}
-		{+thought}.{0.1}.{0.1}.{1.0}not worth my time.{+endthought}
+		[MADELINE right sad]
+		{+thought}.{0.1}.{0.1}.{1.0}[MADELINE right distracted]not worth my time.{+endthought}
 
 		{trigger 3 resume laughing}
 
