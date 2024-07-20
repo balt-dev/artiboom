@@ -73,6 +73,7 @@ public class ArtiboomModule : EverestModule
         IL.Celeste.FancyText.Parse += ModFancyBackgroundParse;
         On.Celeste.Player.ctor += AddStates;
         IL.Celeste.Player.DashUpdate += ModDashTrail;
+        IL.Celeste.BadelineOldsite.cctor += ModBadelineHairColor;
         hook_Textbox_RunRoutine = 
             new ILHook(m_TextboxRoutineEnumerator, (il) => ModFancyBackground(il, m_TextboxRoutineEnumerator.DeclaringType));
         hook_Player_DashCoroutine = 
@@ -111,6 +112,22 @@ public class ArtiboomModule : EverestModule
                 self.Hair.Color = BadelineDashColors[idx];
             }
         }
+    }
+
+    private void ModBadelineHairColor(ILContext il) {
+        ILCursor cursor = new(il);
+
+        if (!cursor.TryGotoNext(MoveType.Before, 
+            instr => instr.MatchLdstr("9B3FB5"),
+            instr => instr.MatchCall("Monocle.Calc", "HexToColor")
+        )) {
+            Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find hair color in BadelineOldSite. Did something else change it?");
+            return;
+        }
+        // Remove old...
+        cursor.RemoveRange(2);
+        // ...and put in new
+        cursor.EmitDelegate(() => BadelineDashColors[1]);
     }
 
     private static void ModDashTrail(ILContext il) {
@@ -206,7 +223,8 @@ public class ArtiboomModule : EverestModule
         On.Celeste.Player.CreateTrail -= ModNoTrail;
         IL.Celeste.FancyText.Parse -= ModFancyBackgroundParse;
         IL.Celeste.Player.DashUpdate -= ModDashTrail;
-
+        IL.Celeste.BadelineOldsite.cctor -= ModBadelineHairColor;
+        
         On.Celeste.Player.ctor -= AddStates;
         hook_StateMachine_ForceState.Dispose();
         hook_StateMachine_set_State.Dispose();

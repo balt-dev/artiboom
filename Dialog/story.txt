@@ -493,7 +493,7 @@
 		{anchor top}
 
 		{+close}
-		[MADELINE left distracted]
+		{artiboom_textbox madeline}
 		{+thought}What in the voids is...{+endthought}
 
 		[MADELINE left normal]
@@ -517,10 +517,11 @@
 
 		{+close}
 		[MADELINE left upset]
-		{+thought}{0.5}.....{0.2}{+endthought}
+		.....
 
 		{trigger 3 Laugh Continues}
 
+		{artiboom_textbox madeline}
 		{+thought}{0.2}Why did I think she'd be able to understand me...{+endthought}
 
 		{trigger 1 Madeline walks to the right of the house, turns left}
@@ -533,7 +534,10 @@
 		{trigger 6 pan to Maddy}
 
 		[MADELINE right sad]
-		{+thought}.{0.1}.{0.1}.{1.0}[MADELINE right distracted]not worth my time.{+endthought}
+		.{0.1}.{0.1}.{1.0}
+		
+		{artiboom_textbox madeline}
+		{+thought}...not worth my time.{+endthought}
 
 		{trigger 3 resume laughing}
 
@@ -560,15 +564,15 @@
 		What even are you? Some kind of mutated rabbit?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		{~}Waaw wa.{/~}				
 
 		[THEO left excited]
 		Wait, can you understand me?!
 
 		{+close}
-		{artiboom_textbox madeline}
-		{+thought}...{+endthought}
+		[MADELINE right upset]
+		...
 		
 		[THEO left normal]
 		Oh yeah, that's totally a look of understanding.
@@ -618,7 +622,7 @@
 	MEMORIAL=
 		-- CELESTE MOUNTAIN --
 		This memorial dedicated to those
-		Who perished on the climb	
+		Who were lost on the climb	
 
 	CH1_END=
 		{artiboom_textbox madeline}
@@ -638,7 +642,7 @@
 
 		{trigger 0 Madeline turns around}
 		
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		{*}Who said that?{/*}
 		
 		{trigger 1 Badeline is revealed}
@@ -647,20 +651,21 @@
 		Oh, I'm simply a{0.1}.{0.1}.{0.1}.{0.3} concerned observer.
 		
 		{+close}
-		{artiboom_textbox madeline}
-		Who the{0.4} fuck{0.2} are{0.1}.{0.1}.{0.1}.
+		[MADELINE right surprised]
+		Who the{0.4} [MADELINE right angry]fuck{0.2} are{0.1}.{0.1}.{0.1}.
 		
 		{+close}
 		{artiboom_textbox badeline}
 		I'm {+PART_OF_YOU}.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Why do {+ST_BAD}you{+END_BAD}...
 
+		[MADELINE right sad]
 		...
 
-		{artiboom_textbox madeline}
+		[MADELINE right sadder]
 		{*}...nevermind.{/*}
 		
 		{+close}
@@ -673,7 +678,7 @@
 		We're in the middle of nowhere, probably not even where we belong, and your first decision is to-
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{*}{!}Stop!{/!}{/*}
 
 		I know I'm crazy for it, but I...
@@ -684,7 +689,7 @@
 		Running away from consequences again, {~}I presume?{/~}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{~}{*}.....{/*}{/~}
 
 		{trigger 3 Badeline stops laughing}
@@ -696,7 +701,7 @@
 		You can't handle this.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{0.4}{*}Shut{0.8} {!}UP!{/!}{1.2} {!}Shut{/!}{0.7} the {0.2}{!}fuck{/!}-{/*}
 
 		{+close}
@@ -706,31 +711,31 @@
 		You're going to {~}{!}pay{/!}{/~}{0.3} for that.
 
 	CH2_DREAM_PHONECALL=
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Hello?
 		
 		{portrait none}
 		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		?!
 
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{!}{#97aedf}Storm{#}!{/!} Where are you!?
 
 		{portrait none}
 		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		...
 		
 		{portrait none}
 		{#97aedf}{*}Help!{0.2} Help me!{/*}{#}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		...that's not...
 
 		{portrait none}
@@ -739,22 +744,22 @@
 		{# 999a9a}*click*{#}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sadder]
 		{*}...fuck.{/*}
 
+		[MADELINE right distracted]
 		Just another one of {~}those{/~} dreams, then...
 
 		{trigger 0 Badeline appears}
 		
-		{+close}
 		{artiboom_textbox badeline}
 		Look at you{~}{0.2} go!{/~} You finally figured it out.
 		
 		You could have {~}saved{/~} {#97aedf}her{#}, you know.
 
 		{+close}
-		{artiboom_textbox madeline}
-		{!}Don't{/!}{0.4} you fucking dare.
+		[MADELINE right angry]
+		{!}Don't{/!}{0.4} [MADELINE right determined]you fucking dare.
 
 		{+close}
 		{artiboom_textbox badeline}
@@ -766,7 +771,7 @@
 		What is...
 
 		{+close}
-		{artiboom_textbox madeline}		
+		[MADELINE right sad]	
 		
 		{+thought}...great.{+endthought}
 
@@ -781,7 +786,7 @@
 		Oh, can you understand me?
 
 		{+close}
-		{artiboom_textbox madeline}		
+		[MADELINE right upset]	
 		
 		{+thought}Oh, fuck off.{+endthought}
 		
@@ -789,7 +794,7 @@
 		{>> 0.3}Yeah{/>>}, that's a look of understanding if I've ever seen it.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		...wawa wa?{0.2}
 		
 		[THEO left thinking]
@@ -838,7 +843,7 @@
 		Take a selfie with me!
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{!}{*}Khhhh!{/*}{/!}
 		
 		[THEO left worried]
@@ -849,9 +854,10 @@
 		Sorry about that.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		...
 		
+		{artiboom_textbox madeline}
 		{+thought}...whatever.{+endthought}
 
 	CH2_THEO_C= 
@@ -886,7 +892,7 @@
 		Is anyone there?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Waaaw wa.
 		
 		[MOM_PHONE right concerned]
@@ -918,7 +924,7 @@
 		Welcome! May I help you?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		Wawa... waaw wa?
 		
 		[OSHIRO right worried]
@@ -934,7 +940,7 @@
 		{+ mroshiro}, at your service.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		Wa, waww wa waaw waa?
 
 		[OSHIRO right nervous]
@@ -950,7 +956,7 @@
 		How long will you be staying with us?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Uh... what do you mean?
 		
 		[OSHIRO right worried]
@@ -960,7 +966,7 @@
 		{+thought}Do they not know what a hotel is?{+endthought}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		You know I can still hear you, right?
 		
 		[OSHIRO right nervous]
@@ -976,7 +982,7 @@
 		Yes, you'll be quite comfortable up there.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		That... sounds nice.
 		
 		[OSHIRO right sidehappy]
@@ -986,11 +992,11 @@
 		What is your name, for our records?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Well, I don't...
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		{+MADELINE}. You can just call me {+MADELINE}. 
 
 		{trigger 0 Camera zooms back out}
@@ -1011,7 +1017,7 @@
 		The elevator is just down the hall.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		This place is in pretty rough shape...
 
 		You sure this is safe?
@@ -1029,11 +1035,12 @@
 		Oh! Please allow me to carry your belongings.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		...?
 
 		Oh, do you mean the drone?
 
+		[MADELINE left determined]
 		No way in hell. I'm keeping it.
 		
 		[OSHIRO right normal]
@@ -1050,7 +1057,7 @@
 		I'm running a world-class establishment here.{n}I don't have time to wait around for meandering guests.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		Hey! It's not my fault this damned place is collapsing!
 		
 		[OSHIRO right sideworried]
@@ -1089,7 +1096,7 @@
 		I don't even know where to begin...
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		I {0.3}{>>}told{/>>} you this was unsafe.
 		
 		[OSHIRO left nervous]
@@ -1101,9 +1108,10 @@
 		It's hopeless.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		That's not what I meant...
 
+		[MADELINE left distracted]
 		...		
 		
 		maybe... {0.2}I could help out?
@@ -1119,7 +1127,7 @@
 		{trigger 0 Oshiro gets back up}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		{+thought}This better not be a mistake...{+endthought}
 
 	CH3_OSHIRO_CLUTTER1=
@@ -1128,10 +1136,10 @@
 		That's the power of positive thinking!
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		...really?
 		
-		{artiboom_textbox madeline}
+		[MADELINE left determined]
 		{!}I{/!}{0.3} cleared out some of the clutter for you.
 		
 		[OSHIRO right normal]
@@ -1145,7 +1153,7 @@
 		{+thought}Guests don't want to spend their time cleaning!{+endthought}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		...yeah.
 
 		[OSHIRO right worried]
@@ -1158,7 +1166,7 @@
 
 	CH3_OSHIRO_CLUTTER2=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		{+thought}Voids, I'm tired...{+endthought}
 
 		Are you going to help me, or...
@@ -1176,7 +1184,7 @@
 		{+thought}Yes... people have no respect these days.{+endthought}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left determined]
 		{+thought}...fucking prick.{+endthought}
 
 	CH3_OSHIRO_CLUTTER2_B=
@@ -1188,7 +1196,7 @@
 		You certainly have a knack for wandering off.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		...
 		
 		[OSHIRO left normal]
@@ -1196,7 +1204,7 @@
 		Of course, the staff had the mess under control.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		Oh, sure. Yeah.
 		
 		[OSHIRO left sideworried]
@@ -1209,7 +1217,7 @@
 		It's just up the elevator and down the hall.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		Sure, what the hell. 
 		Show me the presidential suite.
 		It sounds lovely.
@@ -1219,7 +1227,7 @@
 
 	CH3_THEO_NEVER_MET=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Waaw, wawa wa?
 
 		{trigger 0 Theo stops trying to pry off the vent cover}
@@ -1231,21 +1239,21 @@
 		Just when I thought today couldn't get any weirder.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left determined]
 		{+thought}Fuck, right, can't understand me.{+endthought}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Wawa waw!
 		
 		[THEO right wtf]
 		A{0.2}a{0.2}nd it can understand me. Great.
 
 		[THEO right nailedit]
-		Well, the name's {+theo}.
+		Well, I'm {+theo}.
 		
 		[THEO right thinking]
-		I'm all about spooky mysteries,{n}but this is getting too real.
+		And I'm also{0.2} getting the hell out of here.
 
 		{+CH3_THEO_ESCAPING}
 
@@ -1280,7 +1288,7 @@
 		Come on!
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		Wawa {!}wa{/!}! Waaw wawa.
 		
 		[THEO right worried flip]
@@ -1299,11 +1307,9 @@
 		[THEO right wtf]
 		Man, you're more stubborn than my sister.
 		I thought that was impossible.
-
-		{trigger 3 Theo walks to Maddy}
 		
 		[THEO right serious]
-		Take care of yourself. I'll see you outside.
+		Be careful. I'll see you outside.
 
 	CH3_THEO_VENTS=
 		{anchor bottom}
@@ -1395,19 +1401,22 @@
 		So? What do you think?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Well, alright.
+		[MADELINE left distracted]
 		This is pretty spacious, all things considered.
 		That bed looks comfy too.
+		[MADELINE left normal]
 		Little rough around the edges, but I like it.
 
 		[OSHIRO right worried]
 		{*}I knew it would impress you!{/*}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Yeah.
 
+		[MADELINE left distracted]
 		...
 
 		[OSHIRO right nervous]
@@ -1415,7 +1424,7 @@
 		Valued guests such as yourself stay in{n}our finest accommodations at half price!
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		...oh, shit. I don't have...
 
 		{trigger 0 Badeline appears in the mirror}
@@ -1444,8 +1453,9 @@
 		{trigger 4 Madeline steps closer to Oshiro}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		Oh, fucking {*}you{/*} again.{0.5} Great.
+		[MADELINE left determined]
 		{+oshiro}, don't pay attention to her.
 		
 		[OSHIRO right serious]
@@ -1462,7 +1472,7 @@
 		{trigger 2 Badeline blasts a hole in the ceiling}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Hey, no!
 
 	CH3_OSHIRO_SUITE_SAD0=
@@ -1507,7 +1517,7 @@
 		I thought we'd {~}never{/~} get rid of him.{n}You owe me one.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{*}{!}Owe you one!?{/!}{/*}
 		I nearly just got an actual rest and you ruined it!
 		How is {!}that{/!} a favor!?
@@ -1523,7 +1533,7 @@
 		{trigger 1 Maddy turns around}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Why won't you just fuck off?
 
 		{trigger 2 Oshiro enters}
@@ -1543,8 +1553,9 @@
 		She {~}never{/~} cared about you.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Shut the fuck up! 
+		[MADELINE right determined]
 		I just wanted to help.
 		
 		{+close}
@@ -1560,12 +1571,12 @@
 
 	CH3_OSHIRO_CHASE_END=
 		{anchor top}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{+mroshiro}, stop!
 
 		{trigger 0 Oshiro slams the roof below their feet and it begins shaking}
 		
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		You're going to get both of us killed!
 
 	CH3_ENDING=
@@ -1597,7 +1608,7 @@
 		{trigger 4 maddy turns around}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		...
 		{*}Waaw waw wa!{/*}{n}Waaw, wawa, awaw awaw wa!
 
@@ -1673,7 +1684,7 @@
 		I knew right away that it would be my home.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		..?
 
 		[GRANNY right normal]
@@ -1685,7 +1696,7 @@
 
 	CH4_GONDOLA=
 		{anchor top}
-		[UNKNOWN]
+		{artiboom_textbox theo}
 		Hey! Wait up!
 
 		{trigger 0 Enter Theo from above, he falls and lands on the ground face-down}
@@ -1696,7 +1707,7 @@
 		{trigger 1 Check on Theo}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		Wa! Waaw wawa?
 		
 		[THEO left nailedit]
@@ -1709,7 +1720,7 @@
 		A gondola! I've always wanted to ride one of these.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		...{0.3}{*}wwrrrrr{/*}...
 		
 		[THEO left excited]
@@ -1738,7 +1749,7 @@
 		How'd it shake out with {+oshiro}?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sadder]
 		{*}...{/*}
 
 		[THEO right normal]
@@ -1763,7 +1774,7 @@
 		{anchor bottom}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		Wwawaa!?
 		
 		[THEO right wtf flip]
@@ -1786,7 +1797,7 @@
 		{trigger 10 tentacles appear}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sadder]
 		{*}...{/*}
 
 		{trigger 11 tentacles grow}
@@ -1795,13 +1806,15 @@
 		Hey, you cool?
 
 		{trigger 12 Maddy can't breathe}
+
+		{2.0}
 		
 		[THEO right serious]
 		Hey. It's okay.
 		You're having a panic attack.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{*}{!}Waawa wa kkrawa?!{/!}{/*}
 
 		[THEO right thinking]
@@ -1825,7 +1838,7 @@
 		Feeling any better?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left panic]
 		{*}...{/*}
 
 		{trigger 15 Wait a bit}
@@ -1913,11 +1926,11 @@
 		...uh, why are you inside a mirror?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left determined]
 		Wawa, {~}waawa{/} wa?
 
 		[THEO_MIRROR right thinking]
-		Let me start from the beginning.
+		Okay, let me start from the beginning.
 		
 		[THEO_MIRROR right wtf]
 		I was taking a nonchalant mirror selfie...
@@ -1941,7 +1954,7 @@
 
 	CH5_SHADOW_MADDY_0=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{*}You!{/*}
 		Where the fuck are we?
 		{!}{*}What did you do?{/*}{/!}
@@ -1955,8 +1968,9 @@
 		
 	CH5_SHADOW_MADDY_1=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		Stop fucking running away from me!
+		[MADELINE left angry]
 		Explain what's going on. {*}Now!{/*}
 
 		{+close}
@@ -1972,7 +1986,7 @@
 		{~}What a surprise.{/~}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{0.3}{!}Shut up!{/!}
 
 		{+close}
@@ -1985,7 +1999,7 @@
 
 	CH5_SHADOW_MADDY_2=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		Why are you {!}doing{/!} this?!
 
 		{+close}
@@ -1996,7 +2010,7 @@
 
 	CH5_SHADOW_MADDY_3=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left panic]
 		Why won't you just fucking {*}help{/*} me?
 
 		{+close}
@@ -2004,7 +2018,7 @@
 		Now you want me to {~}save{/~} you?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left panic]
 		Just be on my side here for once.
 
 		{+close}
@@ -2015,7 +2029,7 @@
 		You {!}deserve{/!} this.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left panic]
 		{*}...{/*}
 
 		{+close}
@@ -2023,21 +2037,22 @@
 		Still think you can {~}climb this {+MOUNTAIN}?{/~}
 
 		{trigger 0 Badeline Leaves}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{*}SHUT UP!{/*}
 
 
 		{*}I don't need your void damned help.{/*}
+		[MADELINE left determined]
 		I'll do this alone.
 
 	CH5_REFLECTION=
 		{trigger 0 Madeline falls to knees}
 
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Those {*}things{/*} are hunting me.
-		{0.8}
+		[MADELINE left sadder]
 		{+theo} is trapped somewhere in here because of me.
-		{1.3}
+		[MADELINE left panic]
 		{+theo}, damn you...
 
 		{trigger 1 Madeline stops panicking}
@@ -2054,7 +2069,7 @@
 
 	CH5_SEE_THEO=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		{+theo}!
 		
 		[THEO right worried]
@@ -2064,7 +2079,7 @@
 		Oh my God!{0.3} You can talk!?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		{!}You can hear me?!{/!}
 		
 		[THEO right excited]
@@ -2075,14 +2090,14 @@
 		{trigger 0 zoom in}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		What do you mean?
 		
 		[THEO right serious]
 		You look.{0.1}.{0.1}.{0.1} awful.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{*}What!?{/*}	
 
 		[THEO right worried]
@@ -2092,7 +2107,7 @@
 		{3.8}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Are you okay?
 
 		[THEO right normal]
@@ -2105,16 +2120,19 @@
 		Do you get the feeling that this place{n}knows you better than you know yourself?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		{*}...{/*}
+		[MADELINE left sadder]
 		Yeah...
 		{trigger 1 Madeline turns around}
 
+		[MADELINE right sadder]
 		I didn't want you to{n}have to see this side of me.
 
 		You're trapped because of me.
 
 		And now this{0.4} temple is showing{n}you what I'm {~}really{/~} like.
+		[MADELINE right panic]
 		I'm a monster...
 
 		{trigger 2 wait a bit}
@@ -2125,14 +2143,15 @@
 		[THEO right wtf]
 		Don't act like this is all on you.
 
-		{trigger 3 Madeline turns back, zoom out, room gets brighter}
-
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{*}How could it not be!?{/*}
 
 		[THEO right wtf]
 		You didn't trap me in this crystal.
+
+		{trigger 3 Madeline turns back, zoom out, room gets brighter}
+
 		Sure, those monsters are coming from you,{n}but the temple is shaping itself around me too.
 
 		[THEO right worried]
@@ -2148,10 +2167,12 @@
 		{trigger 0 zoom back in}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		...
 		Fine.
+		[MADELINE left determined]
 		I'll bust you out of that thing,{n}then we'll escape together.
+		[MADELINE left distracted]
 		Just as soon as I find my way around to you...
 		
 		[THEO right serious]
@@ -2159,19 +2180,19 @@
 		I believe in you, for real.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		{*}I...{/*}
 		I-{0.3} I hope that's not a mistake.
 
 	CH5_SEE_THEO_B=
-		{artiboom_textbox madeline}
+		[MADELINE left sadder]
 		I deserve this, don't I?
 
 		[THEO right wtf]
 		{+ALEX}, you have to stop being so hard on yourself.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		...
 		Who's {+ALEX}?
 
@@ -2183,23 +2204,23 @@
 		No one deserves this, least of all you.
 
 		{+close}
-		{artiboom_textbox madeline}
-		{*}...are you sure?{/*}
+		[MADELINE left sad]
+		...are you sure?
 
 	CH5_FOUND_THEO=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		{+theo}!
 		Oh, thank the voids.
 		
 		[THEO right excited]
-		I knew you'd make it!
+		{!}Buddy!{/!} There you are.
 
 		[THEO right wtf]
 		...wait, {!}what did you say!?{/!}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Uhh...
 
 		{+close}
@@ -2212,8 +2233,9 @@
 		Those monsters are {!}vicious!{/!}
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Makes me wish I had a spear.
+		[MADELINE left distracted]
 		...or any bombs left.
 
 		[THEO right worried]
@@ -2224,8 +2246,9 @@
 		Think you could break me out of this crystal?
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Fuck, right.
+		[MADELINE left normal]
 		Let me try...
 
 		{trigger 0 Attempt to break the crystal, but it just falls to the ground}
@@ -2237,7 +2260,7 @@
 		This crystal is, like, an expression of my{n}negative psychic energy... or whatever.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		Oh, isn't that just {~}lovely.{/~}
 
 		[THEO right serious]
@@ -2253,10 +2276,14 @@
 		I hate to say it, but you might have to-
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		{+theo}, don't even think about that!
+		[MADELINE left angry]
 		{*}I'm not leaving {#97aedf}you{#}...{/*}
-		I'm {*}not{/*} leaving {#FF9523}you{#} behind!
+		[MADELINE left sadder]
+		...
+		[MADELINE left determined]
+		I'm {!}not{/!}{0.2} leaving {#FF9523}you{#} behind.
 		
 		[THEO right worried]
 		{~}Hell no{/~}, you better not leave me in this place!
@@ -2265,8 +2292,9 @@
 		I was gonna say you might have to carry me.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Oh.
+		[MADELINE left normal]
 		Yeah, I can do that.
 
 	CH5_THEO_SAVING_LIFT=
@@ -2325,7 +2353,7 @@
 
 	CH6_THEO_INTRO=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		{+theo}, you're awake!
 
 		[THEO left thinking]
@@ -2335,7 +2363,7 @@
 		I had a {~}messed up{/~} nightmare.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Oh, no, that wasn't a nightmare.
 
 		[THEO left thinking]
@@ -2348,9 +2376,11 @@
 		Thanks for getting us out of there.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Not like I had a choice.
+		[MADELINE right sad]
 		...
+		[MADELINE right sad]
 		{#999a9a}...no problem.{#}
 
 	CH6_THEO_ASK_OUTFOR=
@@ -2361,8 +2391,9 @@
 		How long was I out for?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Hmm..
+		[MADELINE right distracted]
 		maybe about six or seven microcycles?
 
 		[THEO left wtf]
@@ -2372,7 +2403,7 @@
 		
 		{3}		
 
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Are you okay?
 
 		[THEO left wtf]
@@ -2393,9 +2424,10 @@
 		What's really going on here?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		I should've told you sooner.
 		I'm not from this, uhh...
+		[MADELINE right sad]
 		whatever this is.
 
 		[THEO left normal]
@@ -2404,7 +2436,7 @@
 		{+close}
 		{3.4}
 
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Where I'm from, I had to fight every day to stay alive.
 		Hunting, hiding, all of it.
 		There wasn't really anyone else around.
@@ -2416,19 +2448,21 @@
 		{+close}
 		{3.4}
 		
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Back at the ruins...{n}a {+ST_BAD}part of me{+END_BAD} escaped from a mirror.
 		A part I'm not very...{0.8} proud{0.5} of.
 
+		[MADELINE right upset]
 		I {>>}swear{/>>}{0.5} I dreamt it.
 
 		[THEO left serious]
 		You think the {+MOUNTAIN} made it real?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Yeah.
 		She's been haunting me the whole time.
+		[MADELINE right angry]
 		She lashed out at {+MROSHIRO}.
 		I think she was the reason the gondola stalled out.
 		And she was there, in the temple.
@@ -2439,14 +2473,14 @@
 		I wouldn't have gone into that temple{n}if I knew what this {+MOUNTAIN} was capable of...
 
 		{+close}
-		{artiboom_textbox madeline}		
+		[MADELINE right determined]
 		I {!}couldn't{/!}, remember?
 		
 		[THEO left thinking]
 		Right.
 			
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		She's just a bitch.
 
 		[THEO left wtf]
@@ -2458,33 +2492,33 @@
 		I promise I'll believe you.
 
 	CH6_THEO_ASK_THANKYOU=
-		[MADELINE right upset]
+		[MADELINE right distracted]
 		How did you know we were going to escape?
 	CH6_THEO_SAY_THANKYOU=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		How did you know we were going to escape?
 
-		[THEO left thinking]
-		I don't actually know.
-		Just a hunch.
-		
-		{+close}
-		{1.2}
+		[THEO left nailedit]
+		Oh, I thought we were screwed.
+
+		[MADELINE right upset]
+		...
+
+		{2.0}
 
 		[THEO left wtf]
 		I was pretty useless, stuck in that thing.
 
 		{+close}
-		{artiboom_textbox madeline}
-		Yeah...
+		[MADELINE right sad]
+		I wouldn't say that...
 
 	CH6_THEO_ASK_TRUST=
-		[MADELINE right upset] 
+		[MADELINE right distracted] 
 		Why do you trust me?
 	CH6_THEO_SAY_TRUST=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted] 
 		Why do you trust me?
 		Seriously, you barely even know me.
 
@@ -2493,8 +2527,9 @@
 		You remind me of my sister.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Huh.
+		[MADELINE right normal] 
 		What's she like?
 
 		[THEO left excited]
@@ -2509,8 +2544,7 @@
 		[THEO left excited]
 		She's a {~}literal{/~} rockstar.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted] 
 		She's...{0.4} a musician?
 
 		[THEO left thinking]
@@ -2521,16 +2555,18 @@
 		She's studying to be a civil rights lawyer.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		A...{0.6} what?
+		[MADELINE right distracted] 
 		Actually, nevermind.
+		[MADELINE right normal] 
 		How do I remind you of her?
 
 		[THEO left wtf]
 		You both live so deep inside your own heads.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry] 
 		{!}Hey!{/!}
 
 		[THEO left thinking]
@@ -2544,11 +2580,11 @@
 		I wish I could say the same for myself.
 		
 	CH6_THEO_ASK_WHY=
-		[MADELINE right upset]
+		[MADELINE right sad]
 		Your sister sounds nice. How do I remind you of her?
 	CH6_THEO_SAY_WHY=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad] 
 		Your sister sounds nice.
 		How do {~}I{/~} remind you of her?
 
@@ -2565,7 +2601,7 @@
 		That's classic {+ALEX}.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset] 
 		...
 
 		[THEO left thinking]
@@ -2575,7 +2611,7 @@
 		Why {~}are{/~} you climbing the {+MOUNTAIN}, anyways?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted] 
 		...You're right,{0.5} I don't know.
 		I woke up near, and it just felt nice to...
 		get up high somewhat.
@@ -2589,15 +2625,17 @@
 		What {~}is{/~} your name, anyways?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted] 
 		I never really...
+		[MADELINE right normal] 
 		{1}{+MADELINE}. You can call me {+MADELINE}.
  
 		{trigger 0 Wait a bit}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted] 
 		Are you sure I remind you of {+ALEX}?
+		[MADELINE right sad] 
 		She sounds a lot better than me.
 
 		[THEO left wtf]
@@ -2606,10 +2644,10 @@
 		{trigger 0 Wait a bit}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad] 
 		I've done some things in the past that I'm...
+		[MADELINE right sadder] 
 		...not the proudest of.
-		And, no matter how hard I try...{n}I can't move on from it.
 
 		[THEO left serious]
 		Hm.
@@ -2622,7 +2660,7 @@
 		Would you mind talking about what happened?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sadder] 
 		...
 
 		{+close}
@@ -2631,50 +2669,58 @@
 		[THEO left normal]
 		We can talk about something else if you want.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right panic] 
 		...no, you should know.
 
+		[MADELINE right sadder] 
 		I used to have two pups.
 
+		[MADELINE right sad] 
 		One was {#97aedf}Storm{#}, and the other...
+		[MADELINE right sadder] 
 		...died before I could name him.
 
+		[MADELINE right sad] 
 		They were the lights of my life.
 		
 		{+close}
 		{2}
+		[MADELINE right distracted]
 		Do you know what scavengers are?
 		
 		[THEO left thinking]
 		...Not to you, I don't.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal] 
 		They're these little buggers, about as tall as I am.
 		They usually group up in outposts, and...
 		they are {~}obsessed{/~} with pearls.
 
+		[MADELINE right distracted]
 		One day, while we were crossing through an outpost,
 		{#97aedf}Storm{#} took one of their pearls.
 		{+close}
 		{3}
+		[MADELINE right sad]
 		I tried to escape, but she...
+		[MADELINE right sadder]
 		...she fell behind.
 
 		[THEO left worried]
 		That's {1.0}[THEO left serious]{0.5}really hard.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		I couldn't- {0.3}{*}can't{/*}- {0.3}forgive them for what they did.
 		
 		[THEO left serious]
 		...
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		I can't tell you how many I've killed.
+		[MADELINE right distracted]
 		It...{0.5} has to be somewhere in the thousands.
 		{+close}
 		[THEO left worried]
@@ -2691,16 +2737,17 @@
 		Back in the temple, I mean.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Oh, yeah, that fucker.
 		She's so demeaning to me. I hate it.
+		[MADELINE right angry]
 		And she keeps just {~}running away{/~}.
 
 		[THEO left normal]
 		Maybe she could be some kind of...{n}twisted defense mechanism.
 		
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Honestly, who cares?
 		She has so much control over me.
 		I hate it.
@@ -2709,9 +2756,10 @@
 		Maybe you can learn to control her instead.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		...
 		The feather helps a lot.
+		[MADELINE right normal]
 		Thanks. {0.8}For teaching me that, I mean.
 
 		[THEO left thinking]
@@ -2724,8 +2772,7 @@
 		[THEO left thinking]
 		How did you get here?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		What do you mean?
 
 		[THEO left normal]
@@ -2734,10 +2781,10 @@
 		[THEO left thinking]
 		How are you here?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		...
 		I don't really remember it well.
+		[MADELINE right normal]
 		Last thing I remember was jumping{n}into some {#ffdb6d}golden sea{#},
 		seeing some fucking colossal worms,
 		then I blacked out and woke up somewhere near here.
@@ -2749,9 +2796,9 @@
 		[THEO left normal]
 		How big are we talking?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		...
+		[MADELINE right normal]
 		Their head's about as large as that ridge behind you,
 		and by length, I have no fucking idea.
 		Maybe about three or four hundred times as long{n}as this {+MOUNTAIN} is tall?
@@ -2764,8 +2811,7 @@
 		Dying sucks.
 
 	CH6_THEO_SAY_FAMILY=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Dying fucking sucks.
 		Were you counting how many times I died back there?
 
@@ -2775,8 +2821,7 @@
 		[THEO left thinking]
 		It's the {+MOUNTAIN}, I'm calling it now.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		What? That's normal.
 
 		[THEO left wtf]
@@ -2786,17 +2831,18 @@
 
 		{+close}
 		{1}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		{!}Oh shit!{/!}
+		[MADELINE right normal]
 		Do you guys not have {#ffdb6d}the cycle{#} here?
 
 		[THEO left wtf]
 		...the what?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Fuck, okay.
 		Let me explain.
+		[MADELINE right normal]
 		{#ffdb6d}The cycle{#} is some kind of force or something.
 		It affects everything around us,
 		from you to me to that fly behind you,
@@ -2810,9 +2856,11 @@
 		[THEO left normal]
 		What were you saying?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
+		...
+		[MADELINE right distracted]
 		...{#ffdb6d}the cycle{#} makes people come back.
+		[MADELINE right normal]
 		No matter what, as long as you aren't too young or old,
 		you wake up the next day.
 		And even then, if you are, your soul doesn't leave either.
@@ -2822,21 +2870,15 @@
 		[THEO left normal]
 		Samsara and all, right?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		...you think I know what that is?
 
 		[THEO left normal]
 		Right.
-		[THEO left thinking]
-		That definitely makes your, uh, genocide{n}feel a bit less horrible.
-		[THEO left wtf]
-		Still not good though.
+		[UNKNOWN]
+		Director's note: {#999a9a}{+theo} only has a surface level understanding of Buddhism.{n}This is 100% in character for him.{#}
 		
-		{+close}
-		{5}
-		
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Are you alright?
 		
 
@@ -2850,18 +2892,16 @@
 		It felt like he was telling me to come here.
 
 	CH6_THEO_ASK_GRANDPA=
-		[MADELINE right upset]
+		[MADELINE right distracted]
 		Are you close to your grandpa?
 	CH6_THEO_SAY_GRANDPA=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Are you close to your grandpa?
 
 		[THEO left serious]
 		Yeah... I was.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Ah. I see.
 
 		[THEO left serious]
@@ -2875,8 +2915,7 @@
 
 		{trigger 0 Wait a bit}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		I...
 		I'm sorry, {+THEO}.
 
@@ -2884,11 +2923,10 @@
 		Thanks.
 
 	CH6_THEO_ASK_TIPS=
-		[MADELINE right upset]
+		[MADELINE right distracted]
 		What else did you learn from your grandpa?
 	CH6_THEO_SAY_TIPS=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		So, what else did you learn from your grandpa?
 
 		[THEO left excited]
@@ -2905,17 +2943,16 @@
 		[THEO left wtf]
 		Grandpa said that the {+MOUNTAIN} was {~}"special."{/~}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Huh.
+		[MADELINE right normal]
 		You think he went through the temple?
 		Saw what we saw, and all?
 		
 		[THEO left thinking]
 		He never talked about what happened here.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		His experience was probably less, uh... violent.
 
 		[THEO left wtf]
@@ -2932,8 +2969,7 @@
 		[THEO left wtf]
 		Who do you think built the temple?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Fuck if I know, I just got here.
 
 		[THEO left thinking]
@@ -2943,12 +2979,14 @@
 		[THEO left serious]
 		There's a lot of history here.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Eh, I'm used to it.
+		[MADELINE right normal]
 		Back where I was from, everything was like that.
 		Giant fucking supercomputers tall as a {+MOUNTAIN},{n}walled with tapestries...
+		[MADELINE right determined]
 		...and graffiti.
+		[MADELINE right distracted]
 		The people who made them are all long gone by now.
 
 		{+close}
@@ -2959,9 +2997,9 @@
 		[THEO left thinking]
 		I'm starting to understand why{n}that crazy old lady lives here.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		You ran into her too?
+		[MADELINE right normal]
 		What's her deal?
 
 		[THEO left thinking]
@@ -2979,10 +3017,10 @@
 		I want to remember this night.
 		Selfie?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		...
 		Nah.
+		[MADELINE right normal]
 		Don't really like pictures.
 
 		[THEO left thinking]
@@ -2996,19 +3034,19 @@
 		[THEO left excited]
 		You're going to reach the summit tomorrow!
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		Wait, really?
+		[MADELINE right normal]
 		Oh shit, yeah, you're right!
 
 		[THEO left normal]
 		I'll be cheering you on.
 		We should get some sleep.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Alright.
 		Night, {+THEO}.
+		[MADELINE right distracted]
 		Thanks for being awesome.
 
 		[THEO left thinking]
@@ -3019,7 +3057,7 @@
 		I should get some sleep.
 	CH6_THEO_SAY_SLEEP=
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Fuck, I'm exhausted.
 		I'm gonna head to sleep.
 
@@ -3031,25 +3069,21 @@
 
 	CH6_THEO_ASK_SLEEP_CONFIRM=
 		[MADELINE right sad]
-		Yeah, sorry, I'm really tired.
+		Yeah, no. Sorry.
 	CH6_THEO_SAY_SLEEP_CONFIRM=
-		{+close}
-		{artiboom_textbox madeline}
-		Yeah, nah.
-
+		[MADELINE right sad]
+		Yeah, nah. Sorry, {+Theo}.
 		{+CH6_THEO_SAY_SELFIE}
 
 	CH6_THEO_ASK_SLEEP_CANCEL=
 		[MADELINE right upset]
-		You're right, I can sleep later.
+		...fine.
 	CH6_THEO_SAY_SLEEP_CANCEL=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		...fine.
 
 	CH6_DREAMING=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		These lights are so pretty...
 
 		{+close}
@@ -3058,17 +3092,16 @@
 		...
 		Where{0.5} are we?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		We need to talk.
 
 		{+close}
 		{artiboom_textbox badeline}
 		...about?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		I finally understand what you are.
+		[MADELINE right distracted]
 		You're not my real reflection.
 
 		{+close}
@@ -3077,8 +3110,9 @@
 		I'm not?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		You're everything I need to leave behind.
+		[MADELINE right distracted]
 		You're cruel, sadistic, controlling...
 
 		{+close}
@@ -3086,9 +3120,10 @@
 		{*}Excuse me!?{/*}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		No, you don't get it.
 		I don't need you anymore.
+		[MADELINE right determined]
 		So you{0.8} can go ahead and leave now.
 
 		{+close}
@@ -3096,9 +3131,10 @@
 		So you're just... {!}abandoning{/!} me?
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Yeah!
 		Do what you want, we're dreaming.
+		[MADELINE right determined]
 		You can't touch me.
 
 		{+close}
@@ -3119,15 +3155,14 @@
 		{!}{*}ANSWER ME!{/*}{/!}
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Nope! Can't touch this.
 
 		{trigger 4 start circling the player}
 		{artiboom_textbox badeline}
-		{!}{*}YOU FUCKING DICK!{/*}{/!}
+		{!}{*}YOU ASSHOLE!{/*}{/!}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		Alright, this is it.
 		Use the feather.
 
@@ -3147,8 +3182,7 @@
 		{+MADELINE}, what's happening!?
 
 	CH6_REFLECT_AFTER=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Fuck...
 		That {*}bitch{/*}...
 		Now what?
@@ -3157,8 +3191,7 @@
 		[GRANNY right normal]
 		Oh, hello again.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Of fucking course you're here.
 
 		{trigger 0 Zoom in}
@@ -3166,8 +3199,7 @@
 		[GRANNY right mock]
 		Callin' it quits I see.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Why do {*}you{/*} care?
 		Why are you even here?
 		
@@ -3176,16 +3208,14 @@
 		[GRANNY right laughing]
 		Just wanted to make sure you made it.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Yeah, well I'm fine.
 		Just had a hard fall.
 		Leave it.
 
 		{trigger 1 Start laughing}
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		...
 
 		{trigger 2 Stop laughing}
@@ -3196,17 +3226,16 @@
 
 		{trigger 3 Maddy walks right}
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		You know what?
 		No.
 		I'm tired of fucking things up.
 
 		{trigger 4 Maddy walks left}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		I can fucking do this.
+		[MADELINE left determined]
 		I just gotta get through {+ST_BAD}her{+END_BAD} first.
 
 		{trigger 5 Wait a bit}
@@ -3215,8 +3244,7 @@
 		A lot of kids come here to climb{n}this {+mountain}, only to give up.
 		It's a shame that you fell,{n}I was starting to think you'd make it.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Yeah, well, what makes {~}me{/~} so special?
 
 		[GRANNY right normal]
@@ -3237,9 +3265,9 @@
 		Talk to her.
 		Figure out why she's hurting.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		You think she's... scared?
+		[MADELINE left distracted]
 		I...
 		I guess I never thought of it that way.
 		
@@ -3248,26 +3276,25 @@
 		What have you got to lose?
 
 	CH6_OLDLADY_B=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Hold on.
 		Why are you not like...
-		suprised to see me talk?
+		[MADELINE left distracted]
+		surprised to see me talk?
 
 		[GRANNY right laugh]
 		Well, that {#96EFFF}temple{#} always does something.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		...so you know about the {+MOUNTAIN}'s power.
 
 		[GRANNY right normal]
 		Of course I know, I live here.
 		I tried to warn you.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		You...
+		[MADELINE left upset]
 		You really need to work on your messaging.
 
 		[GRANNY right normal]
@@ -3275,8 +3302,7 @@
 		Even if most can't accept what they see.
 
 	CH6_OLDLADY_C=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left upset]
 		How can you stand living here?
 		Isn't it hard to deal with this all the time?
 
@@ -3285,9 +3311,10 @@
 		But it keeps me sharp.
 		I like that about it.
 
-		{+close}
-		{artiboom_textbox madeline}
+
+		[MADELINE left distracted]
 		But the {+MOUNTAIN} is so...
+		[MADELINE left sad]
 		...angry.
 
 		[GRANNY right normal]
@@ -3302,10 +3329,11 @@
 		Looking for me?
 		I thought you were {*}done{/*} with me.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		I...
+		[MADELINE left sad]
 		I'm sorry.
+		[MADELINE left sadder]
 		I made a mistake.
 
 		{+close}
@@ -3313,9 +3341,9 @@
 		Oh, you think you've got it {~}all figured out.{/~}
 		You think you don't need me.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sadder]
 		I...
+		[MADELINE left sad]
 		We need to move past this.
 
 		{trigger 0 Badeline floats, zooms in}
@@ -3325,14 +3353,15 @@
 		You expect me to trust you?
 		You know what you did.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left angry]
 		You aren't innocent here either.
 		...
+		[MADELINE left determined]
 		I know you're hurting.
 		
 		{trigger 1 Maddy steps forward}
 		
+		[MADELINE left sad]
 		Look, we're at rock bottom.
 		There's really no point in fighting.
 		I can't hurt you without hurting{n}myself, and same with you.
@@ -3343,10 +3372,14 @@
 		I could pull us down to the center of the earth again.
 
 		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Why? What would be the point?
+		[MADELINE left sadder]
 		Just to run away again?
-		Let's climb out of here. {.6}Together.
+		[MADELINE left distracted]
+		...
+		[MADELINE left together]
+		Let's climb out of here. {.6}[MADELINE left togetherZoom]Together.
 		
 		{+close}
 		{artiboom_textbox badeline}
@@ -3384,11 +3417,11 @@
 		If...
 		If you want me to go away, I'll try.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		That's not what I want.
 		What we did was horrible, but...
 		We need to face it head-on.
+		[MADELINE left determined]
 		I need your help now more than ever.
 
 		{+close}
@@ -3398,8 +3431,7 @@
 
 		{trigger 1 Madeline puts hand on Badeline}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Hey.
 		It's okay.
 		We'll make it home.
@@ -3411,10 +3443,10 @@
 		...
 
 	CH6_ENDING=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left suprised]
 		Woah!
 		What was that?
+		[MADELINE left normal]
 		If we can climb like that, maybe{n}we can still reach the summit!
 		
 		{+close}
@@ -3842,8 +3874,7 @@
 		
 		{trigger 0 Badeline emerges}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Yeah. We did.
 		It was incredible.
 
@@ -3876,9 +3907,10 @@
 		[OSHIRO left drama]
 		But if I am unwelcome, I shall take my leave.
 
-		{+close}
-		{artiboom_textbox madeline}
+
+		[MADELINE right distracted]
 		...
+		[MADELINE right normal]
 		No. Please stay, {+MROSHIRO}.
 		I'm glad to see you.
 
@@ -3910,10 +3942,26 @@
 		[OSHIRO left worried]
 		Is this some kind of joke?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Strawberry pies are supposed to{n}have strawberries in them.
-		What is this, just a nothing pie?
+		What is this, just a void pie?
+
+		[MADELINE right distracted]
+		{#999a9a}...I mean, I'll still eat it...{#}
+		
+		{+close}
+		{artiboom_textbox badeline}
+		Ooh! Can I have some?
+
+		[MADELINE right normal]
+		Sure.
+
+		[THEO left wtf]
+		You two are {~}actually{/~} eating that.
+		...
+
+		[THEO left nailedit]
+		Not surprised.
 
 	EP_PIE_GROSSED_OUT=
 		[THEO left wtf]
@@ -3928,8 +3976,7 @@
 		You people just can't appreciate food.
 		I'll eat all of it myself.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		Hey, no, share!
 		I get some!
 
@@ -3945,21 +3992,20 @@
 		[THEO left thinking]
 		Come on, it's really good.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		This is incredible!
 
 		[THEO left normal]
 		Thanks for the pie.
 
 	EP_PIE_REALLY_GOOD=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		Holy shit!
+		[MADELINE right normal]
 		This is amazing!
 
 		[THEO left wtf]
-		Hey! Don't swear here!
+		Hey! Language!
 		[THEO left thinking]
 		It is good, though.
 
@@ -3977,10 +4023,10 @@
 		[GRANNY left mock]
 		Come on. Be honest.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		No, he's right.
 		This is...
+		[MADELINE right distracted]
 		Oh voids, how do I even describe this?
 
 		[OSHIRO left normal]
@@ -4012,8 +4058,7 @@
 		Follow me.
 
 	APP_OLDLADY_B=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		What is this place?
 
 		[GRANNY right normal]
@@ -4031,8 +4076,7 @@
 		Be careful, though.
 		When you get this close to the heart of the {+MOUNTAIN},{n}its power will start affectin' you differently.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Yeah, I already saw some of that...
 
 		[GRANNY right normal]
@@ -4042,8 +4086,7 @@
 		[GRANNY right normal]
 		Where's that other {+PART_OF_YOU}?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Fuck if I know.
 		Expected her to show up by now.
 
@@ -4057,10 +4100,10 @@
 	APP_OLDLADY_E=
 
 	APP_OLDLADY_LOCKED=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Uh, there's a door up ahead.
 		Looks locked.
+		[MADELINE right normal]
 		Is there another way in?
 
 		[GRANNY right normal]
@@ -4072,11 +4115,12 @@
 		[GRANNY right normal]
 		I guess it doesn't think you're ready yet.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Oh, {~}great.{/~}
 		...
+		[MADELINE right distracted]
 		I know better than to doubt you.
+		[MADELINE right normal]
 		How do I convince it I'm ready?
 
 		[GRANNY right normal]
@@ -4092,6 +4136,14 @@
 		Thanks for playing <3
 
 	CH9_GRAVESTONE=
+		[UNKNOWN]
+		Director's Note
+		This chapter is not included within the story of Artiboom.
+		The story ends at the end of Chapter 8,{n}in which {+MADELINE} goes back to her homeworld.
+		All dialogue will be left unchanged.
+
+		{5.0}
+
 		[MADELINE left sad]
 		{+GRANNY}...
 		[MADELINE left sadder]
