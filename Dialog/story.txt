@@ -771,8 +771,8 @@
 		What is...
 
 		{+close}
-		[MADELINE right sad]	
-		
+		{artiboom_textbox madeline}
+
 		{+thought}...great.{+endthought}
 
 		{trigger 0 Madeline approaches}
@@ -786,7 +786,7 @@
 		Oh, can you understand me?
 
 		{+close}
-		[MADELINE right upset]	
+		{artiboom_textbox madeline}
 		
 		{+thought}Oh, fuck off.{+endthought}
 		
@@ -892,7 +892,7 @@
 		Is anyone there?
 
 		{+close}
-		[MADELINE right sad]
+		[MADELINE left sad]
 		Waaaw wa.
 		
 		[MOM_PHONE right concerned]
@@ -1239,7 +1239,7 @@
 		Just when I thought today couldn't get any weirder.
 		
 		{+close}
-		[MADELINE left determined]
+		{artiboom_textbox madeline}
 		{+thought}Fuck, right, can't understand me.{+endthought}
 
 		{+close}
@@ -1252,10 +1252,12 @@
 		[THEO right nailedit]
 		Well, I'm {+theo}.
 		
-		[THEO right thinking]
-		And I'm also{0.2} getting the hell out of here.
+		{trigger 1 Theo goes back to prying off the vent cover}
 
-		{+CH3_THEO_ESCAPING}
+		[THEO left thinking]
+		And I'm also{0.2} getting the hell out of here.
+		
+		{trigger 2 Theo removes vent cover and it flies off. Theo falls down as it comes off, and gets back up}
 
 	CH3_THEO_NEVER_INTRODUCED=
 		{+CH3_THEO_INTRO}
@@ -3432,18 +3434,36 @@
 		{trigger 1 Madeline puts hand on Badeline}
 
 		[MADELINE left sad]
-		Hey.
-		It's okay.
-		We'll make it home.
+		Look.
+		There's nowhere else to go from here but up.
+		We {!}can{/!} be better than this.
+		You just have to trust me.
 
 		{trigger 2 Badeline calms down}
 
 		{+close}
 		{artiboom_textbox badeline}
+		{2}...I don't know.
+		We've been doing this for so long, what's left?
+
+		[MADELINE left sadder]
+		I know.
+		{+close}
+		{3}
+
+		[MADELINE left sad]
+		We can break this cycle.
+		Believe me, we can.
+		[MADELINE left determined]
+		I just need your help.
+
+		{+close}
+		{artiboom_textbox badeline}
 		...
 
+
 	CH6_ENDING=
-		[MADELINE left suprised]
+		[MADELINE left surprised]
 		Woah!
 		What was that?
 		[MADELINE left normal]
@@ -3455,17 +3475,16 @@
 		Why?
 		What do you want to do up there?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Well, we've came all this way.
+		Might as well see it through.
 
 		{trigger 0 Old Lady enters right}
 
 		[GRANNY right normal]
 		It's good to see you two playing nice.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Oh, hey!
 		Glad to see you.
 
@@ -3483,10 +3502,10 @@
 		[THEO left wtf]
 		I ran down to help, but it looks like you're doing fine.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left normal]
 		Oh!
 		Thanks, {+THEO}. I'm alright.
+		[MADELINE left distracted]
 		I've had harder falls.
 		
 		{trigger 8 theo stops being tired}
@@ -3499,8 +3518,7 @@
 		{artiboom_textbox badeline}
 		Hi.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Wait, have you two met?
 
 		{+close}
@@ -3514,9 +3532,9 @@
 		[THEO left excited]
 		Are you two going to climb the summit?
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		...
+		[MADELINE left normal]
 		Yeah, why not.
 
 		{+close}
@@ -3526,13 +3544,13 @@
 
 		{trigger 2 Madeline turns to the right}
 
-		You said we'd talk about things first.
+		I get the view will look great, but after that...
 
 		{+close}
 		{artiboom_textbox madeline}
 		Hey.
 		We both know that this is something we want to do.
-		We have to try one last time.
+		I know it sounds pointless, but we have to try.
 
 		{trigger 7 Theo raises fist}
 
@@ -3542,16 +3560,23 @@
 		{+close}
 		{artiboom_textbox badeline}
 		...
-		I don't know...
-		why are we going up there anyways?
+		I still don't really understand.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Why'd we scale up {#cc6fc3}Pebbles{#}?
 		You know we like the heights.
+		[MADELINE left normal]
 		It's a whole new view up there!
 		{trigger 5 Wait a bit}
+		[MADELINE left sad]
 		I have to believe we're capable of this.
+
+		{+close}
+		{artiboom_textbox badeline}
+		This isn't just about the {+MOUNTAIN}, isn't it?
+
+		[MADELINE left distracted]
+		...
 
 		[GRANNY right normal]
 		It's not a bad idea.
@@ -3572,7 +3597,7 @@
 		{+close}
 		{artiboom_textbox badeline}
 		Fine.
-		I'll try.
+		I'll see how I can help.
 
 		{trigger 5 Wait a bit}
 
@@ -3580,18 +3605,17 @@
 		Can I help?
 
 		{trigger 6 Madeline turns to the left}
-
-		{+close}
-		{artiboom_textbox madeline}
+		
+		[MADELINE right distracted]
 		You've already done a lot.
 
 		[THEO left wtf]
 		Let me hold...
 		...what is that thing, anyways?
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Oh, the drone?
+		[MADELINE right normal]
 		Nah. It stays with us.
 
 # *** Chapter 07 ***
@@ -3606,22 +3630,19 @@
 
 	# Mountain Base -> Forsaken City
 	CH7_ASCEND_0=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Heh, we're getting the hang of that.
 
 		{+close}
 		{artiboom_textbox badeline}
 		If you say so.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		This mountain doesn't stand a chance.
 
 	# Forsaken City -> Old Site
 	CH7_ASCEND_1=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		You alright?
 
 		{+close}
@@ -3630,9 +3651,9 @@
 		Just kinda worried.
 		Are you sure we'll make it home?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		We'll figure that out later.
+		[MADELINE right distracted]
 		For now, let's just enjoy the climb.
 
 	# Old Site -> Celestial Resort
@@ -3641,9 +3662,9 @@
 		{artiboom_textbox badeline}
 		Nice job back there.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right surprised]
 		Look at you!
+		[MADELINE right normal]
 		{+ST_BAD}Ms\. Positivity{+END_BAD} over here.
 
 		{+close}
@@ -3653,8 +3674,7 @@
 		
 	# Celestial Resort -> Cliffside
 	CH7_ASCEND_3=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		...
 		I hope {+MROSHIRO} is okay.
 
@@ -3662,27 +3682,26 @@
 		{artiboom_textbox badeline}
 		What? Why?{n}He treated you like garbage.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Eh, not really.
 		He was willing to accomodate me for free.
+		[MADELINE right determined]
 		And you didn't have to snap at him like you did.
 
 		{+close}
 		{artiboom_textbox badeline}
 		Whatever.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		I mean it. You're way too aggressive.
 
 		{+close}
 		{artiboom_textbox badeline}
 		Well {~}you{/~} put too much energy into bad{n}people who will just end up hurting you.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right angry]
 		{+MROSHIRO} isn't...
+		[MADELINE right sad]
 		...whatever.
 		He's just hurting in some way.
 		I don't blame him. 
@@ -3692,10 +3711,10 @@
 		He transformed into a {*}monster!{/*}
 		He tried to fucking {*}kill{/*} you!
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right determined]
 		Yeah. I'm on your side here.{n}I'm mad at him too.
 		I might still be in that hotel{n}if you hadn't forced the issue.
+		[MADELINE right sad]
 		...but, I still kinda hope he's okay.
 
 		{+close}
@@ -3704,8 +3723,7 @@
 		
 	# Cliffside -> Temple
 	CH7_ASCEND_4=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Fuck, that wind.
 		Never gets easier.
 
@@ -3713,8 +3731,7 @@
 		{artiboom_textbox badeline}
 		Yeah, I wasn't sure if we'd make it.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		???
 
 		{+close}
@@ -3722,14 +3739,12 @@
 		Kidding!
 		We got this.
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right distracted]
 		Thanks.
 		
 	# Temple -> Summit
 	CH7_ASCEND_5=
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right normal]
 		Alright, this is it.
 		Home stretch.
 
@@ -3738,8 +3753,7 @@
 		Yeah.
 		...
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		What's up?
 
 		{+close}
@@ -3750,11 +3764,12 @@
 		I was hurting you.
 		I need to learn to trust you.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right upset]
 		Dude.
 		It's not your fault you don't trust me.
+		[MADELINE right determined]
 		I tried to {~}abandon{/~} you.
+		[MADELINE right sad]
 		{~}I'm{/~} sorry.
 
 		{+close}
@@ -3762,8 +3777,7 @@
 		...
 		At least we're finally talking about it.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE right sad]
 		Yeah...
 		I'm glad the {+MOUNTAIN} brought you out.
 
@@ -3775,8 +3789,7 @@
 		{artiboom_textbox badeline}
 		Oh voids, this view...
 		
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		Holy fuck...
 
 		{trigger 1 Madeline sits down}
@@ -3788,8 +3801,7 @@
 		I'm glad I got to see this before I...
 		{*}I...{/*}
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		What?
 
 		{+close}
@@ -3797,8 +3809,7 @@
 		When we leave the {+MOUNTAIN}, I don't think I'll...
 		...be there with you.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		Yeah.
 		
 		{+close}
@@ -3814,9 +3825,9 @@
 		I just... can't go back to how it was.
 		Before the {+MOUNTAIN}.
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left sad]
 		Don't worry, I can't go back to that either.
+		[MADELINE left distracted]
 		But, look.
 		We need to head home eventually.
 		I don't know how, but we can't stay here.
@@ -3833,9 +3844,9 @@
 		{artiboom_textbox badeline}
 		So... now what?
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left distracted]
 		...
+		[MADELINE left normal]
 		Let's just enjoy this for now.
 
 	CH7_BSIDE_ASCEND=
@@ -3843,8 +3854,7 @@
 		{artiboom_textbox badeline}
 		That was awesome!
 
-		{+close}
-		{artiboom_textbox madeline}
+		[MADELINE left surprised]
 		Holy fuck! We're unstoppable!
 
 	CH7_CSIDE_OLDLADY=
@@ -4100,10 +4110,10 @@
 	APP_OLDLADY_E=
 
 	APP_OLDLADY_LOCKED=
-		[MADELINE right distracted]
+		[MADELINE left distracted]
 		Uh, there's a door up ahead.
 		Looks locked.
-		[MADELINE right normal]
+		[MADELINE left normal]
 		Is there another way in?
 
 		[GRANNY right normal]
@@ -4115,12 +4125,12 @@
 		[GRANNY right normal]
 		I guess it doesn't think you're ready yet.
 
-		[MADELINE right upset]
+		[MADELINE left upset]
 		Oh, {~}great.{/~}
 		...
-		[MADELINE right distracted]
+		[MADELINE left distracted]
 		I know better than to doubt you.
-		[MADELINE right normal]
+		[MADELINE left normal]
 		How do I convince it I'm ready?
 
 		[GRANNY right normal]

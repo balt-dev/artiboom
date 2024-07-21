@@ -1,4 +1,4 @@
-Artificer
+## Artificer
 - Chronically a bastard, will be mean to people
 - Not very empathetic
 - Swears a fuckton
@@ -18,8 +18,3 @@ Artificer
 - Genuinely does care, but also kind of scared
 - Remember the slang!
 - "And that's a totally legit reason to climb the Mountain!"
-
-
-Story Outline
----
-TODO

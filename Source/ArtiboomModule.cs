@@ -85,10 +85,12 @@ public class ArtiboomModule : EverestModule
         FollowerManager.Load();
     }
 
+    #pragma warning disable CL0003
     private static void ModNoTrail(On.Celeste.Player.orig_CreateTrail orig, Player self) {
         // Do nothing
         return;
     }
+    #pragma warning restore CL0003
 
     private static int OverrideDashCheck(StateMachine machine, int _previousState, int newState) {
         if (machine.Entity is not Player) return newState; // Return without modifying state
@@ -114,20 +116,22 @@ public class ArtiboomModule : EverestModule
         }
     }
 
-    private void ModBadelineHairColor(ILContext il) {
+    private static void ModBadelineHairColor(ILContext il) {
         ILCursor cursor = new(il);
 
-        if (!cursor.TryGotoNext(MoveType.Before, 
+        if (!cursor.TryGotoNext(MoveType.After, 
             instr => instr.MatchLdstr("9B3FB5"),
             instr => instr.MatchCall("Monocle.Calc", "HexToColor")
         )) {
             Logger.Log(LogLevel.Error, nameof(ArtiboomModule), $"IL@{cursor.Next}: Hook failed to find hair color in BadelineOldSite. Did something else change it?");
             return;
         }
-        // Remove old...
-        cursor.RemoveRange(2);
-        // ...and put in new
-        cursor.EmitDelegate(() => BadelineDashColors[1]);
+        cursor.Emit(OpCodes.Pop);
+        cursor.EmitCall(((Delegate) GetBadelineHairColor).Method);
+    }
+
+    private static Color GetBadelineHairColor() {
+        return BadelineDashColors[1];
     }
 
     private static void ModDashTrail(ILContext il) {
