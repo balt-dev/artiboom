@@ -4842,3 +4842,264 @@
 	WAVEDASH_PAGE5_INFO2=			{#ff0000}If you don't get much distance{#}{n}you're starting {~}too far{/~} from the ground.
 
 	WAVEDASH_PAGE6_TITLE=			Happy Wavedashing!
+
+
+
+
+# ------ D-Sides compatibility below ------
+
+monikadsidespack_prologuedside_text1=So,{.} here's that "forsaken trail" you so desperately wanted to know about...
+monikadsidespack_prologuedside_text2=Are you sure you really want to climb it,{n} after everything I told you?
+monikadsidespack_prologuedside_text3=You've always been so stubborn.. {0.4}but this is new, even for you.{n}{0.15}Just.. be careful out there, alright?
+
+
+monikadsidespack_mirrortempledarkside_intro=
+[MADELINE left sad] ...I feel kind of tired.{n}Or maybe just weak.
+[MADELINE left sad] Just kind of... out of it.
+[MADELINE left distracted] Plus, you know how much this place fucks with me.
+[MADELINE left sad] Do we really need to go through this again? 
+
+{+close}
+{artiboom_textbox badeline}
+Well, shit, sorry.
+It IS important though. We need to go through it all, the entire trail, from start to end.
+[MADELINE left distracted] Do we..?
+
+{+close}
+{artiboom_textbox badeline}
+...
+You do want to do this, right?
+We can always take ten and return later.
+
+[MADELINE left distracted] ...
+[MADELINE left sad] ...no. We've got to do this all in one go.
+[MADELINE left sad] I'll survive. I've been through worse.
+
+monikadsidespack_mirrortempledarkside_secretdialogue=
+{+close}
+{artiboom_textbox badeline}
+Wait.
+There's a little notebook here.
+Uh, shit, can you read this for me? My English is worse than yours.
+[MADELINE left upset] ...alright, fine.
+
+[] - Log Entry #1 -
+[] I've decided to document my little expedition through the temple.
+[] I heard what this place can do with people.
+[] It shapes itself around your feelings, the walls twisting and turning to reflect your mindscape.
+[] It is for this reason that i've mentally prepared myself.
+[] I {#ff6161}will {#D3D3D3}find it. I just have to.
+
+
+
+monikadsidespack_mirrortempledarkside_secretdialogue_e=
+[MADELINE left sad] Huh. There's a little paper on the ground here.
+[] Hey you! If you read this, check out my new blog!
+[] I'm TheoAmongStars on BlueSky
+[MADELINE left surprised] Oh, it's {+THEO}'s!
+{+close}
+{artiboom_textbox badeline}
+Uh huh.
+
+
+monikadsidespack_reflectiondside_text1=Stop!
+monikadsidespack_reflectiondside_text2=If you keep going like this...
+monikadsidespack_reflectiondside_text3=You're going to pull us down to the {# ff4242}actual{#d3d3d3} Center of the Earth!
+monikadsidespack_reflectiondside_text4=Ahhh!!
+
+
+
+# --- 9D ---
+
+
+### Trust - Intro
+monikadsidespackfarewelldsidedarknesshelp=
+	[MADELINE left sadder]{>> 0.15}...{>>}
+	[]...
+	[]Hey.
+	[]Are you doing alright?
+	[MADELINE left surprised] {>>}Who is-{>>}
+	[MADELINE left sad] ...{0.3}no.
+	[]It's alright. {0.1}Come here. {0.1}
+	[]Let's work through this together.
+	[MADELINE left sad]...{0.05}alright.
+	[]I know you're in a very dark place right now.{n}	But, I'll try my best to help you.
+	[]So, uh. {0.1}Try going right.
+
+### Trust - Bubble Room A
+monikadsidespackfarewelldsidedarknesshelpBubblesIntro=
+	[]Alright. {0.1}Just stay calm.{n} {0.05}We can do this together.
+monikadsidespackfarewelldsidedarknesshelpBubbles=
+	[]There's a few {#00ff66}bubbles{#d3d3d3} just in front of you.
+	[]You have to go {#ff8f93}right{#d3d3d3} until you hit the fourth one, which you'll need to take {#b3fcff}upward{#d3d3d3}. Then just {#ff8f93}right{#d3d3d3} again.
+monikadsidespackfarewelldsidedarknesshelpBubblesEnd=
+	[]There. We totally got this!
+	[MADELINE left normal] ...sure.
+	[MADELINE left sad]I'm still kinda scared though...
+	[MADELINE left distracted]Wish I had a lantern.
+	[]You don't need one. {0.1}I'm here for you.
+	[]Now just go right and don't trip.{0.4}{n}There's a little ledge there.
+
+### Trust - Bubble Room B
+monikadsidespackfarewelldsidedarknesshelpMoreBubblesIntro=
+	[]Alright so, looks like more {#00ff66}bubble{#d3d3d3} stuff.
+monikadsidespackfarewelldsidedarknesshelpMoreBubbles=
+	[]The first one is right {#b3fcff}above{#d3d3d3} you.
+	[]Then it's {#ff8f93}right{#d3d3d3}, {#b3fcff}up twice{#d3d3d3}, {#ff8f93}right{#d3d3d3}, {#db99ff}down{#d3d3d3}, and {#ff8f93}right{#d3d3d3} again.
+	[]There's a wall {#ff8f93}further to the right{#d3d3d3}.{0.1}{n} If you climb {#b3fcff}up{#d3d3d3} and jump, there should be some more bubbles up there which you can just take {#ff8f93}right{#d3d3d3}.
+monikadsidespackfarewelldsidedarknesshelpMoreBubblesAppendix=
+	[MADELINE left sad]This seems like a nightmare.
+	[]Haha{0.07} I probably made it sound really bad,{n} but trust me it's pretty simple.
+monikadsidespackfarewelldsidedarknesshelpMoreBubblesEnd=
+	[]See? Told you it's not so bad.
+	[MADELINE left upset]No. {0.1}I don't see. {0.22}I can't see anything, actually.
+
+### Trust - Move Blocks Timing Room
+monikadsidespackfarewelldsidedarknesshelpMoveBlocks=
+	[]Okay so, if you keep walking for a bit{n} there should be one of those {#a386d1}moving blocks{#d3d3d3} there. 
+	[]Just stand on that for, like, about {#c7ff45}1{#d3d3d3} to {#c7ff45}2{#d3d3d3} seconds.
+	[]Then there should be {#a386d1}another one{#d3d3d3} {#ddff9e}above you to the left{#d3d3d3}. If you dash up and move left, you should be able to grab it.
+	[]Seems like the distance is about the same, so wait {n}another {#c7ff45}1{#d3d3d3} to {#c7ff45}2{#d3d3d3} seconds. Then just {#db99ff}fall down{#d3d3d3}.
+monikadsidespackfarewelldsidedarknesshelpMoveBlocksEnd=
+	[]Nice! {0.1}Now just walk right.
+
+### Trust - Core Block Room
+monikadsidespackfarewelldsidedarknesshelpCoreBlocksIntro=
+	[]Aight. This one doesn't look too bad.
+monikadsidespackfarewelldsidedarknesshelpCoreBlocks=
+	[]So, there's two of those weird {#ff3d4d}magma blocks{#d3d3d3} here.{n}One {#ede9e6}right in front of you{#d3d3d3}, the other one {#ede9e6}further on the right{#d3d3d3}.
+	[]There's safe ground {#ffbdbf}further to the right{#d3d3d3}, with a big wall you just need to {#b3fcff}climb up on{#d3d3d3}.
+
+### Trust - Refill / Swap Block Room
+monikadsidespackfarewelldsidedarknesshelpOverWhen=
+	[]Good job hun. You're doing great!	
+	[MADELINE left angry]Ugh, this is taking forever!
+	[]It's fine.{n}I'll stay with you as long as you need me.
+monikadsidespackfarewelldsidedarknesshelpPinkRefill=
+	[]There's a {#eb7cdd}dash crystal{#d3d3d3} pretty far {n}to the right of where you are. 
+	[]Use that to get up to the ledge {n}that's {#ffee80}above it on the right{#d3d3d3}.
+monikadsidespackfarewelldsidedarknesshelpSwapBlock=
+	[]Go just a little further and dash {#db99ff}down{#d3d3d3}. {n}{0.1}That should move that {#87bbff}block{#d3d3d3} and get you{n} to the other side.
+	[]Then just quickly walk right to get from the block to the ledge.
+	
+### Trust - Countdown Room
+## Translator Note: You'll have to test the timed "Jump!" texts in-game to see if they actually line up with when you have to jump.
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingIntro=
+	[]More of those {#a386d1}moving blocks{#d3d3d3}.
+	[]This time they're really far apart it seems.
+	[]Uh so, move {#ff8f93}right{#d3d3d3} until you're on the {#a386d1}block{#d3d3d3},{n}and then wait about... {n}{#c7ff45}8{#d3d3d3} seconds or somethi-
+	[MADELINE left upset]This is never gonna work.{n}{0.6}How would I know when to jump?
+	[]...You're {#ff8f93}right.{#d3d3d3}
+	[MADELINE left upset]...
+	[]{>>0.5}Hmmm...{>>}
+	[]Alright. I have an idea.
+	[MADELINE left sad] ...oh no.
+	[]Just bear with me here. {0.1}We got this.
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTiming=
+	[]Alright, so, {0.2}Step on the {#a386d1}block{#d3d3d3}. {n}When I tell you to, just jump in place.
+
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownIntro=Okay, so..
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownThree=3...
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownTwo=2..
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownOne=1..
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownZero=0..
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownMinusOne=-0..
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownJump=Jump!!
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingCountdownGo=Go!!
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingFirstJumpDone=Yay! Good job. So anyway uh JUMP
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingSecondJumpDone=Also DUCK
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingAfterDuck=Sorry about that. Anyway so,{n} when I say go, you wanna jump and dash up, alright?
+
+monikadsidespackfarewelldsidedarknesshelpMoveBlockTimingEnd=
+	[MADELINE left upset]Okay, now you're just fucking with me.
+	[]Ahaha I'm sorry.
+	
+### Trust - Outro Room
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutWalkRight=
+	[]Hm. Carefully walk a bit more to the right.
+	
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutStop=Alright, now stop.{n} I think if you just dash from here you'll make it over.
+
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutDashNGrab=
+	[]Cool.{n}There's a wall to the right. {n}Just dash into it and climb up.
+	
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutGrabJumpOverToTheRight=Now jump over to the right!
+
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutStopAgain=Stop. Now... {0.1}uhh.{0.05}{n}Do that {#00d5ff}wide jump thing that goes really fast{#d3d3d3}.
+
+monikadsidespackfarewelldsidedarknesshelpDarknessFadeOutICanDoThisAloneNow=
+	[]Okay, now jus-
+	[MADELINE left normal]Thanks, but I think {n}I got it from now on.
+	[]Oh, nice! Alright.
+	
+	
+	
+### Serenity - Intro
+monikadsidespackfarewelldsidedarknesshelpAfterwards=
+	[MADELINE left sad]Ugh. That sucked.
+	[MADELINE left normal]Thanks for helping me through that... whoever you are.{n}
+	[]No problem.{0.3} Anytime.
+
+monikadsidespackfarewelldsidedarknesshelpAfterwards2=
+
+### Serenity - End
+monikadsidespackfarewelldsideCloudAscentIntro=
+	{+close}
+	{artiboom_textbox badeline}
+	Hey. Why are we still here, even?
+	[MADELINE left distracted]I don't know. Kind of just waiting for the map to end.
+	{+close}
+	{artiboom_textbox badeline}
+	{!}HEY!{/!} We're not supposed to talk about that!
+	[MADELINE left angry]I don't give a fuck! I'm tired!{n}We've been here for hours!
+	{+close}
+	{artiboom_textbox badeline}
+	...just work with me here, okay?
+	[MADELINE left sad]...alright, fine.
+	[MADELINE left distracted]I'll... try to stay on track.
+	
+monikadsidespackfarewelldsideItsSummitTime=
+	{+close}
+	{artiboom_textbox badeline}
+	Mountain time!
+	[MADELINE left surprised]Mountain time!?
+	{+close}
+	{artiboom_textbox badeline}
+	Yep. Mountain time.
+	[MADELINE left normal]Mountain time!!!
+
+### Cassette CPs
+## Translator Note: HB1 to HB11 need to be kept concise, as they may be partly off-screen or look weird if they are too long. Should be tested in-game if they are longer than the original text.
+monikadsidespackfarewelldsideHB1=
+monikadsidespackfarewelldsideHB2=
+monikadsidespackfarewelldsideHB3=
+monikadsidespackfarewelldsideHB4=
+monikadsidespackfarewelldsideHB5=
+monikadsidespackfarewelldsideHB6=
+monikadsidespackfarewelldsideHB7=
+monikadsidespackfarewelldsideHB8=
+monikadsidespackfarewelldsideHB9=
+monikadsidespackfarewelldsideHB10=
+monikadsidespackfarewelldsideHB11=
+
+monikadsidespackfarewelldsideHB_End=
+{anchor bottom}
+	{artiboom_textbox badeline} Okay, final stretch! We got this!
+	[MADELINE left normal]Let's go!
+
+
+##### Post-Epilogue ~ The Ending of the D-Sides #####
+
+monikadsidespack_0_11_SecondEpilogue=Post-Epilogue
+
+
+
+monikadsidespackfarewelldside_thesecondepilogue_comfspot_a=[MADELINE left normal] wawa
+monikadsidespackfarewelldside_thesecondepilogue_comfspot_b=[MADELINE left normal] wawa
+monikadsidespackfarewelldside_thesecondepilogue_comfspot_c=[MADELINE left normal] wawa
+monikadsidespackfarewelldside_thesecondepilogue_comfspot_d=[MADELINE left normal] wawa
+
+
+monikadsidespackfarewelldside_thesecondepilogue_slideshow_a=
+		Director's note: {#999a9a}Yeah no I couldn't be assed to write this cutscene.{n}Consider it non-canon to D-Sides Arti.{#}
+
